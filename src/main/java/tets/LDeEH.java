@@ -1,0 +1,22 @@
+package tets;
+
+import cpw.mods.fml.common.eventhandler.SubscribeEvent;
+import jp.plusplus.fbs.api.FBSEntityPropertiesAPI;
+import net.minecraft.entity.passive.EntityVillager;
+import net.minecraft.entity.player.EntityPlayer;
+import net.minecraftforge.event.entity.living.LivingDeathEvent;
+
+public class LDeEH {
+	
+	@SubscribeEvent
+	public void onLivingDeadEvent(LivingDeathEvent event,EntityPlayer player){
+		
+		if (tetscore. == true && event.entityLiving instanceof EntityVillager && event.source.getEntity() instanceof EntityPlayer) {
+			
+			FBSEntityPropertiesAPI.LoseSanity(player, 1, 2, true);
+			
+		}
+		
+	}
+
+}
