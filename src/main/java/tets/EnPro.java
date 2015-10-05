@@ -1,10 +1,12 @@
 package tets;
 
+import jp.plusplus.fbs.packet.MessagePlayerJoinInAnnouncement;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.world.World;
 import net.minecraftforge.common.IExtendedEntityProperties;
+import net.minecraftforge.event.entity.EntityJoinWorldEvent;
 
 public class EnPro implements IExtendedEntityProperties {
 
@@ -58,6 +60,11 @@ public class EnPro implements IExtendedEntityProperties {
 	public String getkill(){
 		return String.valueOf(villagerkillcount);
 	}
-	
+	public void onEntityJoinWorld(EntityJoinWorldEvent event)  {
+        if (event.world.isRemote && event.entity instanceof EntityPlayer) {
+            EntityPlayer player = (EntityPlayer)event.entity;
+            PacketHandler.INSTANCE.sendToServer(new MessagePlayerJoinInAnnouncement(player));
+        }
+    }
 	
 }
