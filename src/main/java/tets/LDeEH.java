@@ -9,11 +9,16 @@ import net.minecraftforge.event.entity.living.LivingDeathEvent;
 public class LDeEH {
 	
 	@SubscribeEvent
-	public void onLivingDeadEvent(LivingDeathEvent event,EntityPlayer player){
+	public void onLivingDeadEvent(LivingDeathEvent event){
 		
-		if (tetscore. == true && event.entityLiving instanceof EntityVillager && event.source.getEntity() instanceof EntityPlayer) {
+		if (tetscore.villagerskill == true && event.entityLiving instanceof EntityVillager && event.source.getEntity() instanceof EntityPlayer) {
+			
+			EntityPlayer player=(EntityPlayer)event.source.getEntity();
 			
 			FBSEntityPropertiesAPI.LoseSanity(player, 1, 2, true);
+			EnPro pro =EnPro.get(player);
+			//pro.setkillcount(pro.getkillcount()+1);
+			//player.addChatComponentMessage(new ChatComponentText(pro.getkill()));
 			
 		}
 		

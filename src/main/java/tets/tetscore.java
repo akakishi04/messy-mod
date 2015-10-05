@@ -62,7 +62,7 @@ public class tetscore {
 		GameRegistry.registerBlock(cross, "Cross");
 		
 		GameRegistry.registerItem(vh, "villager's heart");
-	
+		
 		if(cpsrd==false){
 		RDelete.DeleteRecipe(new ItemStack(moze_intel.projecte.gameObjs.ObjHandler.philosStone));
 		}
@@ -111,6 +111,7 @@ public class tetscore {
 	}
 
 	
+
 	
 	public static void cfload(){
 		Configuration cfg=new Configuration(new File("./config/"+"messy.cfg"));
