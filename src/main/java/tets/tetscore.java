@@ -7,6 +7,7 @@ import cpw.mods.fml.client.registry.RenderingRegistry;
 import cpw.mods.fml.common.FMLCommonHandler;
 import cpw.mods.fml.common.Mod;
 import cpw.mods.fml.common.Mod.EventHandler;
+import cpw.mods.fml.common.SidedProxy;
 import cpw.mods.fml.common.event.FMLInitializationEvent;
 import cpw.mods.fml.common.event.FMLPreInitializationEvent;
 import cpw.mods.fml.common.eventhandler.SubscribeEvent;
@@ -37,11 +38,11 @@ public class tetscore {
 	
 	static CreativeTabs tet; 
 	
-	public static boolean rrecipe,cpsrd,trtecre,trtegen,crosscre,villagerskill;
+	public static boolean rrecipe,cpsrd,trtecre,trtegen,crosscre,villagerskilllosesan,villagerkilladdsan;
 	public static int crn;
 	
-	@SideOnly(Side.CLIENT)
-	public static ClientProxy proxy; 
+	 @SidedProxy(clientSide = "tets.ClientProxy", serverSide = "tets.CommonProxy")
+	 public static CommonProxy proxy;
 	
 	@SideOnly(Side.CLIENT)
 	public static int blockcrossr = RenderingRegistry.getNextAvailableRenderId();
@@ -101,6 +102,8 @@ public class tetscore {
 		 MinecraftForge.EVENT_BUS.register(enPro);
 		 FMLCommonHandler.instance().bus().register(enPro);
 		
+		 
+		 
 	}
 		
 	
@@ -128,7 +131,8 @@ public class tetscore {
         cpsrd=cfg.getBoolean("not delete defalt philiosstorne recipe", "recipe", false, "賢者の石のレシピを消さないでおくか?");
         trtecre=cfg.getBoolean("add trte", "blocks", true, "");
         trtegen=cfg.getBoolean("generate trte in world","generate" , true, "もし、trteの追加がされない場合はこれは無視される");
-        villagerskill=cfg.getBoolean("Sanity lose when you have killed the villagers", "lose san", true, "");
+        villagerskilllosesan=cfg.getBoolean("Sanity lose when you have killed the villagers", "TFK", true, "村人を殺した時にSAN値が減るがよいか？");
+        villagerkilladdsan=cfg.getBoolean("Sanity recovery when you have killed a lot of villagers", "TFK", true, "村人を殺せばSAN値が回復するようになるよ");
         
         crn=cfg.getInt("craftting philosstone recipe", "recipe", 1, 1, 1, "賢者の石のレシピはどれがいい?","もしレシピが追加されない場合はこれは無視される");
         cfg.save();

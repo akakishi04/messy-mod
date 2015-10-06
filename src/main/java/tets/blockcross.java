@@ -12,7 +12,7 @@ public class blockcross extends BlockContainer {
 		super(Material.wood);
 		setCreativeTab(CreativeTabs.tabBlock);
 		setBlockBounds(0f, 0f, 0f, 1f, 4f, 1f);
-		//setBlockBoundsBasedOnState(p_149719_1_, p_149719_2_, p_149719_3_, p_149719_4_);
+		
 	}
 
 	@Override
@@ -57,5 +57,7 @@ public class blockcross extends BlockContainer {
 		return false;
 	}
 
+	@Override
+	public 
 	
 }
