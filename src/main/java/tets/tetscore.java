@@ -26,10 +26,10 @@ import net.minecraftforge.event.terraingen.OreGenEvent;
 import net.minecraftforge.event.terraingen.TerrainGen;
 
 
-@Mod(modid="tetstert")
+@Mod(modid=tetscore.MODID)
 public class tetscore {
 
-	
+	public static final String MODID = "MessyMOD";
 	
 	static Block trte;
 	static Block cross;
@@ -66,6 +66,9 @@ public class tetscore {
 		if(cpsrd==false){
 		RDelete.DeleteRecipe(new ItemStack(moze_intel.projecte.gameObjs.ObjHandler.philosStone));
 		}
+		
+		 PacketHandler.init();
+		
 	}
 	@EventHandler
 	public void Init(FMLInitializationEvent event){
@@ -93,6 +96,11 @@ public class tetscore {
 			ClientRegistry.bindTileEntitySpecialRenderer(dtil.class, new croosr());;
 			RenderingRegistry.registerBlockHandler(new bcrr());
 		}
+		
+		 EntityPropertiesEventHandler enPro =new EntityPropertiesEventHandler();
+		 MinecraftForge.EVENT_BUS.register(enPro);
+		 FMLCommonHandler.instance().bus().register(enPro);
+		
 	}
 		
 	
