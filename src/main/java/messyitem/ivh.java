@@ -23,13 +23,12 @@ public class ivh extends ItemFood {
 		setCreativeTab(CreativeTabs.tabFood);
 		setTextureName("tete:villager'sheart");
 		setUnlocalizedName("villager's heart");
-		setAlwaysEdible();
 	}
 	
 
 	 public ItemStack onEaten(ItemStack p_77654_1_, World p_77654_2_, EntityPlayer p_77654_3_) {
 		 	if(Loader.isModLoaded("The Forbidden Knowledge")==true){
-		 	FBSEntityPropertiesAPI.LoseSanity(p_77654_3_, 1, 4, true);
+		 	FBSEntityPropertiesAPI.LoseSanity(p_77654_3_, 1, 3, true);
 		 	}
 	        return super.onEaten(p_77654_1_, p_77654_2_, p_77654_3_);
 	    }

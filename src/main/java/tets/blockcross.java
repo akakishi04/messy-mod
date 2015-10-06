@@ -41,8 +41,7 @@ public class blockcross extends BlockContainer {
 	}
 	
 	@Override
-	public int getRenderType()
-	{
+	public int getRenderType(){
 		return tetscore.blockcrossr;
 	}
 	@Override
@@ -57,7 +56,15 @@ public class blockcross extends BlockContainer {
 		return false;
 	}
 
-	@Override
-	public 
+	/*@Override
+	 public void onBlockAdded(World world, int x, int y, int z)
+    {
+		world.setBlock(x, y+1, z,null );
+		
+        super.onBlockAdded(world, x, y, z);
+    }
+	*/
+ 
+	
 	
 }

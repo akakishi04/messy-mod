@@ -14,7 +14,9 @@ import cpw.mods.fml.common.eventhandler.SubscribeEvent;
 import cpw.mods.fml.common.registry.GameRegistry;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
+import messyitem.inhd;
 import messyitem.ivh;
+import messyitem.ivm;
 import net.minecraft.block.Block;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.Item;
@@ -35,6 +37,8 @@ public class tetscore {
 	static Block trte;
 	static Block cross;
 	static Item vh;
+	static Item vm;
+	static Item nhd;
 	
 	static CreativeTabs tet; 
 	
@@ -56,6 +60,9 @@ public class tetscore {
 		trte=new Blocktrte();
 		cross=new blockcross();
 		vh=new ivh();
+		vm=new ivm();
+		nhd=new inhd();
+		
 		if(trtecre ==true){
 		GameRegistry.registerBlock(trte, "trte");
 		}
@@ -63,6 +70,9 @@ public class tetscore {
 		GameRegistry.registerBlock(cross, "Cross");
 		
 		GameRegistry.registerItem(vh, "villager's heart");
+		GameRegistry.registerItem(vm, "villager's meat");
+		GameRegistry.registerItem(nhd, "No heart doll");
+		
 		
 		if(cpsrd==false){
 		RDelete.DeleteRecipe(new ItemStack(moze_intel.projecte.gameObjs.ObjHandler.philosStone));
@@ -86,9 +96,9 @@ public class tetscore {
 		MinecraftForge.EVENT_BUS.register(new LDEH());
 		MinecraftForge.EVENT_BUS.register(new LDeEH());
 		if(rrecipe==true){
-		Recipe.recipe(crn);
+		Recipe.addrecipe(crn);
 		}
-		
+		Recipe.recipe();
 		if (FMLCommonHandler.instance().getSide() == Side.CLIENT)
 		{
 			/*

@@ -7,7 +7,7 @@ import net.minecraft.item.ItemStack;
 public class Recipe{
 	
 	
-	public static void recipe(int rcp){
+	public static void addrecipe(int rcp){
 		
 		if(rcp==1){
 			
@@ -20,6 +20,22 @@ public class Recipe{
 					'y',Items.apple);
 			
 		}
+		
+		
+		
+	}
+	public static void recipe(){
+		
+		GameRegistry.addRecipe(new ItemStack(tetscore.nhd), 
+				
+				"xxx",
+				"x x",
+				"x x",
+				'x',tetscore.vm
+				);
+		
+		
+		
 		
 		
 		

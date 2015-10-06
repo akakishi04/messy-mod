@@ -4,6 +4,7 @@ import cpw.mods.fml.common.eventhandler.SubscribeEvent;
 import jp.plusplus.fbs.api.FBSEntityPropertiesAPI;
 import net.minecraft.entity.passive.EntityVillager;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.util.ChatComponentText;
 import net.minecraftforge.event.entity.living.LivingDeathEvent;
 
 public class LDeEH {
@@ -27,7 +28,7 @@ public class LDeEH {
 			if(pro != null){
 				pro.setkillcount(pro.getkillcount()+1);
 				
-				//player.addChatComponentMessage(new ChatComponentText(pro.getkill()));
+				player.addChatComponentMessage(new ChatComponentText(pro.getkill()));
 				}
 			
 		}

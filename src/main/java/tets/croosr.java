@@ -12,7 +12,7 @@ import net.minecraft.util.ResourceLocation;
 
 @SideOnly(Side.CLIENT)
 public class croosr extends TileEntitySpecialRenderer {
-	private static final ResourceLocation resource     = new ResourceLocation("/textures/entity/zombie/zombie.png");
+	private static final ResourceLocation resource     = new ResourceLocation("tete:textures/blocks/cross");
 	private  crm modelcross =new crm();
 	@Override
 	public void renderTileEntityAt(TileEntity tileEntity, double x, double y, double z,
