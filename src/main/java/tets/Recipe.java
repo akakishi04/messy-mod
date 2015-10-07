@@ -43,7 +43,10 @@ public class Recipe{
 
 
 	}
-
+	public static void smelterrecipe(){
+		GameRegistry.addSmelting(tetscore.vm, new ItemStack(tetscore.ckvm), 0.3F);
+		
+	}
 
 
 }

@@ -43,7 +43,8 @@ public class tetscore {
 	static Item vh;
 	static Item vm;
 	static Item rnhd;
-
+	static Item ckvm;
+	
 	static CreativeTabs tet;
 
 	public static boolean rrecipe,cpsrd,trtecre,trtegen,crosscre,villagerskilllosesan,villagerkilladdsan;
@@ -67,6 +68,7 @@ public class tetscore {
 		vm=new ivm();
 		rnhd=new irnhd();
 		rofb=new brof();
+		ckvm=new messyitem.ckvm();
 		
 		if(trtecre ==true){
 		GameRegistry.registerBlock(trte, "trte");
@@ -77,7 +79,7 @@ public class tetscore {
 		GameRegistry.registerItem(vh, "villager's heart");
 		GameRegistry.registerItem(vm, "villager's meat");
 		GameRegistry.registerItem(rnhd, "rotten no heart doll");
-
+		GameRegistry.registerItem(ckvm, "cooked Villager's meat");
 
 		if(cpsrd==false){
 		RDelete.DeleteRecipe(new ItemStack(moze_intel.projecte.gameObjs.ObjHandler.philosStone));
@@ -91,7 +93,7 @@ public class tetscore {
 
 		GameRegistry.registerTileEntityWithAlternatives(dtil.class, "dtil");
 
-
+		
 
 
 		MinecraftForge.ORE_GEN_BUS.register(this);
@@ -104,11 +106,9 @@ public class tetscore {
 		Recipe.addrecipe(crn);
 		}
 		Recipe.recipe();
+		Recipe.smelterrecipe();
 		if (FMLCommonHandler.instance().getSide() == Side.CLIENT)
 		{
-			/*
-			 * TileEntitySpecialRendererの登録.
-			 */
 			ClientRegistry.bindTileEntitySpecialRenderer(dtil.class, new croosr());;
 			RenderingRegistry.registerBlockHandler(new bcrr());
 		}
@@ -142,14 +142,14 @@ public class tetscore {
 	public static void cfload(){
 		Configuration cfg=new Configuration(new File("./config/"+"messy.cfg"));
         cfg.load();
-        rrecipe=cfg.getBoolean("add crafting philosStone recipe", "recipe", false , "私が独自に追加した賢者の石のレシピを使うか?");
-        cpsrd=cfg.getBoolean("not delete defalt philiosstorne recipe", "recipe", false, "賢者の石のレシピを消さないでおくか?");
+        rrecipe=cfg.getBoolean("add crafting philosStone recipe", "ProjectE", false , "私が独自に追加した賢者の石のレシピを使うか?");
+        cpsrd=cfg.getBoolean("not delete defalt philiosstorne recipe", "ProjectE", false, "賢者の石のレシピを消さないでおくか?");
         trtecre=cfg.getBoolean("add trte", "blocks", true, "");
         trtegen=cfg.getBoolean("generate trte in world","generate" , true, "もし、trteの追加がされない場合はこれは無視される");
         villagerskilllosesan=cfg.getBoolean("Sanity lose when you have killed the villagers", "TFK", true, "村人を殺した時にSAN値が減るがよいか？");
         villagerkilladdsan=cfg.getBoolean("Sanity recovery when you have killed a lot of villagers", "TFK", true, "村人を殺せばSAN値が回復するようになるよ");
 
-        crn=cfg.getInt("craftting philosstone recipe", "recipe", 1, 1, 1, "賢者の石のレシピはどれがいい?","もしレシピが追加されない場合はこれは無視される");
+        crn=cfg.getInt("craftting philosstone recipe", "ProjectE", 1, 1, 1, "賢者の石のレシピはどれがいい? もしレシピが追加されない場合はこれは無視される 現在一つしかないよ");
         cfg.save();
 	}
 
