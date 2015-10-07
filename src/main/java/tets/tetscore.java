@@ -14,7 +14,10 @@ import cpw.mods.fml.common.eventhandler.SubscribeEvent;
 import cpw.mods.fml.common.registry.GameRegistry;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
-import messyitem.inhd;
+import messyblock.Blocktrte;
+import messyblock.blockcross;
+import messyblock.brof;
+import messyitem.irnhd;
 import messyitem.ivh;
 import messyitem.ivm;
 import net.minecraft.block.Block;
@@ -33,66 +36,68 @@ import net.minecraftforge.event.terraingen.TerrainGen;
 public class tetscore {
 
 	public static final String MODID = "MessyMOD";
-	
+
 	static Block trte;
 	static Block cross;
+	static Block rofb;
 	static Item vh;
 	static Item vm;
-	static Item nhd;
-	
-	static CreativeTabs tet; 
-	
+	static Item rnhd;
+
+	static CreativeTabs tet;
+
 	public static boolean rrecipe,cpsrd,trtecre,trtegen,crosscre,villagerskilllosesan,villagerkilladdsan;
 	public static int crn;
-	
+
 	 @SidedProxy(clientSide = "tets.ClientProxy", serverSide = "tets.CommonProxy")
 	 public static CommonProxy proxy;
-	
+
 	@SideOnly(Side.CLIENT)
 	public static int blockcrossr = RenderingRegistry.getNextAvailableRenderId();
 
-	
+
 	@EventHandler
 	static void preInit(FMLPreInitializationEvent event){
-		
+
 		cfload();
-		
+
 		trte=new Blocktrte();
 		cross=new blockcross();
 		vh=new ivh();
 		vm=new ivm();
-		nhd=new inhd();
+		rnhd=new irnhd();
+		rofb=new brof();
 		
 		if(trtecre ==true){
 		GameRegistry.registerBlock(trte, "trte");
 		}
-		
+
 		GameRegistry.registerBlock(cross, "Cross");
-		
+		GameRegistry.registerBlock(rofb, "rotten flesh block");
 		GameRegistry.registerItem(vh, "villager's heart");
 		GameRegistry.registerItem(vm, "villager's meat");
-		GameRegistry.registerItem(nhd, "No heart doll");
-		
-		
+		GameRegistry.registerItem(rnhd, "rotten no heart doll");
+
+
 		if(cpsrd==false){
 		RDelete.DeleteRecipe(new ItemStack(moze_intel.projecte.gameObjs.ObjHandler.philosStone));
 		}
-		
+
 		 PacketHandler.init();
-		
+
 	}
 	@EventHandler
 	public void Init(FMLInitializationEvent event){
-		
+
 		GameRegistry.registerTileEntityWithAlternatives(dtil.class, "dtil");
-		
-		
-		
-		
+
+
+
+
 		MinecraftForge.ORE_GEN_BUS.register(this);
-		
-		
-		
+
+
+
 		MinecraftForge.EVENT_BUS.register(new LDEH());
 		MinecraftForge.EVENT_BUS.register(new LDeEH());
 		if(rrecipe==true){
@@ -107,21 +112,21 @@ public class tetscore {
 			ClientRegistry.bindTileEntitySpecialRenderer(dtil.class, new croosr());;
 			RenderingRegistry.registerBlockHandler(new bcrr());
 		}
-		
+
 		 EntityPropertiesEventHandler enPro =new EntityPropertiesEventHandler();
 		 MinecraftForge.EVENT_BUS.register(enPro);
 		 FMLCommonHandler.instance().bus().register(enPro);
-		
-		 
-		 
+
+
+
 	}
-		
-	
+
+
 	@SubscribeEvent
 	public void generateOrePost(OreGenEvent.Post event){
-		
+
 		if(trtecre == true){
-			
+
 		WorldGenerator generator=new WorldGenMinable(trte, 9);
 		if(TerrainGen.generateOre(event.world, event.rand, generator, event.worldX, event.worldZ, OreGenEvent.GenerateMinable.EventType.CUSTOM));
 
@@ -131,9 +136,9 @@ public class tetscore {
 		}
 	}
 
-	
 
-	
+
+
 	public static void cfload(){
 		Configuration cfg=new Configuration(new File("./config/"+"messy.cfg"));
         cfg.load();
@@ -143,11 +148,11 @@ public class tetscore {
         trtegen=cfg.getBoolean("generate trte in world","generate" , true, "もし、trteの追加がされない場合はこれは無視される");
         villagerskilllosesan=cfg.getBoolean("Sanity lose when you have killed the villagers", "TFK", true, "村人を殺した時にSAN値が減るがよいか？");
         villagerkilladdsan=cfg.getBoolean("Sanity recovery when you have killed a lot of villagers", "TFK", true, "村人を殺せばSAN値が回復するようになるよ");
-        
+
         crn=cfg.getInt("craftting philosstone recipe", "recipe", 1, 1, 1, "賢者の石のレシピはどれがいい?","もしレシピが追加されない場合はこれは無視される");
         cfg.save();
 	}
-	
-	
+
+
 
 }

@@ -1,14 +1,14 @@
 [
 {
-  "modid": "examplemod",
-  "name": "Example Mod",
-  "description": "Example placeholder mod.",
-  "version": "${version}",
-  "mcversion": "${mcversion}",
+  "modid": "messy mod",
+  "name": "messy mod",
+  "description": "作者の環境にあわせていろいろ追加しているMOD 私が欲しいものしか入れない",
+  "version": "1.00",
+  "mcversion": "${1.7.10}",
   "url": "",
   "updateUrl": "",
   "authorList": ["ExampleDude"],
-  "credits": "The Forge and FML guys, for making this example",
+  "credits": "あかきし04",
   "logoFile": "",
   "screenshots": [],
   "dependencies": []
