@@ -11,16 +11,17 @@ import net.minecraftforge.event.entity.living.LivingDropsEvent;
 public class LDEH {
 
 	@SubscribeEvent
-	public void  onLivingDropsEvent(LivingDropsEvent event){
+	public void  onLivingDropsEvent(LivingDropsEvent event ){
 		if(event.entity instanceof EntityVillager && event.source.getEntity() instanceof EntityPlayer){
-		
 
-			
+
+
 			if(event.entityLiving.worldObj.rand.nextInt(10)==0){
 			event.entityLiving.dropItem(tetscore.vh, 1);
 			}
+			event.entityLiving.dropItem(tetscore.vm, event.entityLiving.worldObj.rand.nextInt(5)+3);
 		}
 	}
-	
-	
+
+
 }

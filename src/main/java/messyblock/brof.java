@@ -7,7 +7,7 @@ public class brof extends Block {
 
 	public brof() {
 		super(Material.grass);
-		// TODO 自動生成されたコンストラクター・スタブ
+		setBlockTextureName("tete:brof");
 	}
 
 }

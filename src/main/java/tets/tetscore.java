@@ -14,12 +14,14 @@ import cpw.mods.fml.common.eventhandler.SubscribeEvent;
 import cpw.mods.fml.common.registry.GameRegistry;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
+import jp.plusplus.fbs.api.FBSRecipeAPI;
 import messyblock.Blocktrte;
 import messyblock.blockcross;
 import messyblock.brof;
 import messyitem.irnhd;
 import messyitem.ivh;
 import messyitem.ivm;
+import mods.defeatedcrow.api.recipe.RecipeRegisterManager;
 import net.minecraft.block.Block;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.Item;
@@ -44,7 +46,8 @@ public class tetscore {
 	static Item vm;
 	static Item rnhd;
 	static Item ckvm;
-	
+
+
 	static CreativeTabs tet;
 
 	public static boolean rrecipe,cpsrd,trtecre,trtegen,crosscre,villagerskilllosesan,villagerkilladdsan;
@@ -69,7 +72,8 @@ public class tetscore {
 		rnhd=new irnhd();
 		rofb=new brof();
 		ckvm=new messyitem.ckvm();
-		
+
+
 		if(trtecre ==true){
 		GameRegistry.registerBlock(trte, "trte");
 		}
@@ -93,7 +97,7 @@ public class tetscore {
 
 		GameRegistry.registerTileEntityWithAlternatives(dtil.class, "dtil");
 
-		
+
 
 
 		MinecraftForge.ORE_GEN_BUS.register(this);
@@ -117,8 +121,9 @@ public class tetscore {
 		 MinecraftForge.EVENT_BUS.register(enPro);
 		 FMLCommonHandler.instance().bus().register(enPro);
 
+		 RecipeRegisterManager.plateRecipe.register(new ItemStack(vm), new ItemStack(ckvm), 160, false);
 
-
+		 FBSRecipeAPI.AddMagic("ViSu", 0, 0.5F, 0.3, 1, 2, 10, "summon", 10, 45, 1, 10, ViSu.class);
 	}
 
 

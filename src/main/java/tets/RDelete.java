@@ -22,6 +22,7 @@ import net.minecraft.item.crafting.IRecipe;
 	         {
 	            if(is.getItem().getIdFromItem(is.getItem()) == par1ItemStack.getItem().getIdFromItem(par1ItemStack.getItem()))
 	            {
+	            
 	               i.remove();
 	            }
 	         }
