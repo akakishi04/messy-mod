@@ -17,6 +17,7 @@ import cpw.mods.fml.relauncher.SideOnly;
 import messyblock.Blocktrte;
 import messyblock.blockcross;
 import messyblock.brof;
+import messyitem.forceofredlife;
 import messyitem.irnhd;
 import messyitem.ivh;
 import messyitem.ivm;
@@ -45,7 +46,10 @@ public class tetscore {
 	static Item vm;
 	static Item rnhd;
 	static Item ckvm;
-
+	static Item fotrl;
+	
+	
+	
 
 	static CreativeTabs tet;
 
@@ -77,6 +81,10 @@ public class tetscore {
 		rnhd=new irnhd();
 		rofb=new brof();
 		ckvm=new messyitem.ckvm();
+		fotrl=new forceofredlife();
+		
+		
+		
 
 
 		if(trtecre ==true){
@@ -89,7 +97,9 @@ public class tetscore {
 		GameRegistry.registerItem(vm, "villager's meat");
 		GameRegistry.registerItem(rnhd, "rotten no heart doll");
 		GameRegistry.registerItem(ckvm, "cooked Villager's meat");
-
+		GameRegistry.registerItem(fotrl, "force of red life");
+		
+		
 		if(cpsrd==false){
 		RDelete.DeleteRecipe(new ItemStack(moze_intel.projecte.gameObjs.ObjHandler.philosStone));
 		}

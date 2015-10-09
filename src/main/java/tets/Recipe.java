@@ -18,6 +18,14 @@ public class Recipe{
 					'x',Items.nether_star,
 					'y',Items.apple);
 
+		}else if(rcp==2){
+			GameRegistry.addRecipe(new ItemStack(moze_intel.projecte.gameObjs.ObjHandler.philosStone),
+					"xyx",
+					"yxy",
+					"xyx",
+					'x',Items.nether_star,
+					'y',tetscore.fotrl);
+			
 		}
 
 
@@ -38,7 +46,17 @@ public class Recipe{
 				"xxx",
 				'x',Items.rotten_flesh
 				);
-
+		GameRegistry.addRecipe(new ItemStack(tetscore.fotrl), 
+				"xyx",
+				"zab",
+				"xyx",
+				'x',Items.redstone,
+				'y',Items.glowstone_dust,
+				'z',tetscore.vh,
+				'a',Items.diamond,
+				'b',tetscore.vm
+				);
+		
 
 
 
