@@ -47,7 +47,7 @@ public class tetscore {
 	static Item rnhd;
 	static Item ckvm;
 	static Item fotrl;
-	
+	static Item bakedbed;
 	
 	
 
@@ -82,7 +82,7 @@ public class tetscore {
 		rofb=new brof();
 		ckvm=new messyitem.ckvm();
 		fotrl=new forceofredlife();
-		
+		bakedbed=new bakedbed();
 		
 		
 
