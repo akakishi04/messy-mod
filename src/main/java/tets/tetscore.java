@@ -175,7 +175,7 @@ public class tetscore {
         villagerskilllosesan=cfg.getBoolean("Sanity lose when you have killed the villagers", "TFK", true, "村人を殺した時にSAN値が減るがよいか？");
         villagerkilladdsan=cfg.getBoolean("Sanity recovery when you have killed a lot of villagers", "TFK", true, "村人を殺せばSAN値が回復するようになるよ");
 
-        crn=cfg.getInt("craftting philosstone recipe", "ProjectE", 1, 1, 1, "賢者の石のレシピはどれがいい? もしレシピが追加されない場合はこれは無視される 現在一つしかないよ");
+        crn=cfg.getInt("craftting philosstone recipe", "ProjectE", 2, 1, 2, "賢者の石のレシピはどれがいい? もしレシピが追加されない場合はこれは無視される 現在２つしかないよ");
         cfg.save();
 	}
 
