@@ -8,6 +8,7 @@ public class irnhd extends Item {
 	public irnhd(){
 		
 		setTextureName("tete:noheartdoll");
+		setUnlocalizedName("rottennoheartdoll");
 		
 	}
 	

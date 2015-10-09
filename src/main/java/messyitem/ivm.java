@@ -16,6 +16,7 @@ public class ivm extends ItemFood {
 		setCreativeTab(CreativeTabs.tabFood);
 		setTextureName("tete:villager'smeat");
 		setUnlocalizedName("villager's meat");
+		
 
 	}
 

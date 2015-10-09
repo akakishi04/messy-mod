@@ -1,5 +1,6 @@
 package tets;
 
+import cpw.mods.fml.common.Loader;
 import cpw.mods.fml.common.eventhandler.SubscribeEvent;
 import jp.plusplus.fbs.api.FBSEntityPropertiesAPI;
 import net.minecraft.entity.passive.EntityVillager;
@@ -16,6 +17,24 @@ public class LDeEH {
 			
 			EntityPlayer player=(EntityPlayer)event.source.getEntity();
 			EnPro pro =EnPro.get(player);
+			
+			
+				if(pro.getkillcount()>=1){
+					
+					player.addStat(achire.Murderer, 1);
+					
+				}
+				if(pro.getkillcount()>=10000){
+					
+					player.addStat(achire.Homicidalmaniac, 1);
+					
+				}
+				if(pro.getkillcount()>=1000000){
+					
+					player.addStat(achire.GOD, 1);
+					
+				}
+			if(Loader.isModLoaded("The Forbidden Knowledge")){
 			if(pro.getkillcount()<500){
 			FBSEntityPropertiesAPI.LoseSanity(player, 1, 4, true);
 			
@@ -25,6 +44,8 @@ public class LDeEH {
 			}else if (pro.getkillcount()>5000 && tetscore.villagerkilladdsan==true){
 			FBSEntityPropertiesAPI.AddSanity(player, 1, 4, true);
 			}
+			}
+			
 			if(pro != null){
 				pro.setkillcount(pro.getkillcount()+1);
 				

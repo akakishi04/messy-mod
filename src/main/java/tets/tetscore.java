@@ -14,7 +14,6 @@ import cpw.mods.fml.common.eventhandler.SubscribeEvent;
 import cpw.mods.fml.common.registry.GameRegistry;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
-import jp.plusplus.fbs.api.FBSRecipeAPI;
 import messyblock.Blocktrte;
 import messyblock.blockcross;
 import messyblock.brof;
@@ -50,6 +49,12 @@ public class tetscore {
 
 	static CreativeTabs tet;
 
+	
+	
+	
+	
+	
+	
 	public static boolean rrecipe,cpsrd,trtecre,trtegen,crosscre,villagerskilllosesan,villagerkilladdsan;
 	public static int crn;
 
@@ -89,6 +94,10 @@ public class tetscore {
 		RDelete.DeleteRecipe(new ItemStack(moze_intel.projecte.gameObjs.ObjHandler.philosStone));
 		}
 
+		achire.register();
+		
+		
+		
 		 PacketHandler.init();
 
 	}
@@ -123,7 +132,9 @@ public class tetscore {
 
 		 RecipeRegisterManager.plateRecipe.register(new ItemStack(vm), new ItemStack(ckvm), 160, false);
 
-		 FBSRecipeAPI.AddMagic("ViSu", 0, 0.5F, 0.3, 1, 2, 10, "summon", 10, 45, 1, 10, ViSu.class);
+		
+		 
+		// FBSRecipeAPI.AddMagic("ViSu", 0, 0.5F, 0.3, 1, 2, 10, "summon", 10, 4.5, 1, 10, ViSu.class);
 	}
 
 
