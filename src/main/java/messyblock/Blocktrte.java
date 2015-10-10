@@ -2,8 +2,8 @@ package messyblock;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
-import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.util.IIcon;
+import tets.tetscore;
 
 public class Blocktrte extends Block {
 	
@@ -11,10 +11,11 @@ public class Blocktrte extends Block {
 	
 	public Blocktrte(){
 		super(Material.glass);
-		setCreativeTab(CreativeTabs.tabBlock);
+		setCreativeTab(tetscore.tet);
 		setLightOpacity(15);
 		setHardness(7.5F);
 		setHarvestLevel("pickaxe", 2);
+		setBlockName("trte");
 		setBlockTextureName("tete:tra-0");
 	}
 	

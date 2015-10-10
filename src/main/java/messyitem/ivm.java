@@ -3,17 +3,17 @@ package messyitem;
 import cpw.mods.fml.common.Loader;
 import jp.plusplus.fbs.api.FBSEntityPropertiesAPI;
 import jp.plusplus.fbs.exprop.FBSEntityProperties;
-import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemFood;
 import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
+import tets.tetscore;
 
 public class ivm extends ItemFood {
 
 	public ivm() {
 		super(3,0.1F,true);
-		setCreativeTab(CreativeTabs.tabFood);
+		setCreativeTab(tetscore.tet);
 		setTextureName("tete:villager'smeat");
 		setUnlocalizedName("villager's meat");
 		

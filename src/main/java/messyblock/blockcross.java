@@ -2,7 +2,6 @@ package messyblock;
 
 import net.minecraft.block.BlockContainer;
 import net.minecraft.block.material.Material;
-import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.world.World;
 import tets.dtil;
@@ -12,7 +11,7 @@ public class blockcross extends BlockContainer {
 
 	public blockcross() {
 		super(Material.wood);
-		setCreativeTab(CreativeTabs.tabBlock);
+		setCreativeTab(tetscore.tet);
 		setBlockBounds(0f, 0f, 0f, 1f, 4f, 1f);
 		
 	}

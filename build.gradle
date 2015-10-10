@@ -39,7 +39,7 @@ dependencies {
     // for more info...
     // http://www.gradle.org/docs/current/userguide/artifact_dependencies_tutorial.html
     // http://www.gradle.org/docs/current/userguide/dependency_management.html
-
+    compile fileTree(dir: 'lib', include: '*.jar')
 }
 
 processResources
@@ -60,4 +60,8 @@ processResources
     from(sourceSets.main.resources.srcDirs) {
         exclude 'mcmod.info'
     }
+}
+[compileJava, compileTestJava].each {
+    it.options.encoding = 'UTF-8'
+    it.options.compilerArgs += ['-source', '1.7', '-target', '1.7']
 }

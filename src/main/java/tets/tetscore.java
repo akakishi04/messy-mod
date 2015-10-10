@@ -5,6 +5,7 @@ import java.io.File;
 import cpw.mods.fml.client.registry.ClientRegistry;
 import cpw.mods.fml.client.registry.RenderingRegistry;
 import cpw.mods.fml.common.FMLCommonHandler;
+import cpw.mods.fml.common.Loader;
 import cpw.mods.fml.common.Mod;
 import cpw.mods.fml.common.Mod.EventHandler;
 import cpw.mods.fml.common.SidedProxy;
@@ -17,6 +18,7 @@ import cpw.mods.fml.relauncher.SideOnly;
 import messyblock.Blocktrte;
 import messyblock.blockcross;
 import messyblock.brof;
+import messyitem.bakedbed;
 import messyitem.forceofredlife;
 import messyitem.irnhd;
 import messyitem.ivh;
@@ -48,17 +50,17 @@ public class tetscore {
 	static Item ckvm;
 	static Item fotrl;
 	static Item bakedbed;
-	
-	
 
-	static CreativeTabs tet;
 
-	
-	
-	
-	
-	
-	
+
+	public static CreativeTabs tet;
+
+
+
+
+
+
+
 	public static boolean rrecipe,cpsrd,trtecre,trtegen,crosscre,villagerskilllosesan,villagerkilladdsan;
 	public static int crn;
 
@@ -74,6 +76,16 @@ public class tetscore {
 
 		cfload();
 
+		
+		tet=new CreativeTabs("messy") {
+
+			@Override
+			public Item getTabIconItem() {
+				// TODO 自動生成されたメソッド・スタブ
+				return vh;
+			}
+		};
+		
 		trte=new Blocktrte();
 		cross=new blockcross();
 		vh=new ivh();
@@ -83,14 +95,16 @@ public class tetscore {
 		ckvm=new messyitem.ckvm();
 		fotrl=new forceofredlife();
 		bakedbed=new bakedbed();
+
+
 		
-		
+
 
 
 		if(trtecre ==true){
 		GameRegistry.registerBlock(trte, "trte");
-		}
-
+		}	
+		
 		GameRegistry.registerBlock(cross, "Cross");
 		GameRegistry.registerBlock(rofb, "rotten flesh block");
 		GameRegistry.registerItem(vh, "villager's heart");
@@ -98,16 +112,18 @@ public class tetscore {
 		GameRegistry.registerItem(rnhd, "rotten no heart doll");
 		GameRegistry.registerItem(ckvm, "cooked Villager's meat");
 		GameRegistry.registerItem(fotrl, "force of red life");
+		GameRegistry.registerItem(bakedbed, "bakedbed");
 		
-		
+		if(Loader.isModLoaded("ProjectE")){
+
 		if(cpsrd==false){
 		RDelete.DeleteRecipe(new ItemStack(moze_intel.projecte.gameObjs.ObjHandler.philosStone));
 		}
-
+		}
 		achire.register();
-		
-		
-		
+
+
+
 		 PacketHandler.init();
 
 	}
@@ -125,8 +141,10 @@ public class tetscore {
 
 		MinecraftForge.EVENT_BUS.register(new LDEH());
 		MinecraftForge.EVENT_BUS.register(new LDeEH());
+		if(Loader.isModLoaded("ProjectE")){
 		if(rrecipe==true){
 		Recipe.addrecipe(crn);
+		}
 		}
 		Recipe.recipe();
 		Recipe.smelterrecipe();
@@ -142,8 +160,8 @@ public class tetscore {
 
 		 RecipeRegisterManager.plateRecipe.register(new ItemStack(vm), new ItemStack(ckvm), 160, false);
 
-		
-		 
+
+
 		// FBSRecipeAPI.AddMagic("ViSu", 0, 0.5F, 0.3, 1, 2, 10, "summon", 10, 4.5, 1, 10, ViSu.class);
 	}
 

@@ -1,6 +1,7 @@
 package messyitem;
 
 import net.minecraft.item.ItemFood;
+import tets.tetscore;
 
 public class ckvm extends ItemFood{
 
@@ -8,6 +9,7 @@ public class ckvm extends ItemFood{
 		super(7,0.5F,true);
 		setTextureName("tete:cookedvillager'smeat");
 		setUnlocalizedName("cookedvillager'smeat");
+		setCreativeTab(tetscore.tet);
 	}
 
 }
