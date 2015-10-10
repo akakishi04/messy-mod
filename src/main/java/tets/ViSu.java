@@ -1,32 +1,41 @@
 package tets;
 
 import jp.plusplus.fbs.api.MagicBase;
-import net.minecraft.entity.passive.EntityVillager;
-import net.minecraft.item.ItemStack;
+import net.minecraft.entity.item.EntityEnderCrystal;
 
 public class ViSu extends MagicBase {
 
-	EntityVillager Ev = new EntityVillager(player.worldObj);
+	
 
 	
 
 	@Override
 	public boolean checkSuccess() {
 		
-		return true;
+		if(isSpelled) return true;
+		
+		float prob=0.4f+0.03f*property.getMagicLevel();
+        return rand.nextFloat()<=prob;
 		
 	}
 
 	@Override
 	public void success() {
-		world.spawnEntityInWorld(Ev);
-		player.inventory.setItemStack(new ItemStack(tetscore.ckvm));
+		world.spawnEntityInWorld(new EntityEnderCrystal(world, player.posX+1, player.posY, player.posZ));
+		//world.setBlock((int)player.posX+1, (int)player.posY,(int) player.posZ,Blocks.diamond_ore);
 	}
 
 	@Override
 	public void failure() {
 		// TODO 自動生成されたメソッド・スタブ
-
+		sanity(1, 1);
+		world.spawnEntityInWorld(new EntityEnderCrystal(world, player.posX, player.posY, player.posZ));
+		
+	}
+	@Override
+	public String getMagicCircleName(){
+		return "ViSu";
+		
 	}
 
 }

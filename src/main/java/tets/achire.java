@@ -10,6 +10,7 @@ public class achire {
 	
 	
 	public static Achievement Murderer,Homicidalmaniac,GOD;
+	public static Achievement villagereater;
 	public static Achievement[] messylist;
 	public static AchievementPage Messyac;
 	public static final String newAchievement = "MessyMod";
@@ -22,6 +23,9 @@ public class achire {
 				initIndependentStat().setSpecial().registerStat();
 		GOD=(new Achievement("GOD", "GOD", 2, 5, new ItemStack(tetscore.rnhd), Homicidalmaniac)).
 				initIndependentStat().setSpecial().registerStat();
+		villagereater=(new Achievement("Villager Eater", "Villager Eater", -4, 0, new ItemStack(tetscore.ckvm),null)).
+				initIndependentStat().registerStat();
+		
 		messylist=new Achievement[]{
 				Murderer,Homicidalmaniac,GOD
 		};

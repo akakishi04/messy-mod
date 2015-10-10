@@ -1,4 +1,4 @@
-package tets;
+package mesev;
 
 
 
@@ -6,6 +6,7 @@ import cpw.mods.fml.common.eventhandler.SubscribeEvent;
 import net.minecraft.entity.passive.EntityVillager;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraftforge.event.entity.living.LivingDropsEvent;
+import tets.tetscore;
 
 
 public class LDEH {

@@ -5,7 +5,6 @@ import java.io.File;
 import cpw.mods.fml.client.registry.ClientRegistry;
 import cpw.mods.fml.client.registry.RenderingRegistry;
 import cpw.mods.fml.common.FMLCommonHandler;
-import cpw.mods.fml.common.Loader;
 import cpw.mods.fml.common.Mod;
 import cpw.mods.fml.common.Mod.EventHandler;
 import cpw.mods.fml.common.SidedProxy;
@@ -15,6 +14,9 @@ import cpw.mods.fml.common.eventhandler.SubscribeEvent;
 import cpw.mods.fml.common.registry.GameRegistry;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
+import jp.plusplus.fbs.api.FBSRecipeAPI;
+import mesev.LDEH;
+import mesev.LDeEH;
 import messyblock.Blocktrte;
 import messyblock.blockcross;
 import messyblock.brof;
@@ -35,21 +37,20 @@ import net.minecraftforge.common.config.Configuration;
 import net.minecraftforge.event.terraingen.OreGenEvent;
 import net.minecraftforge.event.terraingen.TerrainGen;
 
-
 @Mod(modid=tetscore.MODID)
 public class tetscore {
 
 	public static final String MODID = "MessyMOD";
 
-	static Block trte;
-	static Block cross;
-	static Block rofb;
-	static Item vh;
-	static Item vm;
-	static Item rnhd;
-	static Item ckvm;
-	static Item fotrl;
-	static Item bakedbed;
+	public static Block trte;
+	public static Block cross;
+	public static Block rofb;
+	public static Item vh;
+	public static Item vm;
+	public static Item rnhd;
+	public static Item ckvm;
+	public static Item fotrl;
+	public static Item bakedbed;
 
 
 
@@ -76,7 +77,7 @@ public class tetscore {
 
 		cfload();
 
-		
+
 		tet=new CreativeTabs("messy") {
 
 			@Override
@@ -85,7 +86,7 @@ public class tetscore {
 				return vh;
 			}
 		};
-		
+
 		trte=new Blocktrte();
 		cross=new blockcross();
 		vh=new ivh();
@@ -97,14 +98,14 @@ public class tetscore {
 		bakedbed=new bakedbed();
 
 
-		
+
 
 
 
 		if(trtecre ==true){
 		GameRegistry.registerBlock(trte, "trte");
-		}	
-		
+		}
+
 		GameRegistry.registerBlock(cross, "Cross");
 		GameRegistry.registerBlock(rofb, "rotten flesh block");
 		GameRegistry.registerItem(vh, "villager's heart");
@@ -113,13 +114,13 @@ public class tetscore {
 		GameRegistry.registerItem(ckvm, "cooked Villager's meat");
 		GameRegistry.registerItem(fotrl, "force of red life");
 		GameRegistry.registerItem(bakedbed, "bakedbed");
-		
-		if(Loader.isModLoaded("ProjectE")){
+
+
 
 		if(cpsrd==false){
 		RDelete.DeleteRecipe(new ItemStack(moze_intel.projecte.gameObjs.ObjHandler.philosStone));
 		}
-		}
+
 		achire.register();
 
 
@@ -141,11 +142,11 @@ public class tetscore {
 
 		MinecraftForge.EVENT_BUS.register(new LDEH());
 		MinecraftForge.EVENT_BUS.register(new LDeEH());
-		if(Loader.isModLoaded("ProjectE")){
+
 		if(rrecipe==true){
 		Recipe.addrecipe(crn);
 		}
-		}
+
 		Recipe.recipe();
 		Recipe.smelterrecipe();
 		if (FMLCommonHandler.instance().getSide() == Side.CLIENT)
@@ -162,7 +163,11 @@ public class tetscore {
 
 
 
-		// FBSRecipeAPI.AddMagic("ViSu", 0, 0.5F, 0.3, 1, 2, 10, "summon", 10, 4.5, 1, 10, ViSu.class);
+		 FBSRecipeAPI.AddMagic("ViSu", 1, 1f, 0.3F, 1, 3, 10, "ViSu", 100, 60, 10, 15, ViSu.class);
+		 FBSRecipeAPI.AddMagicCircle("ViSu",
+				 		"111",
+				 		"1 1",
+				 		"111");
 	}
 
 

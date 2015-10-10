@@ -1,4 +1,4 @@
-package tets;
+package mesev;
 
 import cpw.mods.fml.common.Loader;
 import cpw.mods.fml.common.eventhandler.SubscribeEvent;
@@ -7,6 +7,9 @@ import net.minecraft.entity.passive.EntityVillager;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.util.ChatComponentText;
 import net.minecraftforge.event.entity.living.LivingDeathEvent;
+import tets.EnPro;
+import tets.achire;
+import tets.tetscore;
 
 public class LDeEH {
 	
