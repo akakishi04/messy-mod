@@ -5,6 +5,7 @@ import java.io.File;
 import cpw.mods.fml.client.registry.ClientRegistry;
 import cpw.mods.fml.client.registry.RenderingRegistry;
 import cpw.mods.fml.common.FMLCommonHandler;
+import cpw.mods.fml.common.Loader;
 import cpw.mods.fml.common.Mod;
 import cpw.mods.fml.common.Mod.EventHandler;
 import cpw.mods.fml.common.SidedProxy;
@@ -130,11 +131,9 @@ public class tetscore {
 		GameRegistry.registerItem(bakedbed, "bakedbed");
 
 
+	
 
-		if(cpsrd==false){
-		RDelete.DeleteRecipe(new ItemStack(moze_intel.projecte.gameObjs.ObjHandler.philosStone));
-		}
-
+		
 		achire.register();
 
 
@@ -148,7 +147,9 @@ public class tetscore {
 		GameRegistry.registerTileEntityWithAlternatives(dtil.class, "dtil");
 
 
-
+		if(cpsrd==false && Loader.isModLoaded("ProjectE")){
+		RDelete.DeleteRecipe(new ItemStack(moze_intel.projecte.gameObjs.ObjHandler.philosStone));
+		}
 
 		MinecraftForge.ORE_GEN_BUS.register(this);
 
@@ -157,7 +158,7 @@ public class tetscore {
 		MinecraftForge.EVENT_BUS.register(new LDEH());
 		MinecraftForge.EVENT_BUS.register(new LDeEH());
 
-		if(rrecipe==true){
+		if(rrecipe==true && Loader.isModLoaded("ProjectE")){
 		Recipe.addrecipe(crn);
 		}
 
@@ -172,10 +173,10 @@ public class tetscore {
 		 EntityPropertiesEventHandler enPro =new EntityPropertiesEventHandler();
 		 MinecraftForge.EVENT_BUS.register(enPro);
 		 FMLCommonHandler.instance().bus().register(enPro);
-
+		 if(Loader.isModLoaded("DCsAppleMilk")){
 		 RecipeRegisterManager.plateRecipe.register(new ItemStack(vm), new ItemStack(ckvm), 160, false);
-
-
+		 }
+		 if(Loader.isModLoaded("jp-plusplus-fbs")){
 		 Registry.RegisterBook("ViSu", 1, true, 1, 1, 1, 1, 1);
 		 Registry.RegisterMagic("ViSu", "ViSu", 20, 1, 3, 4, ViSu.class);
 		 //FBSRecipeAPI.AddMagic("ViSu", 1, 1f, 0.3F, 1, 3, 10, "ViSu", 100, 60, 10, 15, ViSu.class);
@@ -183,6 +184,7 @@ public class tetscore {
 				 		"111",
 				 		"1 1",
 				 		"111");
+		 }
 	}
 
 
@@ -207,7 +209,7 @@ public class tetscore {
 		Configuration cfg=new Configuration(new File("./config/"+"messy.cfg"));
         cfg.load();
         cb=cfg.getBoolean("c", "block", false, "");
-        rrecipe=cfg.getBoolean("add crafting philosStone recipe", "ProjectE", false , "私が独自に追加した賢者の石のレシピを使うか?");
+        rrecipe=cfg.getBoolean("add crafting philosStone recipe", "ProjectE", true , "私が独自に追加した賢者の石のレシピを使うか?");
         cpsrd=cfg.getBoolean("not delete defalt philiosstorne recipe", "ProjectE", false, "賢者の石のレシピを消さないでおくか?");
         trtecre=cfg.getBoolean("add trte", "blocks", true, "");
         trtegen=cfg.getBoolean("generate trte in world","generate" , true, "もし、trteの追加がされない場合はこれは無視される");

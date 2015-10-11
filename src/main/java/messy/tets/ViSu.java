@@ -30,7 +30,7 @@ public class ViSu extends MagicBase {
 	public void failure() {
 		// TODO 自動生成されたメソッド・スタブ
 		sanity(1, 1);
-		world.spawnEntityInWorld(new EntityEnderCrystal(world, player.posX, player.posY, player.posZ));
+		//world.spawnEntityInWorld(new EntityEnderPearl(world, player.posX, player.posY, player.posZ));
 
 	}
 	/*@Override

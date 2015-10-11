@@ -20,7 +20,7 @@ public class achire {
 	
 	public static void register(){
 		
-		Murderer=(new Achievement("murder", "murder", 0, 1, new ItemStack(tetscore.vh),AchievementList.killEnemy)).
+		Murderer=(new Achievement("murderer", "murderer", 0, 1, new ItemStack(tetscore.vh),AchievementList.killEnemy)).
 				initIndependentStat().registerStat();
 		Homicidalmaniac=(new Achievement("Homicidal maniac", "homicidal maniac", 0, 3, new ItemStack(tetscore.vm),Murderer)).
 				initIndependentStat().setSpecial().registerStat();
