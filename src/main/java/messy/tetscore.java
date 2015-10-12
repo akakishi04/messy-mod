@@ -23,6 +23,7 @@ import messy.messyblock.Blocktrte;
 import messy.messyblock.blockcross;
 import messy.messyblock.brof;
 import messy.messyitem.forceofredlife;
+import messy.messyitem.icry;
 import messy.messyitem.irnhd;
 import messy.messyitem.ivh;
 import messy.messyitem.ivm;
@@ -63,7 +64,7 @@ public class tetscore {
 	public static Item ckvm;
 	public static Item fotrl;
 	public static Item bakedbed;
-
+	public static Item endercrystal,endercrystalsingle;
 
 
 	public static CreativeTabs tet;
@@ -109,8 +110,8 @@ public class tetscore {
 		ckvm=new messy.messyitem.ckvm();
 		fotrl=new forceofredlife();
 		bakedbed=new messy.messyitem.bakedbed();
-
-
+		endercrystal=new icry().setUnlocalizedName("mendercrystal").setMaxDamage(8);
+		endercrystalsingle=new icry().setUnlocalizedName("mendercrystalsingle").setMaxDamage(1);
 
 
 
@@ -129,8 +130,8 @@ public class tetscore {
 		GameRegistry.registerItem(ckvm, "cooked Villager's meat");
 		GameRegistry.registerItem(fotrl, "force of red life");
 		GameRegistry.registerItem(bakedbed, "bakedbed");
-
-
+		GameRegistry.registerItem(endercrystal, "endercrystal");
+		GameRegistry.registerItem(endercrystalsingle, "endercrystal (singleuse)");
 	
 
 		
@@ -180,10 +181,13 @@ public class tetscore {
 		 Registry.RegisterBook("ViSu", 1, true, 1, 1, 1, 1, 1);
 		 Registry.RegisterMagic("ViSu", "ViSu", 20, 1, 3, 4, ViSu.class);
 		 //FBSRecipeAPI.AddMagic("ViSu", 1, 1f, 0.3F, 1, 3, 10, "ViSu", 100, 60, 10, 15, ViSu.class);
+		
 		 FBSRecipeAPI.AddMagicCircle("ViSu",
-				 		"111",
-				 		"1 1",
-				 		"111");
+				 		"0f1f0",
+				 		"f010f",
+				 		"11 11",
+				 		"f010f",
+				 		"0f1f0");
 		 }
 	}
 

@@ -1,25 +1,28 @@
 
-item.bakedbed.name=焼きベッド
-item.villager's meat.name=村人の肉
-item.villager's heart.name=村人の心臓
-item.rottennoheartdoll.name=心臓のない腐った人形
-item.force_of_red_life.name=赤い生命の力
-item.cookedvillager'smeat.name=焼肉
+item.bakedbed.name=baked bed
+item.villager's meat.name=villager's meat
+item.villager's heart.name=villager's heart
+item.rottennoheartdoll.name=rotten no heart doll
+item.force_of_red_life.name=force of red life
+item.cookedvillager'smeat.name=cooked villager's meat
+item.mendercrystal.name=ender crystal
+item.mendercrystalsingle.name=ender crystal
+
 
 tile.trte.name=trte
-tile.brof.name=腐った肉塊
+tile.brof.name=Rotten meat chunks
 
 
-achievement.How about in decoration?=装飾にいかが？
+achievement.How about in decoration?=How about in decoration?
 achievement.Villager Eater=Villager Eater
 achievement.GOD=GOD
-achievement.murder=殺人者
-achievement.Homicidal maniac=殺人狂
+achievement.murder=murder
+achievement.Homicidal maniac=Homicidal maniac
 
-achievement.How about in decoration?.desc=魔法の結晶
-achievement.Villager Eater.desc=人ですら捕食対象
-achievement.GOD.desc=人を殺したその先に
-achievement.murder.desc=ただの出来心かもしれない
-achievement.Homicidal maniac.desc=彼は狂気を秘めている
+achievement.How about in decoration?.desc=Magic crystal
+achievement.Villager Eater.desc=Even predation target human
+achievement.GOD.desc=In the earlier you kill people
+achievement.murder.desc=It may be just a sudden impulse
+achievement.Homicidal maniac.desc=He is hidden madness
 
 book.ViSu.title=ViSu

@@ -10,16 +10,16 @@ import net.minecraft.stats.AchievementList;
 import net.minecraftforge.common.AchievementPage;
 
 public class achire {
-	
-	
+
+
 	public static Achievement Murderer,Homicidalmaniac,GOD;
 	public static Achievement villagereater,Haid;
 	public static Achievement[] messylist;
 	public static AchievementPage Messyac;
 	public static final String newAchievement = "MessyMod";
-	
+
 	public static void register(){
-		
+
 		Murderer=(new Achievement("murderer", "murderer", 0, 1, new ItemStack(tetscore.vh),AchievementList.killEnemy)).
 				initIndependentStat().registerStat();
 		Homicidalmaniac=(new Achievement("Homicidal maniac", "homicidal maniac", 0, 3, new ItemStack(tetscore.vm),Murderer)).
@@ -28,16 +28,22 @@ public class achire {
 				initIndependentStat().setSpecial().registerStat();
 		villagereater=(new Achievement("Villager Eater", "Villager Eater", -4, 0, new ItemStack(tetscore.ckvm),null)).
 				initIndependentStat().registerStat();
+
+
 		Haid=(new Achievement("How about in decoration?", "How about in decoration?", 4, 0, new ItemStack(Blocks.dragon_egg), null)).
 				initIndependentStat().registerStat();
+
+
+
 		messylist=new Achievement[]{
 				Murderer,Homicidalmaniac,GOD,villagereater,Haid
 		};
+
 		Messyac=new AchievementPage(newAchievement, messylist);
 		AchievementPage.registerAchievementPage(Messyac);
-		
+
 	}
-	
-	
+
+
 
 }
