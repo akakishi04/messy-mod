@@ -22,6 +22,7 @@ import messy.mesev.LDeEH;
 import messy.messyblock.Blocktrte;
 import messy.messyblock.blockcross;
 import messy.messyblock.brof;
+import messy.messyitem.bedstick;
 import messy.messyitem.forceofredlife;
 import messy.messyitem.icry;
 import messy.messyitem.irnhd;
@@ -65,7 +66,7 @@ public class tetscore {
 	public static Item fotrl;
 	public static Item bakedbed;
 	public static Item endercrystal,endercrystalsingle;
-
+	public static Item bedrockStick;
 
 	public static CreativeTabs tet;
 
@@ -112,7 +113,7 @@ public class tetscore {
 		bakedbed=new messy.messyitem.bakedbed();
 		endercrystal=new icry().setUnlocalizedName("mendercrystal").setMaxDamage(8);
 		endercrystalsingle=new icry().setUnlocalizedName("mendercrystalsingle").setMaxDamage(1);
-
+		bedrockStick=new bedstick();
 
 
 
@@ -132,7 +133,7 @@ public class tetscore {
 		GameRegistry.registerItem(bakedbed, "bakedbed");
 		GameRegistry.registerItem(endercrystal, "endercrystal");
 		GameRegistry.registerItem(endercrystalsingle, "endercrystal (singleuse)");
-	
+		GameRegistry.registerItem(bedrockStick, "bedstick");
 
 		
 		achire.register();
