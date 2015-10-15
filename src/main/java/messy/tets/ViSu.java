@@ -16,13 +16,17 @@ public class ViSu extends MagicBase {
 		player.addStat(achire.Haid, 1);
 		float prob=0.4f+0.03f*property.getMagicLevel();
         return rand.nextFloat()<=prob;
-
+		
 	}
 
 	@Override
 	public void success() {
+		
 
+		
 		world.spawnEntityInWorld(new EntityEnderCrystal(world, player.posX, player.posY+1, player.posZ));
+		
+
 		//world.setBlock((int)player.posX+1, (int)player.posY,(int) player.posZ,Blocks.diamond_ore);
 	}
 

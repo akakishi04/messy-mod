@@ -1,13 +1,14 @@
 [
 {
-  "modid": "messy mod",
+  "modinfoversion":1.1,
+  "modid": "MessyMOD",
   "name": "messy mod",
-  "description": "",
+  "description": "it's messy",
   "version": "1.10",
   "mcversion": "${1.7.10}",
   "url": "",
   "updateUrl": "",
-  "authorList": [""],
+  "authorList": ["akakishi04"],
   "credits": "akakishi04",
   "logoFile": "",
   "screenshots": [],

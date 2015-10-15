@@ -23,6 +23,6 @@ public class LDEH {
 			event.entityLiving.dropItem(tetscore.vm, event.entityLiving.worldObj.rand.nextInt(5)+3);
 		}
 	}
-
+ 
 
 }

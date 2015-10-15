@@ -8,6 +8,7 @@ import messy.tets.EnPro;
 import messy.tets.achire;
 import net.minecraft.entity.passive.EntityVillager;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.util.DamageSource;
 import net.minecraftforge.event.entity.living.LivingDeathEvent;
 
 public class LDeEH {
@@ -15,7 +16,7 @@ public class LDeEH {
 	@SubscribeEvent
 	public void onLivingDeadEvent(LivingDeathEvent event){
 
-		if (tetscore.villagerskilllosesan == true && event.entityLiving instanceof EntityVillager && event.source.getEntity() instanceof EntityPlayer) {
+		if ( event.entityLiving instanceof EntityVillager && event.source.getEntity() instanceof EntityPlayer) {
 
 			EntityPlayer player=(EntityPlayer)event.source.getEntity();
 			EnPro pro =EnPro.get(player);
@@ -54,6 +55,21 @@ public class LDeEH {
 				//player.addChatComponentMessage(new ChatComponentText(pro.getkill()));
 				}
 
+		}
+		if(event.entityLiving instanceof EntityVillager ){
+			
+			EntityVillager ev =(EntityVillager) event.entity;
+			if( event.source==DamageSource.fall){
+			if(ev.getCustomNameTag()=="爆弾"){
+			event.entity.worldObj.newExplosion(event.entity, event.entityLiving.posX, event.entityLiving.posY, event.entityLiving.posZ,
+					5F, false, true);}
+			else if(event.source==DamageSource.lava){
+				if(ev.getCustomNameTag()=="爆弾"){
+					ev.worldObj.setBlockToAir((int)ev.posX, (int)ev.posY, (int)ev.posZ);
+			}
+			}
+			
+			}
 		}
 
 	}

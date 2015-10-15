@@ -17,7 +17,10 @@ import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import jp.plusplus.fbs.Registry;
 import jp.plusplus.fbs.api.FBSRecipeAPI;
+import messy.mesev.DEH;
+import messy.mesev.HBEH;
 import messy.mesev.LDEH;
+import messy.mesev.LDaEH;
 import messy.mesev.LDeEH;
 import messy.messyblock.Blocktrte;
 import messy.messyblock.blockcross;
@@ -42,14 +45,18 @@ import messy.tets.tetsoregen;
 import mods.defeatedcrow.api.recipe.RecipeRegisterManager;
 import net.minecraft.block.Block;
 import net.minecraft.creativetab.CreativeTabs;
+import net.minecraft.init.Blocks;
 import net.minecraft.item.Item;
+import net.minecraft.item.Item.ToolMaterial;
 import net.minecraft.item.ItemStack;
 import net.minecraft.world.gen.feature.WorldGenMinable;
 import net.minecraft.world.gen.feature.WorldGenerator;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.common.config.Configuration;
+import net.minecraftforge.common.util.EnumHelper;
 import net.minecraftforge.event.terraingen.OreGenEvent;
 import net.minecraftforge.event.terraingen.TerrainGen;
+
 
 @Mod(modid=tetscore.MODID)
 public class tetscore {
@@ -70,7 +77,7 @@ public class tetscore {
 
 	public static CreativeTabs tet;
 
-
+	public static ToolMaterial ttrte;
 
 
 
@@ -102,6 +109,8 @@ public class tetscore {
 			}
 		};
 
+		ttrte = EnumHelper.addToolMaterial("trte", 3, 150, 3.0F, 0.9F, 9);
+		
 		trte=new Blocktrte();
 		cross=new blockcross();
 		vh=new ivh();
@@ -115,6 +124,7 @@ public class tetscore {
 		endercrystalsingle=new icry().setUnlocalizedName("mendercrystalsingle").setMaxDamage(1);
 		bedrockStick=new bedstick();
 
+		
 
 
 		if(trtecre ==true){
@@ -135,10 +145,10 @@ public class tetscore {
 		GameRegistry.registerItem(endercrystalsingle, "endercrystal (singleuse)");
 		GameRegistry.registerItem(bedrockStick, "bedstick");
 
-		
+
 		achire.register();
 
-
+		Blocks.bedrock.setHardness(10F).setHarvestLevel("pickaxe", 3);
 
 		 PacketHandler.init();
 
@@ -159,6 +169,9 @@ public class tetscore {
 
 		MinecraftForge.EVENT_BUS.register(new LDEH());
 		MinecraftForge.EVENT_BUS.register(new LDeEH());
+		MinecraftForge.EVENT_BUS.register(new LDaEH());
+		MinecraftForge.EVENT_BUS.register(new HBEH());
+		MinecraftForge.EVENT_BUS.register(new DEH());
 
 		if(rrecipe==true && Loader.isModLoaded("ProjectE")){
 		Recipe.addrecipe(crn);
@@ -181,14 +194,15 @@ public class tetscore {
 		 if(Loader.isModLoaded("jp-plusplus-fbs")){
 		 Registry.RegisterBook("ViSu", 1, true, 1, 1, 1, 1, 1);
 		 Registry.RegisterMagic("ViSu", "ViSu", 20, 1, 3, 4, ViSu.class);
-		 //FBSRecipeAPI.AddMagic("ViSu", 1, 1f, 0.3F, 1, 3, 10, "ViSu", 100, 60, 10, 15, ViSu.class);
+		// FBSRecipeAPI.AddMagic("ViSu", 1, 1f, 0.3F, 1, 3, 10, "ViSu", 100, 60, 10, 15, ViSu.class);
+		 Registry.RegisterBook("Rain village", 2, true, 0.2F, 1, 10, 1, 1);
+		 Registry.RegisterMagic("Rain village", "Meteorite", 1, 40, 2, 3, vil.class);
+		 FBSRecipeAPI.AddMagicCircle("rainvil",
+				 		"000",
+				 		"0 0",
+				 		"000");
+		 
 		
-		 FBSRecipeAPI.AddMagicCircle("ViSu",
-				 		"0f1f0",
-				 		"f010f",
-				 		"11 11",
-				 		"f010f",
-				 		"0f1f0");
 		 }
 	}
 
