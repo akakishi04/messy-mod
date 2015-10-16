@@ -59,20 +59,36 @@ public class Recipe{
 				'a',Items.diamond,
 				'b',tetscore.vm
 				);
-		GameRegistry.addRecipe(new ItemStack(tetscore.endercrystal), 
+		GameRegistry.addRecipe(new ItemStack(tetscore.endercrystal),
 				"xxx",
 				"xyx",
 				"zzz",
 				'x',Items.nether_star,
 				'y',Blocks.diamond_block,
 				'z',Blocks.bedrock);
-		GameRegistry.addRecipe(new ItemStack(tetscore.endercrystalsingle), 
+		GameRegistry.addRecipe(new ItemStack(tetscore.endercrystalsingle),
 				"xxx",
 				"xyx",
 				"zzz",
 				'x',Items.ghast_tear,
 				'y',Items.nether_star,
 				'z',Blocks.obsidian);
+		GameRegistry.addRecipe(new ItemStack(tetscore.bedrockStick),
+				"xyx",
+				" z ",
+				" z ",
+				'x',tetscore.trte,
+				'y',Blocks.beacon,
+				'z',Items.stick);
+		GameRegistry.addRecipe(new ItemStack(tetscore.villagermeteo),
+				"xxx",
+				"zyz",
+				"xxx",
+				'x',tetscore.fotrl,
+				'y',tetscore.rnhd,
+				'z',Items.nether_star);
+
+
 
 		GameRegistry.addShapelessRecipe(new ItemStack(tetscore.endercrystal),
 				new ItemStack(tetscore.endercrystal, 1,OreDictionary.WILDCARD_VALUE),

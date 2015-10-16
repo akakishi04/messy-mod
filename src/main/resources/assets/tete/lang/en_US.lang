@@ -7,7 +7,8 @@ item.force_of_red_life.name=force of red life
 item.cookedvillager'smeat.name=cooked villager's meat
 item.mendercrystal.name=ender crystal
 item.mendercrystalsingle.name=ender crystal
-
+item.mbedrockstick.name=bed rock stick
+item.mvilmete.name=villagers meteo
 
 tile.trte.name=trte
 tile.brof.name=Rotten meat chunks
@@ -18,11 +19,14 @@ achievement.Villager Eater=Villager Eater
 achievement.GOD=GOD
 achievement.murder=murder
 achievement.Homicidal maniac=Homicidal maniac
+achievement.When a villager fall = When a villager fall
 
 achievement.How about in decoration?.desc=Magic crystal
 achievement.Villager Eater.desc=Even predation target human
 achievement.GOD.desc=In the earlier you kill people
 achievement.murder.desc=It may be just a sudden impulse
 achievement.Homicidal maniac.desc=He is hidden madness
+achievement.When a villager fall.desc= It's villagers rain
 
 book.ViSu.title=ViSu
+book.Rain village.title=Rain village

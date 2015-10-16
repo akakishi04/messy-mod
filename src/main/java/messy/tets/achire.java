@@ -3,7 +3,6 @@ package messy.tets;
 
 
 import messy.tetscore;
-import net.minecraft.init.Blocks;
 import net.minecraft.item.ItemStack;
 import net.minecraft.stats.Achievement;
 import net.minecraft.stats.AchievementList;
@@ -13,7 +12,7 @@ public class achire {
 
 
 	public static Achievement Murderer,Homicidalmaniac,GOD;
-	public static Achievement villagereater,Haid;
+	public static Achievement villagereater,Haid,villagerfall;
 	public static Achievement[] messylist;
 	public static AchievementPage Messyac;
 	public static final String newAchievement = "MessyMod";
@@ -30,10 +29,11 @@ public class achire {
 				initIndependentStat().registerStat();
 
 
-		Haid=(new Achievement("How about in decoration?", "How about in decoration?", 4, 0, new ItemStack(Blocks.dragon_egg), null)).
+		Haid=(new Achievement("How about in decoration?", "How about in decoration?", 4, 0, new ItemStack(tetscore.endercrystal), null)).
 				initIndependentStat().registerStat();
 
-
+		villagerfall=(new Achievement("When a villager fall","When a villager fall", -1,3,new ItemStack(tetscore.villagermeteo), Murderer)).
+				initIndependentStat().registerStat();
 
 		messylist=new Achievement[]{
 				Murderer,Homicidalmaniac,GOD,villagereater,Haid

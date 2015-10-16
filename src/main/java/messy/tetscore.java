@@ -22,6 +22,7 @@ import messy.mesev.HBEH;
 import messy.mesev.LDEH;
 import messy.mesev.LDaEH;
 import messy.mesev.LDeEH;
+import messy.mesev.OEH;
 import messy.messyblock.Blocktrte;
 import messy.messyblock.blockcross;
 import messy.messyblock.brof;
@@ -176,7 +177,8 @@ public class tetscore {
 		MinecraftForge.EVENT_BUS.register(new LDaEH());
 		MinecraftForge.EVENT_BUS.register(new HBEH());
 		MinecraftForge.EVENT_BUS.register(new DEH());
-
+		MinecraftForge.EVENT_BUS.register(new OEH());
+	
 		if(rrecipe==true && Loader.isModLoaded("ProjectE")){
 		Recipe.addrecipe(crn);
 		}
@@ -196,15 +198,16 @@ public class tetscore {
 		 RecipeRegisterManager.plateRecipe.register(new ItemStack(vm), new ItemStack(ckvm), 160, false);
 		 }
 		 if(Loader.isModLoaded("jp-plusplus-fbs")){
+			 
 		 Registry.RegisterBook("ViSu", 1, true, 1, 1, 1, 1, 1);
 		 Registry.RegisterMagic("ViSu", "ViSu", 20, 1, 3, 4, ViSu.class);
 		// FBSRecipeAPI.AddMagic("ViSu", 1, 1f, 0.3F, 1, 3, 10, "ViSu", 100, 60, 10, 15, ViSu.class);
 		 Registry.RegisterBook("Rain village", 2, true, 0.2F, 1, 10, 1, 1);
-		 Registry.RegisterMagic("Rain village", "Meteorite", 1, 40, 2, 3, vil.class);
+		 Registry.RegisterMagic("Rain village", "Meteorite", 20, 40, 2, 3, vil.class);
 		 FBSRecipeAPI.AddMagicCircle("rainvil",
-				 		"000",
-				 		"0 0",
-				 		"000");
+				 		"010",
+				 		"1 1",
+				 		"001");
 		 
 		
 		 }
@@ -243,6 +246,5 @@ public class tetscore {
         cfg.save();
 	}
 
-
-
+	 
 }

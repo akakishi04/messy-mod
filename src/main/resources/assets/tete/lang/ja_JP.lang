@@ -7,6 +7,8 @@ item.force_of_red_life.name=赤い生命の力
 item.cookedvillager'smeat.name=焼肉
 item.mendercrystal.name=エンダークリスタル
 item.mendercrystalsingle.name=エンダークリスタル
+item.mbedrockstick.name=岩盤の棒
+item.mvilmete.name=村人メテオ
 
 tile.trte.name=trte
 tile.brof.name=腐った肉塊
@@ -17,11 +19,14 @@ achievement.Villager Eater=Villager Eater
 achievement.GOD=GOD
 achievement.murder=殺人者
 achievement.Homicidal maniac=殺人狂
+achievement.When a villager fall =村人の降るときに
 
 achievement.How about in decoration?.desc=魔法の結晶
 achievement.Villager Eater.desc=人ですら捕食対象
 achievement.GOD.desc=人を殺したその先に
 achievement.murder.desc=ただの出来心かもしれない
 achievement.Homicidal maniac.desc=彼は狂気を秘めている
+achievement.When a villager fall.desc=それは村人の雨
 
 book.ViSu.title=ViSu
+book.Rain village.title=村の雨

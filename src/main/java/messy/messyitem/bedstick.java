@@ -12,8 +12,10 @@ public class bedstick extends ItemPickaxe {
 
 	public bedstick(){
 		super(tetscore.ttrte);
-		
+		setTextureName("tete:bedrocks");
 		setCreativeTab(tetscore.tet);
+		setFull3D();
+		setUnlocalizedName("mbedrockstick");
 	}
 
 	

@@ -2,68 +2,49 @@ package messy.tets;
 
 import jp.plusplus.fbs.api.MagicBase;
 import net.minecraft.entity.passive.EntityVillager;
+import net.minecraft.util.ChatComponentText;
 
 public class vil extends MagicBase {
 
 	@Override
 	public boolean checkSuccess() {
-		
-		if(rand.nextInt(getLvDiff())/2==0){
-			return true;
-		}
 
-		return rand.nextBoolean();
+
+
+		return true;
 	}
 
 	@Override
 	public void success() {
 
+		player.addStat(achire.villagerfall, 1);
+		
 		int i=0;
+		int n=0;
 		EnPro epr =EnPro.get(player);
-		if(getMagicCircleName()=="rainvil"){
-		while (i<128+rand.nextInt(property.getMagicLevel()+16)*16) {
+		if(checkMagicCircle("rainvil")){
+			n=128+(rand.nextInt(property.getMagicLevel()+16)*property.getMagicLevel()*16+epr.getkillcount()/100)/10;
+
+		}else if(!checkMagicCircle("rainvil")){
+			n=64+(rand.nextInt(16)*property.getMagicLevel()*4+epr.getkillcount()/100)/10;
+
+		}
+		if(n==0){
+			n=25;
+		}
+		while (i<n) {
 
 		int x=rand.nextInt(64)-32;
 		int z=rand.nextInt(64)-32;
+		int y=rand.nextInt(32)-16;
 		EntityVillager ev= new EntityVillager(world);
-		ev.setPosition(player.posX+x, player.posY+30, player.posZ+z);
+		ev.setPositionAndRotation(player.posX+x, player.posY+300+y, player.posZ+z, rand.nextFloat(), rand.nextFloat());
+		ev.setCustomNameTag("爆弾");
+		ev.setHealth(120);
 		world.spawnEntityInWorld(ev);
 		i+=1;
-		}}else{
-			while (i<64+rand.nextInt(16)*property.getMagicLevel()*4) {
-
-				int x=rand.nextInt(64)-32;
-				int z=rand.nextInt(64)-32;
-				int y=rand.nextInt(16)-8;
-				
-				EntityVillager ev= new EntityVillager(world);
-				ev.setAlwaysRenderNameTag(true);
-				ev.setCustomNameTag("爆弾");
-				ev.setHealth(1);
-				ev.setPosition(player.posX+x, player.posY+300+y, player.posZ+z);
-				world.spawnEntityInWorld(ev);
-				
-				i+=1;
-
-		}}
-		if(epr.getkillcount()>0){
-			int n = 0;
-			while (n<=epr.getkillcount()/100) {
-				int x=rand.nextInt(64)-32;
-				int z=rand.nextInt(64)-32;
-				int y=rand.nextInt(16)-8;
-				
-				EntityVillager ev= new EntityVillager(world);
-				ev.setAlwaysRenderNameTag(true);
-				ev.setCustomNameTag("爆弾");
-				
-				ev.setHealth(1);
-				ev.setPosition(player.posX+x, player.posY+300+y, player.posZ+z);
-				world.spawnEntityInWorld(ev);
-				n += 1;
-				
-			}
 		}
+		player.addChatMessage(new ChatComponentText(player.getDisplayName()+"は"+n+"人召喚した"));
 	}
 
 	@Override
