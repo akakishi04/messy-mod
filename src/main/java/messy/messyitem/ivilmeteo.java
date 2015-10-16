@@ -20,7 +20,11 @@ public class ivilmeteo extends Item {
     public boolean onItemUse(ItemStack p_77648_1_, EntityPlayer p_77648_2_, World world, int x, int y, int z, int p_77648_7_, float p_77648_8_, float p_77648_9_, float p_77648_10_) {
 
 
+		if(!world.isRemote){
+			
+			villagemeteor.villmete(world,x,y,z);
 
+		}
 		
 
 
@@ -31,11 +35,7 @@ public class ivilmeteo extends Item {
 	 @Override
 	    public ItemStack onItemRightClick(ItemStack p_77659_1_, World world, EntityPlayer p_77659_3_) {
 
-			if(!world.isRemote){
-				
-				villagemeteor.villmete(world,(int) p_77659_3_.posX,(int) p_77659_3_.posY,(int) p_77659_3_.posZ);
-
-			}
+			
 	
 	        return p_77659_1_;
 

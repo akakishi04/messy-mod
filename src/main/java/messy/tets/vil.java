@@ -7,7 +7,10 @@ public class vil extends MagicBase {
 
 	@Override
 	public boolean checkSuccess() {
-
+		
+		if(rand.nextInt(getLvDiff())/2==0){
+			return true;
+		}
 
 		return rand.nextBoolean();
 	}
@@ -45,7 +48,7 @@ public class vil extends MagicBase {
 		}}
 		if(epr.getkillcount()>0){
 			int n = 0;
-			while (n==epr.getkillcount()/100) {
+			while (n<=epr.getkillcount()/100) {
 				int x=rand.nextInt(64)-32;
 				int z=rand.nextInt(64)-32;
 				int y=rand.nextInt(16)-8;
