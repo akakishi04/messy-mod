@@ -1,7 +1,6 @@
-package messy;
+package messy.tets;
 
 import jp.plusplus.fbs.api.MagicBase;
-import messy.tets.EnPro;
 import net.minecraft.entity.passive.EntityVillager;
 
 public class vil extends MagicBase {

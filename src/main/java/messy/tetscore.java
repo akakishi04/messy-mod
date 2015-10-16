@@ -30,6 +30,7 @@ import messy.messyitem.forceofredlife;
 import messy.messyitem.icry;
 import messy.messyitem.irnhd;
 import messy.messyitem.ivh;
+import messy.messyitem.ivilmeteo;
 import messy.messyitem.ivm;
 import messy.tets.CommonProxy;
 import messy.tets.EntityPropertiesEventHandler;
@@ -42,6 +43,7 @@ import messy.tets.bcrr;
 import messy.tets.croosr;
 import messy.tets.dtil;
 import messy.tets.tetsoregen;
+import messy.tets.vil;
 import mods.defeatedcrow.api.recipe.RecipeRegisterManager;
 import net.minecraft.block.Block;
 import net.minecraft.creativetab.CreativeTabs;
@@ -74,6 +76,7 @@ public class tetscore {
 	public static Item bakedbed;
 	public static Item endercrystal,endercrystalsingle;
 	public static Item bedrockStick;
+	public static Item villagermeteo;
 
 	public static CreativeTabs tet;
 
@@ -123,7 +126,7 @@ public class tetscore {
 		endercrystal=new icry().setUnlocalizedName("mendercrystal").setMaxDamage(8);
 		endercrystalsingle=new icry().setUnlocalizedName("mendercrystalsingle").setMaxDamage(1);
 		bedrockStick=new bedstick();
-
+		villagermeteo=new ivilmeteo();
 		
 
 
@@ -144,6 +147,7 @@ public class tetscore {
 		GameRegistry.registerItem(endercrystal, "endercrystal");
 		GameRegistry.registerItem(endercrystalsingle, "endercrystal (singleuse)");
 		GameRegistry.registerItem(bedrockStick, "bedstick");
+		GameRegistry.registerItem(villagermeteo, "villager meteo");
 
 
 		achire.register();
