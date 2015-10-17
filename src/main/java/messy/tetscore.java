@@ -30,6 +30,8 @@ import messy.messyitem.bedstick;
 import messy.messyitem.forceofredlife;
 import messy.messyitem.icry;
 import messy.messyitem.irnhd;
+import messy.messyitem.isvm;
+import messy.messyitem.isyabusyabu;
 import messy.messyitem.ivh;
 import messy.messyitem.ivilmeteo;
 import messy.messyitem.ivm;
@@ -45,6 +47,7 @@ import messy.tets.croosr;
 import messy.tets.dtil;
 import messy.tets.tetsoregen;
 import messy.tets.vil;
+import mods.defeatedcrow.api.appliance.SoupType;
 import mods.defeatedcrow.api.recipe.RecipeRegisterManager;
 import net.minecraft.block.Block;
 import net.minecraft.creativetab.CreativeTabs;
@@ -78,7 +81,10 @@ public class tetscore {
 	public static Item endercrystal,endercrystalsingle;
 	public static Item bedrockStick;
 	public static Item villagermeteo;
-
+	public static Item syabusyabu;
+	public static Item svm;
+	
+	
 	public static CreativeTabs tet;
 
 	public static ToolMaterial ttrte;
@@ -128,6 +134,8 @@ public class tetscore {
 		endercrystalsingle=new icry().setUnlocalizedName("mendercrystalsingle").setMaxDamage(1);
 		bedrockStick=new bedstick();
 		villagermeteo=new ivilmeteo();
+		syabusyabu=new isyabusyabu();
+		svm=new isvm();
 		
 
 
@@ -149,7 +157,9 @@ public class tetscore {
 		GameRegistry.registerItem(endercrystalsingle, "endercrystal (singleuse)");
 		GameRegistry.registerItem(bedrockStick, "bedstick");
 		GameRegistry.registerItem(villagermeteo, "villager meteo");
-
+		GameRegistry.registerItem(syabusyabu, "murabitosyabusyabu");
+		GameRegistry.registerItem(svm,"Sliced villagers of meat");
+		
 
 		achire.register();
 
@@ -196,6 +206,7 @@ public class tetscore {
 		 FMLCommonHandler.instance().bus().register(enPro);
 		 if(Loader.isModLoaded("DCsAppleMilk")){
 		 RecipeRegisterManager.plateRecipe.register(new ItemStack(vm), new ItemStack(ckvm), 160, false);
+		 RecipeRegisterManager.fondueRecipe.register(new ItemStack(svm), new ItemStack(syabusyabu),SoupType.WATER );
 		 }
 		 if(Loader.isModLoaded("jp-plusplus-fbs")){
 			 
