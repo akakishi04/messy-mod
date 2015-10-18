@@ -83,8 +83,8 @@ public class tetscore {
 	public static Item villagermeteo;
 	public static Item syabusyabu;
 	public static Item svm;
-	
-	
+
+
 	public static CreativeTabs tet;
 
 	public static ToolMaterial ttrte;
@@ -120,7 +120,7 @@ public class tetscore {
 		};
 
 		ttrte = EnumHelper.addToolMaterial("trte", 3, 150, 3.0F, 0.9F, 9);
-		
+
 		trte=new Blocktrte();
 		cross=new blockcross();
 		vh=new ivh();
@@ -136,7 +136,7 @@ public class tetscore {
 		villagermeteo=new ivilmeteo();
 		syabusyabu=new isyabusyabu();
 		svm=new isvm();
-		
+
 
 
 		if(trtecre ==true){
@@ -159,7 +159,7 @@ public class tetscore {
 		GameRegistry.registerItem(villagermeteo, "villager meteo");
 		GameRegistry.registerItem(syabusyabu, "murabitosyabusyabu");
 		GameRegistry.registerItem(svm,"Sliced villagers of meat");
-		
+
 
 		achire.register();
 
@@ -188,7 +188,7 @@ public class tetscore {
 		MinecraftForge.EVENT_BUS.register(new HBEH());
 		MinecraftForge.EVENT_BUS.register(new DEH());
 		MinecraftForge.EVENT_BUS.register(new OEH());
-	
+
 		if(rrecipe==true && Loader.isModLoaded("ProjectE")){
 		Recipe.addrecipe(crn);
 		}
@@ -209,18 +209,19 @@ public class tetscore {
 		 RecipeRegisterManager.fondueRecipe.register(new ItemStack(svm), new ItemStack(syabusyabu),SoupType.WATER );
 		 }
 		 if(Loader.isModLoaded("jp-plusplus-fbs")){
-			 
+
 		 Registry.RegisterBook("ViSu", 1, true, 1, 1, 1, 1, 1);
 		 Registry.RegisterMagic("ViSu", "ViSu", 20, 1, 3, 4, ViSu.class);
 		// FBSRecipeAPI.AddMagic("ViSu", 1, 1f, 0.3F, 1, 3, 10, "ViSu", 100, 60, 10, 15, ViSu.class);
 		 Registry.RegisterBook("Rain village", 2, true, 0.2F, 1, 10, 1, 1);
 		 Registry.RegisterMagic("Rain village", "Meteorite", 20, 40, 2, 3, vil.class);
+
 		 FBSRecipeAPI.AddMagicCircle("rainvil",
 				 		"010",
 				 		"1 1",
 				 		"001");
-		 
-		
+
+
 		 }
 	}
 
@@ -257,5 +258,5 @@ public class tetscore {
         cfg.save();
 	}
 
-	 
+
 }
