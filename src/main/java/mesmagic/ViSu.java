@@ -1,6 +1,7 @@
-package messy.tets;
+package mesmagic;
 
 import jp.plusplus.fbs.api.MagicBase;
+import messy.tets.achire;
 import net.minecraft.entity.item.EntityEnderCrystal;
 
 public class ViSu extends MagicBase {

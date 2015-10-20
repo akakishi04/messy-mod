@@ -2,7 +2,7 @@ package messy.mesev;
 
 import cpw.mods.fml.common.eventhandler.SubscribeEvent;
 import jp.plusplus.fbs.api.event.PlayerUseMagicEvent;
-import messy.tets.ViSu;
+import mesmagic.ViSu;
 import messy.tets.achire;
 
 public class VMEH {

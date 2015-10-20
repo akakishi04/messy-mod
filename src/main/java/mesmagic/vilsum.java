@@ -1,4 +1,4 @@
-package messy.tets;
+package mesmagic;
 
 import jp.plusplus.fbs.api.MagicBase;
 import messy.tetscore;
@@ -6,7 +6,7 @@ import net.minecraft.entity.monster.EntityGiantZombie;
 import net.minecraft.entity.passive.EntityHorse;
 import net.minecraft.init.Blocks;
 
-public class vilexp extends MagicBase{
+public class vilsum extends MagicBase{
 
 	@Override
 	public boolean checkSuccess() {
@@ -35,28 +35,49 @@ public class vilexp extends MagicBase{
 				world.spawnEntityInWorld(eh);
 
 	}
+	
 	if(world.getBlock((int)player.posX-3,(int) player.posY, (int)player.posZ+3)==Blocks.gravel){
 
 		 EntityHorse eh=new EntityHorse(world);
-			world.setBlockToAir((int)player.posX+3,(int) player.posY, (int)player.posZ+3);
-			eh.setPosition(player.posX+3, player.posY, player.posZ+3);
+			world.setBlockToAir((int)player.posX-3,(int) player.posY, (int)player.posZ+3);
+			eh.setPosition((int)player.posX-3,(int) player.posY, (int)player.posZ+3);
 			world.spawnEntityInWorld(eh);
 
+	}else if(world.getBlock((int)player.posX-3,(int) player.posY, (int)player.posZ+3)==tetscore.rofb){
+		EntityGiantZombie eh=new EntityGiantZombie(world);
+		world.setBlockToAir((int)player.posX-3,(int) player.posY, (int)player.posZ+3);
+		eh.setPosition((int)player.posX-3,(int) player.posY, (int)player.posZ+3);
+		world.spawnEntityInWorld(eh);
+
 	}
+	
 	if(world.getBlock((int)player.posX-3,(int) player.posY, (int)player.posZ-3)==Blocks.gravel){
 
 		 EntityHorse eh=new EntityHorse(world);
 			world.setBlockToAir((int)player.posX+3,(int) player.posY, (int)player.posZ+3);
-			eh.setPosition(player.posX+3, player.posY, player.posZ+3);
+			eh.setPosition((int)player.posX-3,(int) player.posY, (int)player.posZ-3);
 			world.spawnEntityInWorld(eh);
+			
+	}else if(world.getBlock((int)player.posX-3,(int) player.posY, (int)player.posZ-3)==tetscore.rofb){
+		EntityGiantZombie eh=new EntityGiantZombie(world);
+		world.setBlockToAir((int)player.posX-3,(int) player.posY, (int)player.posZ-3);
+		eh.setPosition(player.posX+3, player.posY, player.posZ+3);
+		world.spawnEntityInWorld(eh);
+
 	}
 
 	if(world.getBlock((int)player.posX+3,(int) player.posY, (int)player.posZ-3)==Blocks.gravel){
 
 		 EntityHorse eh=new EntityHorse(world);
-			world.setBlockToAir((int)player.posX+3,(int) player.posY, (int)player.posZ+3);
-			eh.setPosition(player.posX+3, player.posY, player.posZ+3);
+			world.setBlockToAir((int)player.posX+3,(int) player.posY, (int)player.posZ-3);
+			eh.setPosition((int)player.posX+3,(int) player.posY, (int)player.posZ-3);
 			world.spawnEntityInWorld(eh);
+	}else if(world.getBlock((int)player.posX+3,(int) player.posY, (int)player.posZ-3)==tetscore.rofb){
+		EntityGiantZombie eh=new EntityGiantZombie(world);
+		world.setBlockToAir((int)player.posX+3,(int) player.posY, (int)player.posZ-3);
+		eh.setPosition((int)player.posX+3,(int) player.posY, (int)player.posZ-3);
+		world.spawnEntityInWorld(eh);
+
 	}
 
 

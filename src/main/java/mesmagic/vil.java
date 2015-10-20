@@ -1,6 +1,8 @@
-package messy.tets;
+package mesmagic;
 
 import jp.plusplus.fbs.api.MagicBase;
+import messy.tets.EnPro;
+import messy.tets.achire;
 import net.minecraft.entity.passive.EntityVillager;
 import net.minecraft.util.ChatComponentText;
 

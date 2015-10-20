@@ -17,6 +17,9 @@ import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import jp.plusplus.fbs.Registry;
 import jp.plusplus.fbs.api.FBSRecipeAPI;
+import mesmagic.ViSu;
+import mesmagic.vil;
+import mesmagic.vilsum;
 import messy.mesev.DEH;
 import messy.mesev.HBEH;
 import messy.mesev.LDEH;
@@ -40,14 +43,11 @@ import messy.tets.EntityPropertiesEventHandler;
 import messy.tets.PacketHandler;
 import messy.tets.RDelete;
 import messy.tets.Recipe;
-import messy.tets.ViSu;
 import messy.tets.achire;
 import messy.tets.bcrr;
 import messy.tets.croosr;
 import messy.tets.dtil;
 import messy.tets.tetsoregen;
-import messy.tets.vil;
-import messy.tets.vilexp;
 import mods.defeatedcrow.api.appliance.SoupType;
 import mods.defeatedcrow.api.recipe.RecipeRegisterManager;
 import net.minecraft.block.Block;
@@ -216,14 +216,14 @@ public class tetscore {
 		// FBSRecipeAPI.AddMagic("ViSu", 1, 1f, 0.3F, 1, 3, 10, "ViSu", 100, 60, 10, 15, ViSu.class);
 		 Registry.RegisterBook("Rain village", 2, true, 0.2F, 1, 10, 1, 1);
 		 Registry.RegisterMagic("Rain village", "Meteorite", 20, 40, 2, 3, vil.class);
-		 Registry.RegisterBook("explode", 2, true, 0.2F, 1, 10, 1, 1);
-		 Registry.RegisterMagic("explode", "Meteorite", 20, 40, 2, 3, vilexp.class);
+		 Registry.RegisterBook("Extvor", 2, true, 0.2F, 1, 10, 1, 1);
+		 Registry.RegisterMagic("Extvor", "Meteorite", 20, 40, 2, 3, vilsum.class);
 		 FBSRecipeAPI.AddMagicCircle("rainvil",
-				 		
+
 				 		"010",
 				 		"1 1",
 				 		"001");
-		 FBSRecipeAPI.AddMagicCircle("expl", 
+		 FBSRecipeAPI.AddMagicCircle("expl",
 
 				 "00000",
 				 "00000",
