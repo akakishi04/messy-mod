@@ -15,6 +15,7 @@ public class OEH {
 
 	        	if(Loader.isModLoaded("jp-plusplus-fbs")){
 	            RenderMagicCircle.RegisterMagicCircleIcon("rainvil", e.map, "tete:circlevil");
+	            RenderMagicCircle.RegisterMagicCircleIcon("expl", e.map, "tete:circ");
 	        	}
 	        }
 	    }
