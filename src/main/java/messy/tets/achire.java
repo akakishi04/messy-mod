@@ -36,7 +36,7 @@ public class achire {
 				initIndependentStat().registerStat();
 
 		messylist=new Achievement[]{
-				Murderer,Homicidalmaniac,GOD,villagereater,Haid
+				Murderer,Homicidalmaniac,GOD,villagereater,Haid,villagerfall
 		};
 
 		Messyac=new AchievementPage(newAchievement, messylist);
