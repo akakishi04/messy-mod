@@ -217,6 +217,7 @@ public class tetscore {
 		 Registry.RegisterMagic("Rain village", "Meteorite", 20, 40, 2, 3, vil.class);
 
 		 FBSRecipeAPI.AddMagicCircle("rainvil",
+				 		
 				 		"010",
 				 		"1 1",
 				 		"001");
