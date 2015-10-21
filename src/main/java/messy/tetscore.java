@@ -17,15 +17,15 @@ import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import jp.plusplus.fbs.Registry;
 import jp.plusplus.fbs.api.FBSRecipeAPI;
-import mesmagic.ViSu;
-import mesmagic.vil;
-import mesmagic.vilsum;
 import messy.mesev.DEH;
 import messy.mesev.HBEH;
 import messy.mesev.LDEH;
 import messy.mesev.LDaEH;
 import messy.mesev.LDeEH;
 import messy.mesev.OEH;
+import messy.mesmagic.ViSu;
+import messy.mesmagic.vil;
+import messy.mesmagic.vilsum;
 import messy.messyblock.Blocktrte;
 import messy.messyblock.blockcross;
 import messy.messyblock.brof;
@@ -95,7 +95,7 @@ public class tetscore {
 
 
 	public static boolean rrecipe,cpsrd,trtecre,trtegen,crosscre,villagerskilllosesan,villagerkilladdsan;
-	public static boolean cb;
+	public static boolean cb=true;
 	public static int crn;
 
 	 @SidedProxy(clientSide = "messy.tets.ClientProxy", serverSide = "messy.tets.CommonProxy")
@@ -257,7 +257,7 @@ public class tetscore {
 	public static void cfload(){
 		Configuration cfg=new Configuration(new File("./config/"+"messy.cfg"));
         cfg.load();
-        cb=cfg.getBoolean("c", "block", false, "");
+      //  cb=cfg.getBoolean("c", "block", false, "");
         rrecipe=cfg.getBoolean("add crafting philosStone recipe", "ProjectE", true , "私が独自に追加した賢者の石のレシピを使うか?");
         cpsrd=cfg.getBoolean("not delete defalt philiosstorne recipe", "ProjectE", false, "賢者の石のレシピを消さないでおくか?");
         trtecre=cfg.getBoolean("add trte", "blocks", true, "");

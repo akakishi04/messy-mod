@@ -1,9 +1,10 @@
-package mesmagic;
+package messy.mesmagic;
 
 import jp.plusplus.fbs.api.MagicBase;
 import messy.tetscore;
 import net.minecraft.entity.monster.EntityGiantZombie;
 import net.minecraft.entity.passive.EntityHorse;
+import net.minecraft.entity.passive.EntityVillager;
 import net.minecraft.init.Blocks;
 
 public class vilsum extends MagicBase{
@@ -34,6 +35,11 @@ public class vilsum extends MagicBase{
 				eh.setPosition(player.posX+3, player.posY, player.posZ+3);
 				world.spawnEntityInWorld(eh);
 
+	}else if(world.getBlock((int)player.posX+3,(int) player.posY, (int)player.posZ+3)==tetscore.cross){
+		 EntityVillager eh=new EntityVillager(world,rand.nextInt(4));
+			world.setBlockToAir((int)player.posX+3,(int) player.posY, (int)player.posZ+3);
+			eh.setPosition(player.posX+3, player.posY, player.posZ+3);
+			world.spawnEntityInWorld(eh);
 	}
 	
 	if(world.getBlock((int)player.posX-3,(int) player.posY, (int)player.posZ+3)==Blocks.gravel){
@@ -49,6 +55,11 @@ public class vilsum extends MagicBase{
 		eh.setPosition((int)player.posX-3,(int) player.posY, (int)player.posZ+3);
 		world.spawnEntityInWorld(eh);
 
+	}else if(world.getBlock((int)player.posX-3,(int) player.posY, (int)player.posZ+3)==tetscore.cross){
+		 EntityVillager eh=new EntityVillager(world,rand.nextInt(4));
+			world.setBlockToAir((int)player.posX-3,(int) player.posY, (int)player.posZ+3);
+			eh.setPosition((int)player.posX-3,(int) player.posY, (int)player.posZ+3);
+			world.spawnEntityInWorld(eh);
 	}
 	
 	if(world.getBlock((int)player.posX-3,(int) player.posY, (int)player.posZ-3)==Blocks.gravel){
@@ -64,6 +75,11 @@ public class vilsum extends MagicBase{
 		eh.setPosition(player.posX+3, player.posY, player.posZ+3);
 		world.spawnEntityInWorld(eh);
 
+	}else if(world.getBlock((int)player.posX-3,(int) player.posY, (int)player.posZ-3)==tetscore.cross){
+		 EntityVillager eh=new EntityVillager(world,rand.nextInt(4));
+			world.setBlockToAir((int)player.posX-3,(int) player.posY, (int)player.posZ-3);
+			eh.setPosition((int)player.posX-3,(int) player.posY, (int)player.posZ-3);
+			world.spawnEntityInWorld(eh);
 	}
 
 	if(world.getBlock((int)player.posX+3,(int) player.posY, (int)player.posZ-3)==Blocks.gravel){
@@ -78,6 +94,11 @@ public class vilsum extends MagicBase{
 		eh.setPosition((int)player.posX+3,(int) player.posY, (int)player.posZ-3);
 		world.spawnEntityInWorld(eh);
 
+	}else if(world.getBlock((int)player.posX+3,(int) player.posY, (int)player.posZ-3)==tetscore.cross){
+		 EntityVillager eh=new EntityVillager(world,rand.nextInt(4));
+			world.setBlockToAir((int)player.posX+3,(int) player.posY, (int)player.posZ-3);
+			eh.setPosition((int)player.posX+3,(int) player.posY, (int)player.posZ-3);
+			world.spawnEntityInWorld(eh);
 	}
 
 

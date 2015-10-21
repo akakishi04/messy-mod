@@ -1,4 +1,4 @@
-package mesmagic;
+package messy.mesmagic;
 
 import jp.plusplus.fbs.api.MagicBase;
 import messy.tets.achire;

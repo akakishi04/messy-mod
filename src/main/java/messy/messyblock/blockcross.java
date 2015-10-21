@@ -12,7 +12,7 @@ public class blockcross extends BlockContainer {
 	public blockcross() {
 		super(Material.wood);
 		setCreativeTab(tetscore.tet);
-		setBlockBounds(0f, 0f, 0f, 1f, 4f, 1f);
+		setBlockBounds(0f, 0f, 0f, 1f, 2.1f, 1f);
 
 	}
 
@@ -27,8 +27,7 @@ public class blockcross extends BlockContainer {
 
 
 
-		if(world.isAirBlock(x, y, z)==true &&world.isAirBlock(x, y+1, z)==true && world.isAirBlock(x, y+2, z)==true &&
-			world.isAirBlock(x-1, y+2, z)==true){
+		if(world.isAirBlock(x, y, z)==true &&world.isAirBlock(x, y+1, z)==true ){
 
 			return true;
 
