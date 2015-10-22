@@ -13,7 +13,7 @@ public class blockcross extends BlockContainer {
 		super(Material.wood);
 		setCreativeTab(tetscore.tet);
 		setBlockBounds(0f, 0f, 0f, 1f, 2.1f, 1f);
-
+		setBlockName("villdol");
 	}
 
 	@Override

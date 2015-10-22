@@ -44,7 +44,7 @@ public class croosr extends TileEntitySpecialRenderer {
 		GL11.glTranslatef(0.0F, -1.0F, 0.0F);
 
 
-		GL11.glRotatef(rot, 0.0F, 1.0F, 0.0F);
+		GL11.glRotatef(-180, 0.0F, 1.0F, 0.0F);
 
 		modelcross.render((Entity)null, 0f, 0f, 0f, 0f, 0f, 0.0625f);
 

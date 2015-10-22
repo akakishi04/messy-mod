@@ -87,7 +87,12 @@ public class Recipe{
 				'x',tetscore.fotrl,
 				'y',tetscore.rnhd,
 				'z',Items.nether_star);
-
+		GameRegistry.addRecipe(new ItemStack(tetscore.cross), 
+				"xxx",
+				"xxx",
+				"xxx",'x',tetscore.vm);
+		GameRegistry.addShapelessRecipe(new ItemStack(tetscore.svm,10), 
+				new ItemStack(tetscore.vm));
 
 
 		GameRegistry.addShapelessRecipe(new ItemStack(tetscore.endercrystal),

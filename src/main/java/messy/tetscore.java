@@ -1,6 +1,7 @@
 package messy;
 
 import java.io.File;
+import java.util.Random;
 
 import cpw.mods.fml.client.registry.ClientRegistry;
 import cpw.mods.fml.client.registry.RenderingRegistry;
@@ -24,6 +25,7 @@ import messy.mesev.LDaEH;
 import messy.mesev.LDeEH;
 import messy.mesev.OEH;
 import messy.mesmagic.ViSu;
+import messy.mesmagic.rainomagic;
 import messy.mesmagic.vil;
 import messy.mesmagic.vilsum;
 import messy.messyblock.Blocktrte;
@@ -218,6 +220,10 @@ public class tetscore {
 		 Registry.RegisterMagic("Rain village", "Meteorite", 20, 40, 2, 3, vil.class);
 		 Registry.RegisterBook("Extvor", 2, true, 0.2F, 1, 10, 1, 1);
 		 Registry.RegisterMagic("Extvor", "Meteorite", 20, 40, 2, 3, vilsum.class);
+		 
+		 Registry.RegisterBook("rain_of_magic", 1, true, 1.0F, 0, 1, 1, 0);
+		 Registry.RegisterMagic("rain_of_magic", "Meteorite", 150,new Random().nextInt(600), 1, 30, rainomagic.class);
+		 Registry.RegisterResonance("rain_of_magic", "fbs.arrow","Rain village");
 		 FBSRecipeAPI.AddMagicCircle("rainvil",
 
 				 		"010",
