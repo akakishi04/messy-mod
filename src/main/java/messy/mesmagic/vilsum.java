@@ -6,118 +6,136 @@ import net.minecraft.entity.monster.EntityGiantZombie;
 import net.minecraft.entity.passive.EntityHorse;
 import net.minecraft.entity.passive.EntityVillager;
 import net.minecraft.init.Blocks;
+import net.minecraft.util.ChatComponentText;
 
 public class vilsum extends MagicBase{
 
 	@Override
 	public boolean checkSuccess() {
-		if(isSpelled && checkMagicCircle("expl")){
-			return true;
-		}
+
 		return true;
 	}
 
 	@Override
 	public void success() {
-		int n=-3,i=-3;
+		int n=2,i=4;
 
-	if(world.getBlock((int)player.posX+3,(int) player.posY, (int)player.posZ+3)==Blocks.gravel){
+	if(world.getBlock((int)player.posX+n,(int) player.posY, (int)player.posZ+3)==Blocks.gravel){
 
 		    EntityHorse eh=new EntityHorse(world);
-			world.setBlockToAir((int)player.posX+3,(int) player.posY, (int)player.posZ+3);
+			world.setBlockToAir((int)player.posX+n,(int) player.posY, (int)player.posZ+3);
 			eh.setPosition(player.posX+3, player.posY, player.posZ+3);
+			eh.setHorseType(3);
 			world.spawnEntityInWorld(eh);
-			player.setHealth(player.getHealth()-5F);
-			//player.addChatMessage(new ChatComponentText("a"));
+			player.setHealth((player.getHealth() - 5));
 
-	}else if(world.getBlock((int)player.posX+3,(int) player.posY, (int)player.posZ+3)==tetscore.rofb){
+
+	}else if(world.getBlock((int)player.posX+n,(int) player.posY, (int)player.posZ+3)==tetscore.rofb){
 				EntityGiantZombie eh=new EntityGiantZombie(world);
-				world.setBlockToAir((int)player.posX+3,(int) player.posY, (int)player.posZ+3);
+				world.setBlockToAir((int)player.posX+n,(int) player.posY, (int)player.posZ+3);
 				eh.setPosition(player.posX+3, player.posY, player.posZ+3);
 				world.spawnEntityInWorld(eh);
-				player.setHealth(player.getHealth()-5F);
+				player.setHealth((player.getHealth() - 5));
 
-	}else if(world.getBlock((int)player.posX+3,(int) player.posY, (int)player.posZ+3)==tetscore.cross){
+	}else if(world.getBlock((int)player.posX+n,(int) player.posY, (int)player.posZ+3)==tetscore.cross){
 		 EntityVillager eh=new EntityVillager(world,rand.nextInt(4));
-			world.setBlockToAir((int)player.posX+3,(int) player.posY, (int)player.posZ+3);
+			world.setBlockToAir((int)player.posX+n,(int) player.posY, (int)player.posZ+3);
 			eh.setPosition(player.posX+3, player.posY, player.posZ+3);
 			world.spawnEntityInWorld(eh);
-			player.setHealth(player.getHealth()-5F);
+			player.setHealth((player.getHealth() - 5));
+		
+	}else{
+		int x=(int) (player.posX+n-1),y=(int) player.posY,z=(int) (player.posZ+3);
+		player.addChatMessage(new ChatComponentText(x+" "+y+" "+z+"何もない"+world.getBlock(x, y, z).getLocalizedName()));
+		
 	}
 	
-	if(world.getBlock((int)player.posX-3,(int) player.posY, (int)player.posZ+3)==Blocks.gravel){
+	
+
+	if(world.getBlock((int)player.posX-i,(int) player.posY, (int)player.posZ+3)==Blocks.gravel){
 
 		 EntityHorse eh=new EntityHorse(world);
-			world.setBlockToAir((int)player.posX-3,(int) player.posY, (int)player.posZ+3);
+			world.setBlockToAir((int)player.posX-i,(int) player.posY, (int)player.posZ+3);
 			eh.setPosition((int)player.posX-3,(int) player.posY, (int)player.posZ+3);
+			eh.setHorseType(3);
 			world.spawnEntityInWorld(eh);
-			player.setHealth(player.getHealth()-5F);
+			player.setHealth((player.getHealth() - 5));
+			
 
-	}else if(world.getBlock((int)player.posX-3,(int) player.posY, (int)player.posZ+3)==tetscore.rofb){
+	}else if(world.getBlock((int)player.posX-i,(int) player.posY, (int)player.posZ+3)==tetscore.rofb){
 		EntityGiantZombie eh=new EntityGiantZombie(world);
-		world.setBlockToAir((int)player.posX-3,(int) player.posY, (int)player.posZ+3);
+		world.setBlockToAir((int)player.posX-i,(int) player.posY, (int)player.posZ+3);
 		eh.setPosition((int)player.posX-3,(int) player.posY, (int)player.posZ+3);
 		world.spawnEntityInWorld(eh);
-		player.setHealth(player.getHealth()-5F);
+		player.setHealth((player.getHealth() - 5));
 
-	}else if(world.getBlock((int)player.posX-3,(int) player.posY, (int)player.posZ+3)==tetscore.cross){
+	}else if(world.getBlock((int)player.posX-i,(int) player.posY, (int)player.posZ+3)==tetscore.cross){
 		 EntityVillager eh=new EntityVillager(world,rand.nextInt(4));
-			world.setBlockToAir((int)player.posX-3,(int) player.posY, (int)player.posZ+3);
+			world.setBlockToAir((int)player.posX-i,(int) player.posY, (int)player.posZ+3);
 			eh.setPosition((int)player.posX-3,(int) player.posY, (int)player.posZ+3);
 			world.spawnEntityInWorld(eh);
-			player.setHealth(player.getHealth()-5F);
+			player.setHealth((player.getHealth() - 5));
+	}else{
+		int x=(int) (player.posX-i),y=(int) player.posY,z=(int) (player.posZ+3);
+		player.addChatMessage(new ChatComponentText(x+" "+y+" "+z+"何もない"+world.getBlock(x, y, z).getLocalizedName()));
+		
 	}
 	
-	if(world.getBlock((int)player.posX-3,(int) player.posY, (int)player.posZ-3)==Blocks.gravel){
+
+	if(world.getBlock((int)player.posX-i,(int) player.posY, (int)player.posZ-3)==Blocks.gravel){
 
 		 EntityHorse eh=new EntityHorse(world);
-			world.setBlockToAir((int)player.posX+3,(int) player.posY, (int)player.posZ+3);
+			world.setBlockToAir((int)player.posX-i,(int) player.posY, (int)player.posZ-3);
 			eh.setPosition((int)player.posX-3,(int) player.posY, (int)player.posZ-3);
+			eh.setHorseType(3);
 			world.spawnEntityInWorld(eh);
-			player.setHealth(player.getHealth()-5F);
-			
-	}else if(world.getBlock((int)player.posX-3,(int) player.posY, (int)player.posZ-3)==tetscore.rofb){
+			player.setHealth((player.getHealth() - 5));
+
+	}else if(world.getBlock((int)player.posX-i,(int) player.posY, (int)player.posZ-3)==tetscore.rofb){
 		EntityGiantZombie eh=new EntityGiantZombie(world);
-		world.setBlockToAir((int)player.posX-3,(int) player.posY, (int)player.posZ-3);
+		world.setBlockToAir((int)player.posX-i,(int) player.posY, (int)player.posZ-3);
 		eh.setPosition(player.posX+3, player.posY, player.posZ+3);
 		world.spawnEntityInWorld(eh);
-		player.setHealth(player.getHealth()-5F);
+		player.setHealth((player.getHealth() - 5));
 
-	}else if(world.getBlock((int)player.posX-3,(int) player.posY, (int)player.posZ-3)==tetscore.cross){
+	}else if(world.getBlock((int)player.posX-i,(int) player.posY, (int)player.posZ-3)==tetscore.cross){
 		 EntityVillager eh=new EntityVillager(world,rand.nextInt(4));
-			world.setBlockToAir((int)player.posX-3,(int) player.posY, (int)player.posZ-3);
+			world.setBlockToAir((int)player.posX-i,(int) player.posY, (int)player.posZ-3);
 			eh.setPosition((int)player.posX-3,(int) player.posY, (int)player.posZ-3);
 			world.spawnEntityInWorld(eh);
-			player.setHealth(player.getHealth()-5F);
+			player.setHealth((player.getHealth() - 5));
 	}
 
-	if(world.getBlock((int)player.posX+3,(int) player.posY, (int)player.posZ-3)==Blocks.gravel){
+	
+	
+	if(world.getBlock((int)player.posX+n,(int) player.posY, (int)player.posZ-3)==Blocks.gravel){
 
 		 EntityHorse eh=new EntityHorse(world);
-			world.setBlockToAir((int)player.posX+3,(int) player.posY, (int)player.posZ-3);
+			world.setBlockToAir((int)player.posX+n,(int) player.posY, (int)player.posZ-3);
 			eh.setPosition((int)player.posX+3,(int) player.posY, (int)player.posZ-3);
+			eh.setHorseType(3);
 			world.spawnEntityInWorld(eh);
-			player.setHealth(player.getHealth()-5F);
-			
-	}else if(world.getBlock((int)player.posX+3,(int) player.posY, (int)player.posZ-3)==tetscore.rofb){
+			player.setHealth((player.getHealth() - 5));
+
+	}else if(world.getBlock((int)player.posX+n,(int) player.posY, (int)player.posZ-3)==tetscore.rofb){
 		EntityGiantZombie eh=new EntityGiantZombie(world);
-		world.setBlockToAir((int)player.posX+3,(int) player.posY, (int)player.posZ-3);
+		world.setBlockToAir((int)player.posX+n,(int) player.posY, (int)player.posZ-3);
 		eh.setPosition((int)player.posX+3,(int) player.posY, (int)player.posZ-3);
 		world.spawnEntityInWorld(eh);
-		player.setHealth(player.getHealth()-5F);
-		
+		player.setHealth((player.getHealth() - 5));
 
-	}else if(world.getBlock((int)player.posX+3,(int) player.posY, (int)player.posZ-3)==tetscore.cross){
+
+	}else if(world.getBlock((int)player.posX+n,(int) player.posY, (int)player.posZ-3)==tetscore.cross){
 		 EntityVillager eh=new EntityVillager(world,rand.nextInt(4));
-			world.setBlockToAir((int)player.posX+3,(int) player.posY, (int)player.posZ-3);
+			world.setBlockToAir((int)player.posX+n,(int) player.posY, (int)player.posZ-3);
 			eh.setPosition((int)player.posX+3,(int) player.posY, (int)player.posZ-3);
 			world.spawnEntityInWorld(eh);
-			player.setHealth(player.getHealth()-5F);
-			
+			player.setHealth((player.getHealth() - 5));
+
 	}
 
 
-
+	player.addChatMessage(new ChatComponentText("a"));
 	}
 
 	@Override

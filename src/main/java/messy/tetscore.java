@@ -219,10 +219,10 @@ public class tetscore {
 		 Registry.RegisterBook("Rain village", 2, true, 0.2F, 1, 10, 1, 1);
 		 Registry.RegisterMagic("Rain village", "Meteorite", 20, 40, 2, 3, vil.class);
 		 Registry.RegisterBook("Extvor", 2, true, 0.2F, 1, 10, 1, 1);
-		 Registry.RegisterMagic("Extvor", "Meteorite", 20, 40, 2, 3, vilsum.class);
-		 
+		 Registry.RegisterMagic("Extvor", "summon", 20, 40, 2, 3, vilsum.class);
+
 		 Registry.RegisterBook("rain_of_magic", 1, true, 1.0F, 0, 1, 1, 0);
-		 Registry.RegisterMagic("rain_of_magic", "Meteorite", 150,new Random().nextInt(600), 1, 30, rainomagic.class);
+		 Registry.RegisterMagic("rain_of_magic", "Meteorite", 150,(double)new Random().nextInt(600), 1, 30, rainomagic.class);
 		 Registry.RegisterResonance("rain_of_magic", "fbs.arrow","Rain village");
 		 FBSRecipeAPI.AddMagicCircle("rainvil",
 
@@ -231,11 +231,11 @@ public class tetscore {
 				 		"001");
 		 FBSRecipeAPI.AddMagicCircle("expl",
 
-				 "00000",
-				 "00000",
-				 "00 00",
-				 "00000",
-				 "00000"
+				 "00200",
+				 "0 2 0",
+				 "11 11",
+				 "0 1 0",
+				 "00100"
 				 );
 
 

@@ -1,8 +1,8 @@
 package messy.mesmagic;
 
 import jp.plusplus.fbs.api.MagicBase;
+import jp.plusplus.fbs.entity.EntityMagicArrow;
 import messy.tets.EnPro;
-import net.minecraft.entity.projectile.EntityArrow;
 
 public class rainomagic extends MagicBase {
 
@@ -33,12 +33,12 @@ public class rainomagic extends MagicBase {
 			xz=false;
 		}
 		while (i<n) {
-			int x;
-			int z;
+			double x;
+			double z;
 			int y;
 		if(xz==false){
-			x=rand.nextInt(8)-4;
-			z=rand.nextInt(8)-4;
+			x=rand.nextInt(16)-8+rand.nextFloat();
+			z=rand.nextInt(16)-8+rand.nextDouble();
 			y=rand.nextInt(8)-2;
 		}else if(xz==true){
 			x=rand.nextInt(16)-8;
@@ -49,9 +49,11 @@ public class rainomagic extends MagicBase {
 			z=rand.nextInt(64)-32;
 			y=rand.nextInt(32)-16;
 		}
-		//EntityMagicArrow ev= new EntityMagicArrow(world,player,1,1,10);
-		EntityArrow ev=new EntityArrow(world, player, 20);
+		EntityMagicArrow ev= new EntityMagicArrow(world,player,1F,1F,10);
+		//EntityArrow ev=new EntityArrow(world, player, 20);
 		ev.setPosition(player.posX+x, player.posY+y, player.posZ+z);
+		ev.fallDistance=-1;
+		
 		
 		world.spawnEntityInWorld(ev);
 		i+=1;
