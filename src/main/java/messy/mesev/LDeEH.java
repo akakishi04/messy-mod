@@ -21,7 +21,12 @@ public class LDeEH {
 			EntityPlayer player=(EntityPlayer)event.source.getEntity();
 			EnPro pro =EnPro.get(player);
 
+			if(pro != null){
+				pro.setkillcount(pro.getkillcount()+1);
 
+				//player.addChatComponentMessage(new ChatComponentText(pro.getkill()));
+				}
+			
 				if(pro.getkillcount()>=1){
 
 					player.addStat(achire.Murderer, 1);
@@ -49,11 +54,7 @@ public class LDeEH {
 			}
 			}
 
-			if(pro != null){
-				pro.setkillcount(pro.getkillcount()+1);
-
-				//player.addChatComponentMessage(new ChatComponentText(pro.getkill()));
-				}
+			
 
 		}
 		if(event.entityLiving instanceof EntityVillager ){
