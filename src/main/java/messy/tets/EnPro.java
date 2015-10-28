@@ -13,7 +13,8 @@ public class EnPro implements IExtendedEntityProperties {
 	public final static String EXT_PROP_NAME = "messymodprop";
 
 	private int villagerkillcount = 0;
-
+	private int Acount=0;
+	private boolean pomil=false;
 
 	 public static void register(EntityPlayer player) {
 	        player.registerExtendedProperties(EXT_PROP_NAME, new EnPro());
@@ -27,6 +28,8 @@ public class EnPro implements IExtendedEntityProperties {
 		// TODO 自動生成されたメソッド・スタブ
 		 NBTTagCompound nbt=new NBTTagCompound();
 		 nbt.setInteger("villagerkillcount",this.villagerkillcount );
+		 nbt.setInteger("Acount",this.Acount );
+		 nbt.setBoolean("pomil", this.pomil);
 		 compound.setTag(EXT_PROP_NAME, nbt);
 
 	}
@@ -36,7 +39,8 @@ public class EnPro implements IExtendedEntityProperties {
 		// TODO 自動生成されたメソッド・スタブ
 		 NBTTagCompound nbt=compound.getCompoundTag(EXT_PROP_NAME);
 		villagerkillcount= nbt.getInteger("villagerkillcount");
-
+		Acount=nbt.getInteger("Acount");
+		pomil=nbt.getBoolean("pomil");
 	}
 
 	@Override
@@ -57,6 +61,19 @@ public class EnPro implements IExtendedEntityProperties {
 		return villagerkillcount;
 
 	}
+	public void setAcount(int c){
+		Acount = c;
+	}
+	public int getAcount(){
+		return Acount;
+	}
+	public void setpomil(boolean b){
+		pomil=b;
+	}
+	public boolean ispomil(){
+		return pomil;
+	}
+	
 	public String getkill(){
 		return String.valueOf(villagerkillcount);
 	}

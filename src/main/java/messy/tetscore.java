@@ -35,6 +35,7 @@ import messy.messyitem.bedstick;
 import messy.messyitem.forceofredlife;
 import messy.messyitem.icry;
 import messy.messyitem.irnhd;
+import messy.messyitem.isop;
 import messy.messyitem.isvm;
 import messy.messyitem.isyabusyabu;
 import messy.messyitem.ivh;
@@ -86,6 +87,7 @@ public class tetscore {
 	public static Item villagermeteo;
 	public static Item syabusyabu;
 	public static Item svm;
+	public static Item sop;
 
 
 	public static CreativeTabs tet;
@@ -139,7 +141,7 @@ public class tetscore {
 		villagermeteo=new ivilmeteo();
 		syabusyabu=new isyabusyabu();
 		svm=new isvm();
-
+		sop=new isop();
 
 
 		if(trtecre ==true){
@@ -162,7 +164,9 @@ public class tetscore {
 		GameRegistry.registerItem(villagermeteo, "villager meteo");
 		GameRegistry.registerItem(syabusyabu, "murabitosyabusyabu");
 		GameRegistry.registerItem(svm,"Sliced villagers of meat");
-
+		 if(Loader.isModLoaded("jp-plusplus-fbs")){
+			 GameRegistry.registerItem(sop, "sop");
+		 }
 
 		achire.register();
 
@@ -213,23 +217,23 @@ public class tetscore {
 		 }
 		 if(Loader.isModLoaded("jp-plusplus-fbs")){
 
-		 Registry.RegisterBook("ViSu", 1, true, 1, 1, 1, 1, 1);
-		 Registry.RegisterMagic("ViSu", "ViSu", 20, 1, 3, 4, ViSu.class);
-		// FBSRecipeAPI.AddMagic("ViSu", 1, 1f, 0.3F, 1, 3, 10, "ViSu", 100, 60, 10, 15, ViSu.class);
-		 Registry.RegisterBook("Rain village", 2, true, 0.2F, 1, 10, 1, 1);
-		 Registry.RegisterMagic("Rain village", "Meteorite", 20, 40, 2, 3, vil.class);
-		 Registry.RegisterBook("Extvor", 2, true, 0.2F, 1, 10, 1, 1);
-		 Registry.RegisterMagic("Extvor", "summon", 20, 40, 2, 3, vilsum.class);
+			 Registry.RegisterBook("ViSu", 1, true, 1, 1, 1, 1, 1);
+			 Registry.RegisterMagic("ViSu", "ViSu", 20, 1, 3, 4, ViSu.class);
+			 // FBSRecipeAPI.AddMagic("ViSu", 1, 1f, 0.3F, 1, 3, 10, "ViSu", 100, 60, 10, 15, ViSu.class);
+			 Registry.RegisterBook("Rain village", 2, true, 0.2F, 1, 10, 1, 1);
+			 Registry.RegisterMagic("Rain village", "Meteorite", 20, 40, 2, 3, vil.class);
+			 Registry.RegisterBook("Extvor", 2, true, 0.2F, 1, 10, 1, 1);
+			 Registry.RegisterMagic("Extvor", "summon", 20, 40, 2, 3, vilsum.class);
 
-		 Registry.RegisterBook("rain_of_magic", 1, true, 1.0F, 0, 1, 1, 0);
-		 Registry.RegisterMagic("rain_of_magic", "Meteorite", 150,(double)new Random().nextInt(600), 1, 30, rainomagic.class);
-		 Registry.RegisterResonance("rain_of_magic", "fbs.arrow","Rain village");
-		 FBSRecipeAPI.AddMagicCircle("rainvil",
+			 Registry.RegisterBook("rain_of_magic", 1, true, 1.0F, 0, 1, 1, 0);
+			 Registry.RegisterMagic("rain_of_magic", "Meteorite", 150,(double)new Random().nextInt(600), 1, 30, rainomagic.class);
+			 Registry.RegisterResonance("rain_of_magic", "fbs.arrow","Rain village");
+			 FBSRecipeAPI.AddMagicCircle("rainvil",
 
 				 		"010",
 				 		"1 1",
 				 		"001");
-		 FBSRecipeAPI.AddMagicCircle("expl",
+			 FBSRecipeAPI.AddMagicCircle("expl",
 
 				 "00200",
 				 "0 2 0",
