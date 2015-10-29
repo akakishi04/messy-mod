@@ -195,6 +195,7 @@ public class tetscore {
 		MinecraftForge.EVENT_BUS.register(new HBEH());
 		MinecraftForge.EVENT_BUS.register(new DEH());
 		MinecraftForge.EVENT_BUS.register(new OEH());
+		FMLCommonHandler.instance().bus().register(new OEH());
 
 		if(rrecipe==true && Loader.isModLoaded("ProjectE")){
 		Recipe.addrecipe(crn);
@@ -221,7 +222,7 @@ public class tetscore {
 			 Registry.RegisterMagic("ViSu", "ViSu", 20, 1, 3, 4, ViSu.class);
 			 // FBSRecipeAPI.AddMagic("ViSu", 1, 1f, 0.3F, 1, 3, 10, "ViSu", 100, 60, 10, 15, ViSu.class);
 			 Registry.RegisterBook("Rain village", 2, true, 0.2F, 1, 10, 1, 1);
-			 Registry.RegisterMagic("Rain village", "Meteorite", 20, 40, 2, 3, vil.class);
+			 Registry.RegisterMagic("Rain village", "Meteorite", 20, 40, 2, 15, vil.class);
 			 Registry.RegisterBook("Extvor", 2, true, 0.2F, 1, 10, 1, 1);
 			 Registry.RegisterMagic("Extvor", "summon", 20, 40, 2, 3, vilsum.class);
 

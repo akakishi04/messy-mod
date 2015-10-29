@@ -72,7 +72,12 @@ public class LDeEH {
 			
 			}
 		}
-
+		if(event.entityLiving instanceof EntityPlayer){
+			EnPro ep= EnPro.get((EntityPlayer)event.entity);
+			ep.setAcount(0);
+			ep.setpomil(false);
+		}
+			
 	}
 
 }
