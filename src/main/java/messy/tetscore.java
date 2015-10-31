@@ -41,6 +41,7 @@ import messy.messyitem.isyabusyabu;
 import messy.messyitem.ivh;
 import messy.messyitem.ivilmeteo;
 import messy.messyitem.ivm;
+import messy.messyitem.vilswep;
 import messy.tets.CommonProxy;
 import messy.tets.EntityPropertiesEventHandler;
 import messy.tets.PacketHandler;
@@ -51,6 +52,7 @@ import messy.tets.bcrr;
 import messy.tets.croosr;
 import messy.tets.dtil;
 import messy.tets.tetsoregen;
+import messy.tets.vilswrender;
 import mods.defeatedcrow.api.appliance.SoupType;
 import mods.defeatedcrow.api.recipe.RecipeRegisterManager;
 import net.minecraft.block.Block;
@@ -61,6 +63,7 @@ import net.minecraft.item.Item.ToolMaterial;
 import net.minecraft.item.ItemStack;
 import net.minecraft.world.gen.feature.WorldGenMinable;
 import net.minecraft.world.gen.feature.WorldGenerator;
+import net.minecraftforge.client.MinecraftForgeClient;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.common.config.Configuration;
 import net.minecraftforge.common.util.EnumHelper;
@@ -88,6 +91,7 @@ public class tetscore {
 	public static Item syabusyabu;
 	public static Item svm;
 	public static Item sop;
+	public static Item vilswe;
 
 
 	public static CreativeTabs tet;
@@ -142,7 +146,7 @@ public class tetscore {
 		syabusyabu=new isyabusyabu();
 		svm=new isvm();
 		sop=new isop();
-
+		vilswe=new vilswep();
 
 		if(trtecre ==true){
 		GameRegistry.registerBlock(trte, "trte");
@@ -164,6 +168,7 @@ public class tetscore {
 		GameRegistry.registerItem(villagermeteo, "villager meteo");
 		GameRegistry.registerItem(syabusyabu, "murabitosyabusyabu");
 		GameRegistry.registerItem(svm,"Sliced villagers of meat");
+		GameRegistry.registerItem(vilswe, "vilsw");
 		 if(Loader.isModLoaded("jp-plusplus-fbs")){
 			 GameRegistry.registerItem(sop, "sop");
 		 }
@@ -207,6 +212,7 @@ public class tetscore {
 		{
 			ClientRegistry.bindTileEntitySpecialRenderer(dtil.class, new croosr());;
 			RenderingRegistry.registerBlockHandler(new bcrr());
+			MinecraftForgeClient.registerItemRenderer(vilswe, new vilswrender());
 		}
 
 		 EntityPropertiesEventHandler enPro =new EntityPropertiesEventHandler();
