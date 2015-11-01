@@ -210,7 +210,8 @@ public class tetscore {
 		Recipe.smelterrecipe();
 		if (FMLCommonHandler.instance().getSide() == Side.CLIENT)
 		{
-			ClientRegistry.bindTileEntitySpecialRenderer(dtil.class, new croosr());;
+			ClientRegistry.bindTileEntitySpecialRenderer(dtil.class, new croosr());
+			
 			RenderingRegistry.registerBlockHandler(new bcrr());
 			MinecraftForgeClient.registerItemRenderer(vilswe, new vilswrender());
 		}

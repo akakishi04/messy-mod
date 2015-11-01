@@ -8,12 +8,15 @@ import jp.plusplus.fbs.packet.PacketHandler;
 import jp.plusplus.fbs.tileentity.render.RenderMagicCircle;
 import messy.tetscore;
 import messy.tets.EnPro;
+import net.minecraft.entity.passive.EntityVillager;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.EntityPlayerMP;
 import net.minecraft.init.Items;
+import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.potion.Potion;
 import net.minecraft.potion.PotionEffect;
 import net.minecraftforge.client.event.TextureStitchEvent;
+import net.minecraftforge.event.entity.living.LivingHurtEvent;
 import net.minecraftforge.event.entity.player.PlayerUseItemEvent;
 
 
@@ -76,4 +79,31 @@ public class OEH {
 			   PacketHandler.INSTANCE.sendTo(new MessagePlayerProperties(enp), (EntityPlayerMP)enp);
 		 }
 	 }
+	 
+	 
+	@SubscribeEvent
+	 public void ohe(LivingHurtEvent event){
+		 if(!event.entityLiving.worldObj.isRemote && event.source.getEntity()instanceof EntityPlayer && event.entityLiving instanceof EntityVillager){
+			 
+		 
+			 EntityPlayer ep=(EntityPlayer)event.source.getEntity();
+			 if(ep.getHeldItem().getItem()==tetscore.vilswe){
+				 NBTTagCompound nbt =  ep.getHeldItem().stackTagCompound;
+				 float damage =event.ammount;
+				 if(nbt!=null){
+					 event.ammount=0;
+					 
+				 }
+		 
+			 }
+			 
+		 }
+		 
+	 }
+	 
+	 
+	 
+	 
+	 
+	 
 }

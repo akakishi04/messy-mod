@@ -38,15 +38,15 @@ public class croosr extends TileEntitySpecialRenderer {
 		 * 位置の調整と色の設定.
 		 */
 		GL11.glColor4f(1.0F, 1.0F, 1.0F, 1.0F);
-		GL11.glTranslatef((float) x + 0.5F, (float) y + 0.5F, (float) z + 0.5F);
+		GL11.glTranslatef((float) x + 0.5F, (float) y + 0.36F, (float) z + 0.5F);
 
-		GL11.glRotatef(-180F, 1.0F, 0.0F, 0.0F);
-		GL11.glTranslatef(0.0F, -1.0F, 0.0F);
+		GL11.glRotatef(-180F, 1F, 0.0F, 0.0F);
+		GL11.glTranslatef(0.0F, -1F, 0.0F);
 
 
-		GL11.glRotatef(-180, 0.0F, 1.0F, 0.0F);
+		GL11.glRotatef(-180, 0.0F, 1.5F, 0.0F);
 
-		modelcross.render((Entity)null, 0f, 0f, 0f, 0f, 0f, 0.0625f);
+		modelcross.render((Entity)null, 0f, 0f, 0f, 0f, 0f, 0.0550f);
 
 		//new ModelBiped().render((Entity)null, 0F, 0F, 0F,-0.0F, 0.0F, 0.0625F);
 

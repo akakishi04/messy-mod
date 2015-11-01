@@ -52,7 +52,7 @@ public class vilswrender implements IItemRenderer {
 
 			GL11.glRotatef(-40F, 0F, 0.0F,1F);
 			GL11.glRotatef(90, 0.0F,1F, 0.0F);
-			
+		
 
 			modeling.render((Entity)null, 0, 0, 0, 0, 0, 0.0625F);
 
