@@ -51,6 +51,7 @@ import messy.tets.achire;
 import messy.tets.bcrr;
 import messy.tets.croosr;
 import messy.tets.dtil;
+import messy.tets.register;
 import messy.tets.tetsoregen;
 import messy.tets.vilswrender;
 import mods.defeatedcrow.api.appliance.SoupType;
@@ -105,7 +106,9 @@ public class tetscore {
 	public static boolean rrecipe,cpsrd,trtecre,trtegen,crosscre,villagerskilllosesan,villagerkilladdsan;
 	public static boolean cb=true;
 	public static int crn;
-
+	
+	public static register rg=new register();
+	
 	 @SidedProxy(clientSide = "messy.tets.ClientProxy", serverSide = "messy.tets.CommonProxy")
 	 public static CommonProxy proxy;
 
@@ -172,7 +175,10 @@ public class tetscore {
 		 if(Loader.isModLoaded("jp-plusplus-fbs")){
 			 GameRegistry.registerItem(sop, "sop");
 		 }
-
+		 
+		 rg.messyregistItem();
+		 rg.messyregistrecipe();
+		 
 		achire.register();
 
 		Blocks.bedrock.setHardness(10F).setHarvestLevel("pickaxe", 3);
