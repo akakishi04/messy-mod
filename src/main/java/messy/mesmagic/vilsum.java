@@ -17,9 +17,9 @@ public class vilsum extends MagicBase{
 
 	@Override
 	public void success() {
-		int n=2,i=4;
+		int n=3,i=3,ii=2,nn=4;
 
-	if(world.getBlock((int)player.posX+n,(int) player.posY, (int)player.posZ+3)==Blocks.gravel){
+	if(world.getBlock((int)player.posX+n,(int) player.posY, (int)player.posZ+nn)==Blocks.gravel){
 
 		    EntityHorse eh=new EntityHorse(world);
 			world.setBlockToAir((int)player.posX+n,(int) player.posY, (int)player.posZ+3);

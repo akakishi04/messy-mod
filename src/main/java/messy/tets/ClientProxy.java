@@ -12,5 +12,7 @@ public class ClientProxy extends CommonProxy {
 	return Minecraft.getMinecraft().thePlayer;
 	
 	}
+	
+
 }
 	

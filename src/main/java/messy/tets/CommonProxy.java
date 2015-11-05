@@ -26,4 +26,7 @@ public class CommonProxy implements IGuiHandler {
 		// TODO 自動生成されたメソッド・スタブ
 
 	}
+
+
+	
 }

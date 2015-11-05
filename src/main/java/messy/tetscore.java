@@ -13,6 +13,7 @@ import cpw.mods.fml.common.SidedProxy;
 import cpw.mods.fml.common.event.FMLInitializationEvent;
 import cpw.mods.fml.common.event.FMLPreInitializationEvent;
 import cpw.mods.fml.common.eventhandler.SubscribeEvent;
+import cpw.mods.fml.common.network.NetworkRegistry;
 import cpw.mods.fml.common.registry.GameRegistry;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
@@ -44,6 +45,7 @@ import messy.messyitem.ivm;
 import messy.messyitem.vilswep;
 import messy.tets.CommonProxy;
 import messy.tets.EntityPropertiesEventHandler;
+import messy.tets.GUIhandler;
 import messy.tets.PacketHandler;
 import messy.tets.RDelete;
 import messy.tets.Recipe;
@@ -54,6 +56,7 @@ import messy.tets.dtil;
 import messy.tets.register;
 import messy.tets.tetsoregen;
 import messy.tets.vilswrender;
+import messy.tets.vimitil;
 import mods.defeatedcrow.api.appliance.SoupType;
 import mods.defeatedcrow.api.recipe.RecipeRegisterManager;
 import net.minecraft.block.Block;
@@ -98,17 +101,18 @@ public class tetscore {
 	public static CreativeTabs tet;
 
 	public static ToolMaterial ttrte;
+	@Mod.Instance(MODID)
+	public static tetscore instance;
 
-
-
+	public static int gwid=1;
 
 
 	public static boolean rrecipe,cpsrd,trtecre,trtegen,crosscre,villagerskilllosesan,villagerkilladdsan;
 	public static boolean cb=true;
 	public static int crn;
-	
+
 	public static register rg=new register();
-	
+
 	 @SidedProxy(clientSide = "messy.tets.ClientProxy", serverSide = "messy.tets.CommonProxy")
 	 public static CommonProxy proxy;
 
@@ -175,10 +179,12 @@ public class tetscore {
 		 if(Loader.isModLoaded("jp-plusplus-fbs")){
 			 GameRegistry.registerItem(sop, "sop");
 		 }
-		 
+
 		 rg.messyregistItem();
 		 rg.messyregistrecipe();
-		 
+		 rg.messyregistblock();
+
+
 		achire.register();
 
 		Blocks.bedrock.setHardness(10F).setHarvestLevel("pickaxe", 3);
@@ -190,7 +196,7 @@ public class tetscore {
 	public void Init(FMLInitializationEvent event){
 
 		GameRegistry.registerTileEntityWithAlternatives(dtil.class, "dtil");
-
+		GameRegistry.registerTileEntity(vimitil.class, "villagermincer");
 
 		if(cpsrd==false && Loader.isModLoaded("ProjectE")){
 		RDelete.DeleteRecipe(new ItemStack(moze_intel.projecte.gameObjs.ObjHandler.philosStone));
@@ -198,6 +204,8 @@ public class tetscore {
 
 		MinecraftForge.ORE_GEN_BUS.register(this);
 
+
+		NetworkRegistry.INSTANCE.registerGuiHandler(this,new GUIhandler());
 
 
 		MinecraftForge.EVENT_BUS.register(new LDEH());
@@ -217,7 +225,7 @@ public class tetscore {
 		if (FMLCommonHandler.instance().getSide() == Side.CLIENT)
 		{
 			ClientRegistry.bindTileEntitySpecialRenderer(dtil.class, new croosr());
-			
+
 			RenderingRegistry.registerBlockHandler(new bcrr());
 			MinecraftForgeClient.registerItemRenderer(vilswe, new vilswrender());
 		}
