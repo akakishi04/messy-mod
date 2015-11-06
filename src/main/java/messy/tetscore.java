@@ -239,9 +239,9 @@ public class tetscore {
 		 }
 		 if(Loader.isModLoaded("jp-plusplus-fbs")){
 
-			 Registry.RegisterBook("ViSu", 1, true, 1, 1, 1, 1, 1);
-			 Registry.RegisterMagic("ViSu", "ViSu", 20, 1, 3, 4, ViSu.class);
-			 // FBSRecipeAPI.AddMagic("ViSu", 1, 1f, 0.3F, 1, 3, 10, "ViSu", 100, 60, 10, 15, ViSu.class);
+			 //Registry.RegisterBook("ViSu", 1, true, 1, 1, 1, 1, 1);
+			// Registry.RegisterMagic("ViSu", "ViSu", 20, 1, 3, 4, ViSu.class);
+			 FBSRecipeAPI.AddMagic("ViSu", 1, 1f, 0.3F, 1, 3, 10, "ViSu", 100, 60, 10, 15, ViSu.class);
 			 Registry.RegisterBook("Rain village", 2, true, 0.2F, 1, 10, 1, 1);
 			 Registry.RegisterMagic("Rain village", "Meteorite", 20, 40, 2, 15, vil.class);
 			 Registry.RegisterBook("Extvor", 2, true, 0.2F, 1, 10, 1, 1);
@@ -251,12 +251,10 @@ public class tetscore {
 			 Registry.RegisterMagic("rain_of_magic", "Meteorite", 150,(double)new Random().nextInt(600), 1, 30, rainomagic.class);
 			 Registry.RegisterResonance("rain_of_magic", "fbs.arrow","Rain village");
 			 FBSRecipeAPI.AddMagicCircle("rainvil",
-
 				 		"010",
 				 		"1 1",
 				 		"001");
 			 FBSRecipeAPI.AddMagicCircle("expl",
-
 				 "00200",
 				 "0 2 0",
 				 "11 11",

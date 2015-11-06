@@ -3,6 +3,7 @@ package messy.tets;
 import cpw.mods.fml.common.registry.GameRegistry;
 import messy.tetscore;
 import messy.messyblock.bsmin;
+import messy.messyblock.bworkb;
 import net.minecraft.block.Block;
 import net.minecraft.init.Items;
 import net.minecraft.item.Item;
