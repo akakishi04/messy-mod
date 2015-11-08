@@ -1,7 +1,8 @@
-package messy.tets;
+package messy.render;
 
 import org.lwjgl.opengl.GL11;
 
+import messy.model.vilswmodel;
 import net.minecraft.client.Minecraft;
 import net.minecraft.entity.Entity;
 import net.minecraft.item.ItemStack;

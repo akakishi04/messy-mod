@@ -1,12 +1,12 @@
-package messy.tets;
+package messy.model;
 
 import net.minecraft.client.model.ModelBase;
 import net.minecraft.client.model.ModelRenderer;
 import net.minecraft.entity.Entity;
 
-public class vilswmodel extends ModelBase {
-	 //fields
-    ModelRenderer e;
+public class swdmod extends ModelBase {
+	
+	ModelRenderer e;
     ModelRenderer ha1;
     ModelRenderer patu4;
     ModelRenderer patu1;
@@ -14,8 +14,8 @@ public class vilswmodel extends ModelBase {
     ModelRenderer patu22;
     ModelRenderer patu31;
     ModelRenderer patu32;
-    ModelRenderer hapatu1;
-    ModelRenderer hapatu2;
+
+
     ModelRenderer patu41;
     ModelRenderer patu42;
     ModelRenderer patu43;
@@ -23,13 +23,13 @@ public class vilswmodel extends ModelBase {
     ModelRenderer patu52;
     ModelRenderer patu53;
     ModelRenderer epatu1;
-    ModelRenderer hs5;
+ 
     ModelRenderer ha6;
-    ModelRenderer hs7;
-    ModelRenderer hapatu3;
-    ModelRenderer Shape1;
+   
+   
 
-  public vilswmodel() {
+
+  public swdmod() {
     textureWidth = 512;
     textureHeight = 32;
 
@@ -81,18 +81,7 @@ public class vilswmodel extends ModelBase {
       patu32.setTextureSize(512, 32);
       patu32.mirror = true;
       setRotation(patu32, 0F, 0F, 0F);
-      hapatu1 = new ModelRenderer(this, 153, 0);
-      hapatu1.addBox(-2.5F, -16F, 0F, 5, 7, 1);
-      hapatu1.setRotationPoint(0F, 0F, 0F);
-      hapatu1.setTextureSize(512, 32);
-      hapatu1.mirror = true;
-      setRotation(hapatu1, 0F, 0F, 0F);
-      hapatu2 = new ModelRenderer(this, 153, 9);
-      hapatu2.addBox(-4F, -2F, -4F, 8, 7, 5);
-      hapatu2.setRotationPoint(0F, -21F, 0F);
-      hapatu2.setTextureSize(512, 32);
-      hapatu2.mirror = true;
-      setRotation(hapatu2, 0F, 0F, 0F);
+     
       patu41 = new ModelRenderer(this, 183, 0);
       patu41.addBox(0F, 0F, 0F, 1, 6, 1);
       patu41.setRotationPoint(-3F, 0F, -7F);
@@ -135,36 +124,15 @@ public class vilswmodel extends ModelBase {
       epatu1.setTextureSize(512, 32);
       epatu1.mirror = true;
       setRotation(epatu1, 0F, 0F, 0F);
-      hs5 = new ModelRenderer(this, 113, 0);
-      hs5.addBox(0F, 0F, 0F, 2, 21, 2);
-      hs5.setRotationPoint(-1.5F, -26F, 8F);
-      hs5.setTextureSize(512, 32);
-      hs5.mirror = true;
-      setRotation(hs5, 0F, 0.7853982F, 0F);
+     
       ha6 = new ModelRenderer(this, 0, 0);
       ha6.addBox(0F, 0F, 0F, 3, 21, 11);
       ha6.setRotationPoint(-1.5F, -47F, -3F);
       ha6.setTextureSize(512, 32);
       ha6.mirror = true;
       setRotation(ha6, 0F, 0F, 0F);
-      hs7 = new ModelRenderer(this, 113, 0);
-      hs7.addBox(0F, 0F, 0F, 2, 21, 2);
-      hs7.setRotationPoint(-1.5F, -47F, 8F);
-      hs7.setTextureSize(512, 32);
-      hs7.mirror = true;
-      setRotation(hs7, 0F, 0.7853982F, 0F);
-      hapatu3 = new ModelRenderer(this, 196, 0);
-      hapatu3.addBox(0F, 0F, 0F, 5, 14, 1);
-      hapatu3.setRotationPoint(-2.5F, -37F, -2F);
-      hapatu3.setTextureSize(512, 32);
-      hapatu3.mirror = true;
-      setRotation(hapatu2, 0F, 0F, 0F);
-      Shape1 = new ModelRenderer(this, 245, 0);
-      Shape1.addBox(-2F, -7.5F, -3F, 4, 14, 6);
-      Shape1.setRotationPoint(0F, -39F, 0F);
-      Shape1.setTextureSize(512, 32);
-      Shape1.mirror = true;
-      setRotation(Shape1, 0.3665191F, 0F, 0F);
+      
+     
   }
 
   public void render(Entity entity, float f, float f1, float f2, float f3, float f4, float f5)
@@ -179,8 +147,6 @@ public class vilswmodel extends ModelBase {
     patu22.render(f5);
     patu31.render(f5);
     patu32.render(f5);
-    hapatu1.render(f5);
-    hapatu2.render(f5);
     patu41.render(f5);
     patu42.render(f5);
     patu43.render(f5);
@@ -188,11 +154,9 @@ public class vilswmodel extends ModelBase {
     patu52.render(f5);
     patu53.render(f5);
     epatu1.render(f5);
-    hs5.render(f5);
+   
     ha6.render(f5);
-    hs7.render(f5);
-    hapatu2.render(f5);
-    Shape1.render(f5);
+  
   }
 
   private void setRotation(ModelRenderer model, float x, float y, float z)
@@ -206,4 +170,5 @@ public class vilswmodel extends ModelBase {
   {
     super.setRotationAngles(f, f1, f2, f3, f4, f5, entity);
   }
+	
 }

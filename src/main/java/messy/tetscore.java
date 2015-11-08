@@ -43,6 +43,9 @@ import messy.messyitem.ivh;
 import messy.messyitem.ivilmeteo;
 import messy.messyitem.ivm;
 import messy.messyitem.vilswep;
+import messy.render.croosr;
+import messy.render.swdrend;
+import messy.render.vilswrender;
 import messy.tets.CommonProxy;
 import messy.tets.EntityPropertiesEventHandler;
 import messy.tets.GUIhandler;
@@ -51,11 +54,9 @@ import messy.tets.RDelete;
 import messy.tets.Recipe;
 import messy.tets.achire;
 import messy.tets.bcrr;
-import messy.tets.croosr;
 import messy.tets.dtil;
 import messy.tets.register;
 import messy.tets.tetsoregen;
-import messy.tets.vilswrender;
 import messy.tets.vimitil;
 import mods.defeatedcrow.api.appliance.SoupType;
 import mods.defeatedcrow.api.recipe.RecipeRegisterManager;
@@ -75,7 +76,7 @@ import net.minecraftforge.event.terraingen.OreGenEvent;
 import net.minecraftforge.event.terraingen.TerrainGen;
 
 
-@Mod(modid=tetscore.MODID)
+@Mod(modid=tetscore.MODID,dependencies="after:jp-plusplus-ir2")
 public class tetscore {
 
 	public static final String MODID = "MessyMOD";
@@ -97,6 +98,7 @@ public class tetscore {
 	public static Item sop;
 	public static Item vilswe;
 
+	public static String vilsw;
 
 	public static CreativeTabs tet;
 
@@ -181,7 +183,7 @@ public class tetscore {
 		 }
 
 		 rg.messyregistItem();
-		 rg.messyregistrecipe();
+		 
 		 rg.messyregistblock();
 
 
@@ -219,7 +221,7 @@ public class tetscore {
 		if(rrecipe==true && Loader.isModLoaded("ProjectE")){
 		Recipe.addrecipe(crn);
 		}
-
+		rg.messyregistrecipe();
 		Recipe.recipe();
 		Recipe.smelterrecipe();
 		if (FMLCommonHandler.instance().getSide() == Side.CLIENT)
@@ -228,6 +230,7 @@ public class tetscore {
 
 			RenderingRegistry.registerBlockHandler(new bcrr());
 			MinecraftForgeClient.registerItemRenderer(vilswe, new vilswrender());
+			MinecraftForgeClient.registerItemRenderer(register.baseSword,new swdrend());
 		}
 
 		 EntityPropertiesEventHandler enPro =new EntityPropertiesEventHandler();
@@ -237,6 +240,7 @@ public class tetscore {
 		 RecipeRegisterManager.plateRecipe.register(new ItemStack(vm), new ItemStack(ckvm), 160, false);
 		 RecipeRegisterManager.fondueRecipe.register(new ItemStack(svm), new ItemStack(syabusyabu),SoupType.WATER );
 		 }
+		 
 		 if(Loader.isModLoaded("jp-plusplus-fbs")){
 
 			 //Registry.RegisterBook("ViSu", 1, true, 1, 1, 1, 1, 1);

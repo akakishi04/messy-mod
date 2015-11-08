@@ -1,4 +1,4 @@
-package messy.tets;
+package messy.render;
 
 import org.lwjgl.opengl.GL11;
 

@@ -1,4 +1,4 @@
-package messy.tets;
+package messy.model;
 
 import net.minecraft.client.model.ModelBase;
 import net.minecraft.client.model.ModelRenderer;

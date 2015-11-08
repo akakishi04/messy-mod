@@ -87,14 +87,16 @@ public class OEH {
 			 
 		 
 			 EntityPlayer ep=(EntityPlayer)event.source.getEntity();
-			 if(ep.getHeldItem().getItem()==tetscore.vilswe){
+			 if(ep.inventory.getCurrentItem()!=null){
+			 if( ep.getHeldItem().getItem()==tetscore.vilswe){
 				 NBTTagCompound nbt =  ep.getHeldItem().stackTagCompound;
 				 float damage =event.ammount;
 				 if(nbt!=null){
 					 event.ammount=0;
 					 
 				 }
-		 
+				 
+			 }
 			 }
 			 
 		 }
