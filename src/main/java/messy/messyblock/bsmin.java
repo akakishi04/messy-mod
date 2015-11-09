@@ -4,23 +4,32 @@ import java.util.Random;
 
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
-import messy.tetscore;
 import messy.messyitem.vilswep;
 import messy.tets.register;
 import messy.tets.vimitil;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockContainer;
 import net.minecraft.block.material.Material;
+import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.entity.item.EntityItem;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.tileentity.TileEntity;
+import net.minecraft.util.IIcon;
 import net.minecraft.world.World;
 
 public class bsmin extends BlockContainer {
 
+	@SideOnly(Side.CLIENT)
+	public IIcon icont;
+	@SideOnly(Side.CLIENT)
+	public IIcon[] icons;
+	@SideOnly(Side.CLIENT)
+	public IIcon iconb;
+	
+	
 	public bsmin() {
 		super(Material.iron);
-		setCreativeTab(tetscore.tet);
+		
 		setBlockName("supermincer");
 		setTickRandomly(true);
 	}
@@ -32,7 +41,42 @@ public class bsmin extends BlockContainer {
 
 	}
 	
+	
+	@SideOnly(Side.CLIENT)
+	@Override
+	public void  registerBlockIcons(IIconRegister par1IconRegister){
+		
+		String md="tete:vm_";
+		icons=new IIcon[4];
+		
+		icons[0]=par1IconRegister.registerIcon(md+"s");
+		icons[1]=par1IconRegister.registerIcon(md+"st");
+		icons[2]=par1IconRegister.registerIcon(md+"sm");
+		icons[3]=par1IconRegister.registerIcon(md+"sd");
+		icont=par1IconRegister.registerIcon(md+"t");
+		iconb=par1IconRegister.registerIcon(md+"b");
+		
+	}
+	
+	@Override
+	public IIcon getIcon(int par1, int par2){
+		
+		if(par1==1){
+			return icont;
+			
+		}else if(par1==0){
+			return iconb;
+			
+		}else {
+			return icons[par2];
+		}
+		
+	}
+	
 
+ 
+
+	
 
 	@Override
 	 public boolean isOpaqueCube()
@@ -125,6 +169,36 @@ public class bsmin extends BlockContainer {
 			world.spawnParticle("dripLava", d4, d5, d6, 0.0D, 0.0D, 0.0D);
 			
 		}
+		
+		if(world.getBlock(x, y-1, z)!=register.vilmin && world.getBlock(x, y+1, z)!=register.vilmin){
+			
+			world.setBlockMetadataWithNotify(x, y, z, 0, 3);
+			
+		}
+		
+		if(world.getBlock(x, y+1, z)==register.vilmin){
+			
+			world.setBlockMetadataWithNotify(x, y, z, 3, 3);
+			
+		}
+		
+		if(world.getBlock(x, y-1, z)==register.vilmin){
+			
+			world.setBlockMetadataWithNotify(x, y, z, 1, 3);
+			
+		}
+		
+		if(world.getBlock(x, y-1, z)==register.vilmin && world.getBlock(x, y+1, z)==register.vilmin){
+			
+			world.setBlockMetadataWithNotify(x, y, z, 2, 3);
+			
+		}
+		
+	}
+	@Override
+	public void updateTick(World world, int x, int y, int z, Random random) {
+		
+		
 		
 	}
 	
