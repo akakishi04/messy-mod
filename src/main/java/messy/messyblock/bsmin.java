@@ -21,6 +21,7 @@ public class bsmin extends BlockContainer {
 	public bsmin() {
 		super(Material.iron);
 		setCreativeTab(tetscore.tet);
+		setBlockName("supermincer");
 		setTickRandomly(true);
 	}
 

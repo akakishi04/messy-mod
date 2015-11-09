@@ -13,6 +13,7 @@ public class achire {
 
 	public static Achievement Murderer,Homicidalmaniac,GOD;
 	public static Achievement villagereater,Haid,villagerfall;
+	public static Achievement basesword;
 	public static Achievement[] messylist;
 	public static AchievementPage Messyac;
 	public static final String newAchievement = "MessyMod";
@@ -34,9 +35,12 @@ public class achire {
 
 		villagerfall=(new Achievement("When a villager fall","When a villager fall", -1,3,new ItemStack(tetscore.villagermeteo), Murderer)).
 				initIndependentStat().registerStat();
+		
+		basesword=(new Achievement("It's base sword", "it's base sword", 2, 0, new ItemStack(register.baseSword), AchievementList.buildSword)).
+				initIndependentStat().setSpecial().registerStat();
 
 		messylist=new Achievement[]{
-				Murderer,Homicidalmaniac,GOD,villagereater,Haid,villagerfall
+				Murderer,Homicidalmaniac,GOD,villagereater,Haid,villagerfall,basesword
 		};
 
 		Messyac=new AchievementPage(newAchievement, messylist);

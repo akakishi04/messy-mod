@@ -27,8 +27,8 @@ public class swdrend implements IItemRenderer {
 
 	@Override
 	public boolean shouldUseRenderHelper(ItemRenderType type, ItemStack item, ItemRendererHelper helper) {
-		// TODO 自動生成されたメソッド・スタブ
 		return false;
+		
 	}
 
 	@Override
@@ -36,6 +36,14 @@ public class swdrend implements IItemRenderer {
 
 		Minecraft.getMinecraft().renderEngine.bindTexture(resource );
 
+		switch (type) {
+		case INVENTORY:
+			glMatrixForRenderInInventory();
+			break;
+		
+		default:
+			break;
+		}
 
 			float rot = 0;
 
@@ -61,6 +69,14 @@ public class swdrend implements IItemRenderer {
 
 
 			GL11.glPopMatrix();
+		
 	}
+	private void glMatrixForRenderInInventory() {
+		GL11.glRotatef(-5F, 1F, 0.0F,0F);
+		GL11.glRotatef(-150, 0.0F,1F, 0.0F);
+		GL11.glTranslatef(0.0F, -1.0F, 0.0F);
+		
+		
+}
 	
 }

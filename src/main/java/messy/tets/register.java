@@ -2,6 +2,8 @@ package messy.tets;
 
 import cpw.mods.fml.common.Loader;
 import cpw.mods.fml.common.registry.GameRegistry;
+import jp.plusplus.ir2.Recipes;
+import jp.plusplus.ir2.Recipes.RecipeItemStack;
 import jp.plusplus.ir2.api.IR3RecipeAPI;
 import messy.tetscore;
 import messy.messyblock.bsmin;
@@ -11,6 +13,7 @@ import net.minecraft.init.Items;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraftforge.oredict.OreDictionary;
+import net.minecraftforge.oredict.ShapedOreRecipe;
 import shift.sextiarysector.api.recipe.RecipeAPI;
 
 public class register {
@@ -26,7 +29,7 @@ public class register {
 		SIM=new Item().setCreativeTab(tetscore.tet).setTextureName("tete:").setUnlocalizedName("messy.SIM");
 		IP=new Item().setCreativeTab(tetscore.tet).setTextureName("tete:iip").setUnlocalizedName("messy.IP");
 		IrPl=new Item().setCreativeTab(tetscore.tet).setTextureName("tete:iple").setUnlocalizedName("messy.IrPl");
-		CL=new Item().setCreativeTab(tetscore.tet).setTextureName("tete:icl").setUnlocalizedName("messy.Conductive lines");
+		CL=new Item().setCreativeTab(tetscore.tet).setTextureName("tete:icl").setUnlocalizedName("messy.Conductive line");
 		Ctei=new Item().setCreativeTab(tetscore.tet).setTextureName("tete:ictei").setUnlocalizedName("messy.Conductive trte ingot");
 		Ctrpw=new Item().setCreativeTab(tetscore.tet).setTextureName("tete:icrpw").setUnlocalizedName("messy.Conductive trte powder");
 		trpow=new Item().setCreativeTab(tetscore.tet).setTextureName("tete:itrpow").setUnlocalizedName("messy.trte powder");
@@ -57,7 +60,7 @@ public class register {
 		workbench=new bworkb();
 		
 		GameRegistry.registerBlock(vilmin, "VillagerMincer");
-		GameRegistry.registerBlock(workbench, "workbench");
+		//GameRegistry.registerBlock(workbench, "workbench");
 		
 	}
 
@@ -91,8 +94,8 @@ public class register {
 			
 		if(Loader.isModLoaded("jp-plusplus-ir2")){
 			
-			IR3RecipeAPI.AddAlloying(new ItemStack(trpow), new ItemStack(Ctrpw));
-			//Recipes.addAlloying(new RecipeItemStack(new ItemStack(register.trpow,1), new ItemStack(register.Ctrpw,1)));
+			//IR3RecipeAPI.AddAlloying(new ItemStack(trpow), new ItemStack(Ctrpw));
+			Recipes.addAlloying(new RecipeItemStack(new ItemStack(register.trpow,1), new ItemStack(register.Ctrpw,1)));
 			
 		}
 		
@@ -127,6 +130,14 @@ public class register {
 				'z',SIM);
 		GameRegistry.addShapelessRecipe(new ItemStack(tetscore.vilswe),
 				baseSword,SIMA);
+		GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(Blade),
+				new Object[]{
+			"xyx",
+			"xyx",
+			"xyx",
+			'x',"plateIron",
+			'y',IMoB
+		}));
 		
 	}
 

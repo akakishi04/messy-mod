@@ -39,7 +39,14 @@ public class vilswrender implements IItemRenderer {
 
 			float rot = 0;
 
-
+			switch (type) {
+			case INVENTORY:
+				glMatrixForRenderInInventory();
+				break;
+			
+			default:
+				break;
+			}
 
 			GL11.glPushMatrix();
 			/*
@@ -62,5 +69,12 @@ public class vilswrender implements IItemRenderer {
 
 			GL11.glPopMatrix();
 	}
+	private void glMatrixForRenderInInventory() {
+		GL11.glRotatef(-5F, 1F, 0.0F,0F);
+		GL11.glRotatef(-150, 0.0F,1F, 0.0F);
+		GL11.glTranslatef(0.0F, -1.0F, 0.0F);
+		
+		
+}
 
 }

@@ -9,10 +9,23 @@ item.mendercrystal.name=ender crystal
 item.mendercrystalsingle.name=ender crystal
 item.mbedrockstick.name=bed rock stick
 item.mvilmete.name=villagers meteo
+item.messy.blade.name=Blade
+item.messy.Handle.name=Handle
+item.messy.SIM.name=Soul inclusion machine
+item.messy.IP.name=Iron pipe
+item.messy.IrPl.name=Iron plate
+item.messy.Conductive line=Conductive line
+item.messy.Conductive trte ingot.name=Conductive trte ingot
+item.messy.Conductive trte powder.name=Conductive trte powder
+item.messy.trte powder.name=trte powder
+item.messy.Internal mechanism of blade.name=Internal mechanism of blade
+item.messy.SINAttachment.name=Attachment(Soul inclusion machine)
+item.BaseSword.name=Base sword
 
 tile.trte.name=trte
 tile.brof.name=Rotten meat chunks
 tile.villdol.name =villager doll
+tile.supermincer.name=Super Mincer
 
 achievement.How about in decoration?=How about in decoration?
 achievement.Villager Eater=Villager Eater

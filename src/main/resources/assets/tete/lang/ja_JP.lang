@@ -9,10 +9,23 @@ item.mendercrystal.name=エンダークリスタル
 item.mendercrystalsingle.name=エンダークリスタル
 item.mbedrockstick.name=岩盤の棒
 item.mvilmete.name=村人メテオ
+item.messy.blade.name=刃
+item.messy.Handle.name=柄
+item.messy.SIM.name=魂封入機
+item.messy.IP.name=鉄のパイプ
+item.messy.IrPl.name=鉄のプレート
+item.messy.Conductive line=導線
+item.messy.Conductive trte ingot.name=導体化trteインゴット
+item.messy.Conductive trte powder.name=導体化trteの粉
+item.messy.trte powder.name=trteの粉
+item.messy.Internal mechanism of blade.name=刃の内部機構
+item.messy.SINAttachment.name=刃の付属品(魂封入器)
+item.BaseSword.name=基本の剣
 
 tile.trte.name=trte
 tile.brof.name=腐った肉塊
 tile.villdol.name=村人の人形
+tile.supermincer.name=スーパーミンチマシーン
 
 achievement.How about in decoration?=装飾にいかが？
 achievement.Villager Eater=Villager Eater
