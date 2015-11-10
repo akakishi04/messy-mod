@@ -181,6 +181,29 @@ public class register {
 				Items.iron_ingot);
 		GameRegistry.addSmelting(trstdu, new ItemStack(trsti), 0.5F);
 		
+		GameRegistry.addRecipe(new ItemStack(IMoB),
+				"xyx",
+				"yzy",
+				"xyy",
+				'x',Ctei,
+				'y',IP,
+				'z',CL);
+		GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(Handle),
+				new Object[]{
+						"xyx",
+						"xyx",
+						"xzx",
+						'x',"plateIron",
+						'y',IP,
+						'z',trsti
+				}));
+		GameRegistry.addRecipe(new ItemStack(Items.spawn_egg,1,120), 
+				"xyx",
+				"xzx",
+				"xyx",
+				'x',tetscore.vm,
+				'y',Items.emerald,
+				'z',Items.egg);
 		
 	}
 

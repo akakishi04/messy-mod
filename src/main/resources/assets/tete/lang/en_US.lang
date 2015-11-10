@@ -21,7 +21,15 @@ item.messy.trte powder.name=trte powder
 item.messy.Internal mechanism of blade.name=Internal mechanism of blade
 item.messy.SINAttachment.name=Attachment(Soul inclusion machine)
 item.BaseSword.name=Base sword
-item.Death candle supervise sword.name death candle supervise sword
+item.Death candle supervise sword.name=Death candle supervise sword
+item.Sliced villagers of meat.name=Sliced villagers meat
+item.syabusyabu.name=Syabusyabu
+item.messy.cutter.name=Cutter
+item.messy.Tr steel.name=TrSteel ingot
+item.messy.Cutter Blade.name=Cutter Blade
+item.messy.Iron dust.name=Iron dust
+item.messy.tr steel dust.name=TrSteel dust
+
 
 tile.trte.name=trte
 tile.brof.name=Rotten meat chunks

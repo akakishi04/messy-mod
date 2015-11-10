@@ -4,6 +4,7 @@ import java.util.Random;
 
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
+import messy.tetscore;
 import messy.messyitem.vilswep;
 import messy.tets.register;
 import messy.tets.vimitil;
@@ -29,7 +30,7 @@ public class bsmin extends BlockContainer {
 	
 	public bsmin() {
 		super(Material.iron);
-		
+		setCreativeTab(tetscore.tet);
 		setBlockName("supermincer");
 		setTickRandomly(true);
 	}
