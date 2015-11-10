@@ -27,6 +27,7 @@ public class vilswep extends ItemSword {
 		setCreativeTab(tetscore.tet);
 		setMaxDamage(-1);
 		setMaxStackSize(1);
+		setUnlocalizedName("Death candle supervise sword");
 		
 		
 	}
