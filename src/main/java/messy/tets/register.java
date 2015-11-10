@@ -9,6 +9,7 @@ import messy.tetscore;
 import messy.messyblock.bsmin;
 import messy.messyblock.bworkb;
 import net.minecraft.block.Block;
+import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
@@ -18,7 +19,7 @@ import shift.sextiarysector.api.recipe.RecipeAPI;
 
 public class register {
 
-	public static Item Blade,Handle,SIM,IP,IrPl,baseSword,CL,Ctei,Ctrpw,trpow,IMoB,SIMA;
+	public static Item Blade,Handle,SIM,IP,IrPl,baseSword,CL,Ctei,Ctrpw,trpow,IMoB,SIMA,cutter,trsti,CuBl,Irdu,trstdu;
 
 	public static Block vilmin,workbench;
 
@@ -26,7 +27,7 @@ public class register {
 	public void messyregistItem(){
 		Blade=new Item().setCreativeTab(tetscore.tet).setTextureName("tete:ibla").setUnlocalizedName("messy.blade");
 		Handle=new Item().setCreativeTab(tetscore.tet).setTextureName("tete:ihan").setUnlocalizedName("messy.Handle");
-		SIM=new Item().setCreativeTab(tetscore.tet).setTextureName("tete:").setUnlocalizedName("messy.SIM");
+		SIM=new Item().setCreativeTab(tetscore.tet).setTextureName("tete:isoim").setUnlocalizedName("messy.SIM");
 		IP=new Item().setCreativeTab(tetscore.tet).setTextureName("tete:iip").setUnlocalizedName("messy.IP");
 		IrPl=new Item().setCreativeTab(tetscore.tet).setTextureName("tete:iple").setUnlocalizedName("messy.IrPl");
 		CL=new Item().setCreativeTab(tetscore.tet).setTextureName("tete:icl").setUnlocalizedName("messy.Conductive line");
@@ -35,6 +36,11 @@ public class register {
 		trpow=new Item().setCreativeTab(tetscore.tet).setTextureName("tete:itrpow").setUnlocalizedName("messy.trte powder");
 		IMoB=new Item().setCreativeTab(tetscore.tet).setTextureName("tete:iimob").setUnlocalizedName("messy.Internal mechanism of blade");
 		SIMA=new Item().setCreativeTab(tetscore.tet).setTextureName("tete:isim").setUnlocalizedName("messy.SINAttachment");
+		cutter=new Item().setCreativeTab(tetscore.tet).setTextureName("tete:icu").setUnlocalizedName("messy.cutter");
+		trsti=new Item().setCreativeTab(tetscore.tet).setTextureName("tete:itrsti").setUnlocalizedName("messy.Tr steel");
+		CuBl=new Item().setCreativeTab(tetscore.tet).setTextureName("tete:icubl").setUnlocalizedName("messy.Cutter Blade");
+		Irdu=new Item().setCreativeTab(tetscore.tet).setTextureName("tete:iirdu").setUnlocalizedName("messy.Iron dust");
+		trstdu=new Item().setCreativeTab(tetscore.tet).setTextureName("tete:itrstdu").setUnlocalizedName("messy.tr steel dust");
 		
 		baseSword=new Ibasesword();
 		
@@ -50,8 +56,14 @@ public class register {
 		GameRegistry.registerItem(trpow, "trte powder");
 		GameRegistry.registerItem(IMoB, "Internal mechanism of blade");
 		GameRegistry.registerItem(SIMA, "Soul inclusion machine attachment");
+		GameRegistry.registerItem(cutter, "cutter");
+		GameRegistry.registerItem(trsti, "Tr steel");
+		GameRegistry.registerItem(CuBl, "Cutter Blade");
+		GameRegistry.registerItem(Irdu, "Iron Dust");
+		GameRegistry.registerItem(trstdu, "tr steel dust");
 
 		OreDictionary.registerOre("plateIron", IrPl);
+		OreDictionary.registerOre("dustIron", Irdu);
 
 	}
 
@@ -95,7 +107,7 @@ public class register {
 		if(Loader.isModLoaded("jp-plusplus-ir2")){
 			
 			//IR3RecipeAPI.AddAlloying(new ItemStack(trpow), new ItemStack(Ctrpw));
-			Recipes.addAlloying(new RecipeItemStack(new ItemStack(register.trpow,1), new ItemStack(register.Ctrpw,1)));
+			Recipes.addAlloying(new RecipeItemStack(new ItemStack(register.trpow,1), new ItemStack(register.Ctrpw,5)));
 			
 		}
 		
@@ -138,6 +150,37 @@ public class register {
 			'x',"plateIron",
 			'y',IMoB
 		}));
+		
+		GameRegistry.addRecipe(new ItemStack(vilmin),
+				"xyx",
+				"xzx",
+				"xyx",
+				'x',Blocks.quartz_block,
+				'y',cutter,
+				'z',Items.emerald);
+		
+		GameRegistry.addRecipe(new ItemStack(cutter),
+				"xxx",
+				"x x",
+				"xxx",
+				'x',CuBl);
+		
+		GameRegistry.addRecipe(new ItemStack(CuBl),
+				"x",
+				"x",
+				'x',trsti);
+		
+		GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(trstdu,2),
+				new Object[]{
+						"xy",
+						"yx",
+						'x',trpow,
+						'y',"dustIron"
+				}));
+		GameRegistry.addShapelessRecipe(new ItemStack(Irdu),
+				Items.iron_ingot);
+		GameRegistry.addSmelting(trstdu, new ItemStack(trsti), 0.5F);
+		
 		
 	}
 
