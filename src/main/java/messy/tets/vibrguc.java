@@ -8,12 +8,14 @@ import net.minecraft.util.ResourceLocation;
 
 public class vibrguc extends GuiContainer{
 	
-	private static final ResourceLocation texture = new ResourceLocation("tete:textures/gui/vivgu.png");
+	private static final ResourceLocation texture = new ResourceLocation("tete:textures/gui/vibgu.png");
 	
 	public vibrguc(InventoryPlayer iPlayer){
 		
 		super(new vibratcon(iPlayer));
-		this.ySize=181;
+		this.xSize=175;
+		this.ySize=193;
+		
 		
 	}
 	

@@ -43,10 +43,10 @@ public class register {
 		CuBl=new Item().setCreativeTab(tetscore.tet).setTextureName("tete:icubl").setUnlocalizedName("messy.Cutter Blade");
 		Irdu=new Item().setCreativeTab(tetscore.tet).setTextureName("tete:iirdu").setUnlocalizedName("messy.Iron dust");
 		trstdu=new Item().setCreativeTab(tetscore.tet).setTextureName("tete:itrstdu").setUnlocalizedName("messy.tr steel dust");
-		
+
 		baseSword=new Ibasesword();
 		vibrationsword=new ivibrationsword();
-		
+
 		GameRegistry.registerItem(Blade, "Blade");
 		GameRegistry.registerItem(Handle, "Handle");
 		GameRegistry.registerItem(SIM, "Soul inclusion machine");
@@ -74,10 +74,10 @@ public class register {
 	public void messyregistblock(){
 		vilmin=new bsmin();
 		workbench=new bworkb();
-		
+
 		GameRegistry.registerBlock(vilmin, "VillagerMincer");
 		//GameRegistry.registerBlock(workbench, "workbench");
-		
+
 	}
 
 	public void messyregistrecipe(){
@@ -94,43 +94,43 @@ public class register {
 				"xyx",
 				'x',Items.iron_ingot,
 				'y',this.CL);
-		
-		GameRegistry.addRecipe(new ItemStack(CL), 
+
+		GameRegistry.addRecipe(new ItemStack(CL),
 				"xxx",
 				'x',Ctei);
-		
+
 		GameRegistry.addSmelting(Ctrpw, new ItemStack(Ctei), 0.6F);
-		
-		
-			
+
+
+
 			GameRegistry.addShapelessRecipe(new ItemStack(register.Ctrpw),
 					register.trpow,Items.redstone,register.trpow,Items.redstone
 					);
-					
-			
+
+
 		if(Loader.isModLoaded("jp-plusplus-ir2")){
-			
+
 			//IR3RecipeAPI.AddAlloying(new ItemStack(trpow), new ItemStack(Ctrpw));
 			Recipes.addAlloying(new RecipeItemStack(new ItemStack(register.trpow,1), new ItemStack(register.Ctrpw,5)));
-			
+
 		}
-		
+
 		GameRegistry.addShapelessRecipe(new ItemStack(trpow), tetscore.trte);
-		
+
 		if(Loader.isModLoaded("jp-plusplus-ir2")){
-			
-			IR3RecipeAPI.AddCrushing(new ItemStack(tetscore.trte), 
+
+			IR3RecipeAPI.AddCrushing(new ItemStack(tetscore.trte),
 					new IR3RecipeAPI.CrushPair(1.0F,new ItemStack(trpow,4)),
 					new IR3RecipeAPI.CrushPair(0.3F, new ItemStack(trpow)),
 					new IR3RecipeAPI.CrushPair(0.1F, new ItemStack(Items.quartz)));
-			
+
 		}
 		if(Loader.isModLoaded("SextiarySector")){
-			
+
 			RecipeAPI.pulverizer.add(new ItemStack(tetscore.trte), new ItemStack(trpow));
-			
+
 		}
-		
+
 		GameRegistry.addRecipe(new ItemStack(SIM),
 				"xxx",
 				"yyx",
@@ -154,7 +154,7 @@ public class register {
 			'x',"plateIron",
 			'y',IMoB
 		}));
-		
+
 		GameRegistry.addRecipe(new ItemStack(vilmin),
 				"xyx",
 				"xzx",
@@ -162,18 +162,18 @@ public class register {
 				'x',Blocks.quartz_block,
 				'y',cutter,
 				'z',Items.emerald);
-		
+
 		GameRegistry.addRecipe(new ItemStack(cutter),
 				"xxx",
 				"x x",
 				"xxx",
 				'x',CuBl);
-		
+
 		GameRegistry.addRecipe(new ItemStack(CuBl),
 				"x",
 				"x",
 				'x',trsti);
-		
+
 		GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(trstdu,2),
 				new Object[]{
 						"xy",
@@ -184,7 +184,7 @@ public class register {
 		GameRegistry.addShapelessRecipe(new ItemStack(Irdu),
 				Items.iron_ingot);
 		GameRegistry.addSmelting(trstdu, new ItemStack(trsti), 0.5F);
-		
+
 		GameRegistry.addRecipe(new ItemStack(IMoB),
 				"xyx",
 				"yzy",
@@ -201,19 +201,19 @@ public class register {
 						'y',IP,
 						'z',trsti
 				}));
-		GameRegistry.addRecipe(new ItemStack(Items.spawn_egg,1,120), 
+		GameRegistry.addRecipe(new ItemStack(Items.spawn_egg,1,120),
 				"xyx",
 				"xzx",
 				"xyx",
 				'x',tetscore.vm,
 				'y',Items.emerald,
 				'z',Items.egg);
-		
+
 	}
 
 	public void oregister(){
 
-	
+
 
 	}
 

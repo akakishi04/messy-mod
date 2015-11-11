@@ -17,13 +17,13 @@ public class vibratcon extends Container {
 		vibin =new vibin(inventoryPlayer);
 		vibin.openInventory();
 		
-		this.addSlotToContainer(new SlotInventory(vibin, 1,79,43,0));
+		this.addSlotToContainer(new SlotInventory(vibin, 1,80,50,0));
 		
 		 //player inventory
         for (int i = 0; i < 3; i++) {
             for (int j = 0; j < 9; j++) {
                 
-                    this.addSlotToContainer(new SlotInventory(inventoryPlayer, j + i * 9 + 9, 8 + j * 18, 99 + i * 18,2));
+                    this.addSlotToContainer(new SlotInventory(inventoryPlayer, j + i * 9 + 9, 8 + j * 18, 112 + i * 18,2));
                 
                 
             }
@@ -32,7 +32,7 @@ public class vibratcon extends Container {
         //player slots
         for (int i = 0; i < 9; i++) {
       
-                this.addSlotToContainer(new SlotInventory(inventoryPlayer, i, 8 + i * 18, 157,2));
+                this.addSlotToContainer(new SlotInventory(inventoryPlayer, i, 8 + i * 18, 170,2));
         }
 		
 	}

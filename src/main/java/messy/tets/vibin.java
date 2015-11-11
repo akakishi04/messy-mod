@@ -145,19 +145,22 @@ public class vibin implements IInventory {
 	public void closeInventory() {
 
 		NBTTagList tagList = new NBTTagList();
-
+			int i=0;
             if (item[0] != null) {
+            	ItemCrystalUnit icu=(ItemCrystalUnit)item[0].getItem();
                 NBTTagCompound compound = new NBTTagCompound();
                 compound.setByte("Slot", (byte) 0);
+                i=icu.frequency;
                 item[0].writeToNBT(compound);
                 tagList.appendTag(compound);
             }
         
         ItemStack result = new ItemStack(ci.getItem(), 1, ci.getItemDamage());
-        result.setTagCompound(new NBTTagCompound());;
+        result.setTagCompound(new NBTTagCompound());
+        
         result.getTagCompound().setTag("Items", tagList);
-        result.getTagCompound().setInteger("Color", ci.getTagCompound().getInteger("Color"));
-
+        result.getTagCompound().setInteger("Hz",i);
+       
         ip.mainInventory[ip.currentItem] = result;
 
 	}
@@ -165,9 +168,6 @@ public class vibin implements IInventory {
 	@Override
 	public boolean isItemValidForSlot(int i, ItemStack items) {
 
-		 if(item==null){
-			 return false;}
-			
 	        return items.getItem() instanceof ItemCrystalUnit;
 	    
 	}
