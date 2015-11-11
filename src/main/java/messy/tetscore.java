@@ -106,7 +106,7 @@ public class tetscore {
 	@Mod.Instance(MODID)
 	public static tetscore instance;
 
-	public static int gwid=1;
+	public static int gwid=1,gvibid=2;
 
 
 	public static boolean rrecipe,cpsrd,trtecre,trtegen,crosscre,villagerskilllosesan,villagerkilladdsan;

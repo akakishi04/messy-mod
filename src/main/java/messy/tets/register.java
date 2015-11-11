@@ -8,6 +8,7 @@ import jp.plusplus.ir2.api.IR3RecipeAPI;
 import messy.tetscore;
 import messy.messyblock.bsmin;
 import messy.messyblock.bworkb;
+import messy.messyitem.ivibrationsword;
 import net.minecraft.block.Block;
 import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
@@ -20,6 +21,7 @@ import shift.sextiarysector.api.recipe.RecipeAPI;
 public class register {
 
 	public static Item Blade,Handle,SIM,IP,IrPl,baseSword,CL,Ctei,Ctrpw,trpow,IMoB,SIMA,cutter,trsti,CuBl,Irdu,trstdu;
+	public static Item vibrationsword;
 
 	public static Block vilmin,workbench;
 
@@ -43,6 +45,7 @@ public class register {
 		trstdu=new Item().setCreativeTab(tetscore.tet).setTextureName("tete:itrstdu").setUnlocalizedName("messy.tr steel dust");
 		
 		baseSword=new Ibasesword();
+		vibrationsword=new ivibrationsword();
 		
 		GameRegistry.registerItem(Blade, "Blade");
 		GameRegistry.registerItem(Handle, "Handle");
@@ -61,6 +64,7 @@ public class register {
 		GameRegistry.registerItem(CuBl, "Cutter Blade");
 		GameRegistry.registerItem(Irdu, "Iron Dust");
 		GameRegistry.registerItem(trstdu, "tr steel dust");
+		GameRegistry.registerItem(vibrationsword, "Vibration sword");
 
 		OreDictionary.registerOre("plateIron", IrPl);
 		OreDictionary.registerOre("dustIron", Irdu);

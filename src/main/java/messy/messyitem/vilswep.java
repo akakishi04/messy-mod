@@ -104,7 +104,7 @@ public class vilswep extends ItemSword {
 		
 		NBTTagCompound nbt =itemStack.stackTagCompound;
 		if(nbt!=null && nbt.getTag("vilsol")!=null){
-			return nbt.getInteger("vilsol");
+			return nbt.getInteger("vilsol")/2;
 		}
 		return 0;
 	}
