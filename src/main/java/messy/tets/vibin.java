@@ -1,5 +1,6 @@
 package messy.tets;
 
+import jp.plusplus.ir2.api.ItemCrystalUnit;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.InventoryPlayer;
 import net.minecraft.inventory.IInventory;
@@ -164,7 +165,11 @@ public class vibin implements IInventory {
 	@Override
 	public boolean isItemValidForSlot(int i, ItemStack items) {
 
-		return true;
+		 if(item==null){
+			 return false;}
+			
+	        return items.getItem() instanceof ItemCrystalUnit;
+	    
 	}
 
 }
