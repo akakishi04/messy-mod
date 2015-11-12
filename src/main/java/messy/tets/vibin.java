@@ -145,12 +145,15 @@ public class vibin implements IInventory {
 	public void closeInventory() {
 
 		NBTTagList tagList = new NBTTagList();
-			int i=0;
+			int f=0,rss=0;
+			double mxd=0;
             if (item[0] != null) {
             	ItemCrystalUnit icu=(ItemCrystalUnit)item[0].getItem();
                 NBTTagCompound compound = new NBTTagCompound();
                 compound.setByte("Slot", (byte) 0);
-                i=icu.frequency;
+                f=icu.frequency;
+                mxd=icu.maxDamageNBT;
+                rss=icu.rss;
                 item[0].writeToNBT(compound);
                 tagList.appendTag(compound);
             }
@@ -159,7 +162,9 @@ public class vibin implements IInventory {
         result.setTagCompound(new NBTTagCompound());
         
         result.getTagCompound().setTag("Items", tagList);
-        result.getTagCompound().setInteger("Hz",i);
+        result.getTagCompound().setInteger("Hz",f);
+        result.getTagCompound().setInteger("rss",rss);
+        result.getTagCompound().setDouble("mxd",mxd);
        
         ip.mainInventory[ip.currentItem] = result;
 

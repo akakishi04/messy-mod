@@ -45,6 +45,7 @@ import messy.messyitem.ivm;
 import messy.messyitem.vilswep;
 import messy.render.croosr;
 import messy.render.swdrend;
+import messy.render.vibrrender;
 import messy.render.vilswrender;
 import messy.tets.CommonProxy;
 import messy.tets.EntityPropertiesEventHandler;
@@ -178,13 +179,10 @@ public class tetscore {
 		GameRegistry.registerItem(syabusyabu, "murabitosyabusyabu");
 		GameRegistry.registerItem(svm,"Sliced villagers of meat");
 		GameRegistry.registerItem(vilswe, "vilsw");
-		 if(Loader.isModLoaded("jp-plusplus-fbs")){
-			 GameRegistry.registerItem(sop, "sop");
-		 }
-
-		 rg.messyregistItem();
-		 
-		 rg.messyregistblock();
+		rg.messyregistItem();
+		rg.omodcooreg();
+		
+		rg.messyregistblock();
 
 
 		achire.register();
@@ -231,6 +229,7 @@ public class tetscore {
 			RenderingRegistry.registerBlockHandler(new bcrr());
 			MinecraftForgeClient.registerItemRenderer(vilswe, new vilswrender());
 			MinecraftForgeClient.registerItemRenderer(register.baseSword,new swdrend());
+			MinecraftForgeClient.registerItemRenderer(register.vibrationsword, new vibrrender());
 		}
 
 		 EntityPropertiesEventHandler enPro =new EntityPropertiesEventHandler();

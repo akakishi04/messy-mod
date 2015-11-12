@@ -5,6 +5,7 @@ import cpw.mods.fml.common.registry.GameRegistry;
 import jp.plusplus.ir2.Recipes;
 import jp.plusplus.ir2.Recipes.RecipeItemStack;
 import jp.plusplus.ir2.api.IR3RecipeAPI;
+import jp.plusplus.ir2.api.ItemCrystalUnit;
 import messy.tetscore;
 import messy.messyblock.bsmin;
 import messy.messyblock.bworkb;
@@ -16,12 +17,13 @@ import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraftforge.oredict.OreDictionary;
 import net.minecraftforge.oredict.ShapedOreRecipe;
+import shift.mceconomy2.api.MCEconomyAPI;
 import shift.sextiarysector.api.recipe.RecipeAPI;
 
 public class register {
 
 	public static Item Blade,Handle,SIM,IP,IrPl,baseSword,CL,Ctei,Ctrpw,trpow,IMoB,SIMA,cutter,trsti,CuBl,Irdu,trstdu;
-	public static Item vibrationsword;
+	public static Item vibrationsword,Vfs;
 
 	public static Block vilmin,workbench;
 
@@ -211,10 +213,25 @@ public class register {
 
 	}
 
-	public void oregister(){
+	public void omodcooreg(){
 
+		if(Loader.isModLoaded("jp-plusplus-ir2")){
+			Vfs=new ItemCrystalUnit((short)16,(short)256,60*30).setTextureName("tete:").setUnlocalizedName("vibrate faintly stone");
+			
+			GameRegistry.registerItem(Vfs, "vibrate faintly stone");
+			GameRegistry.registerItem(tetscore.sop, "sop");
+		}
 
-
+	}
+	
+	public void MCE2(){
+		
+		if(Loader.isModLoaded("mceconomy2")){
+			
+			MCEconomyAPI.addPurchaseItem(new ItemStack(Vfs), 120000);
+			
+		}
+		
 	}
 
 

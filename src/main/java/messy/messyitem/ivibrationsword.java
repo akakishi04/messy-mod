@@ -3,6 +3,8 @@ package messy.messyitem;
 import com.google.common.collect.HashMultimap;
 import com.google.common.collect.Multimap;
 
+import cpw.mods.fml.relauncher.Side;
+import cpw.mods.fml.relauncher.SideOnly;
 import messy.tetscore;
 import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.entity.ai.attributes.AttributeModifier;
@@ -35,11 +37,53 @@ public class ivibrationsword extends ItemSword {
 		return multimap;
 	}
 	
-	public int test(ItemStack itemStack){
+	public double test(ItemStack itemStack){
 		
 		NBTTagCompound nbt= itemStack.getTagCompound();
 		
-		return nbt.getInteger("Hz");
+		if(nbt.getTag("Hz")!=null&& nbt.getTag("rss")!=null && nbt.getTag("mxd")!=null){
+			if(nbt.getInteger("Hz")>0 && nbt.getInteger("rss")>0 &&nbt.getDouble("mxd")>0){
+			
+				double damage=0;
+				double n=(nbt.getDouble("mxd")/(20*100))/60;
+				
+				damage=nbt.getInteger("Hz")/nbt.getInteger("rss")*n;
+			
+			return damage;
+			}else{
+				
+				return 4;
+				
+			}
+		}else {
+			
+			return 4;
+			
+		}
+		
+	}
+	
+	@Override
+	@SideOnly(Side.CLIENT)
+	public boolean hasEffect(ItemStack par1ItemStack) {
+		
+		if(par1ItemStack.stackTagCompound.getTag("Hz")!=null){
+			if(par1ItemStack.stackTagCompound.getInteger("Hz")>0){
+				
+				return true;
+				
+			}else{
+				
+				return false;
+				
+			}
+			
+			
+		}else{
+			
+			return false;
+			
+		}
 		
 	}
 	
