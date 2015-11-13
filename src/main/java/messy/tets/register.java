@@ -216,7 +216,7 @@ public class register {
 	public void omodcooreg(){
 
 		if(Loader.isModLoaded("jp-plusplus-ir2")){
-			Vfs=new ItemCrystalUnit((short)16,(short)256,60*30).setTextureName("tete:").setUnlocalizedName("vibrate faintly stone");
+			Vfs=new ItemCrystalUnit((short)16,(short)256,60*5).setTextureName("tete:").setUnlocalizedName("vibrate faintly stone");
 			
 			GameRegistry.registerItem(Vfs, "vibrate faintly stone");
 			GameRegistry.registerItem(tetscore.sop, "sop");

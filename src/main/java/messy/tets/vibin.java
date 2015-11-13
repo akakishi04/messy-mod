@@ -128,6 +128,10 @@ public class vibin implements IInventory {
 	        }
 	        else if(!ci.getTagCompound().hasKey("Items")){
 	            ci.getTagCompound().setTag("Items", new NBTTagList());
+	            ci.getTagCompound().setInteger("Hz",0);
+	            ci.getTagCompound().setInteger("rss",0);
+	            ci.getTagCompound().setDouble("mxd",0);
+	            ci.getTagCompound().setDouble("k-dam", 0);
 	        }
 
 	        NBTTagList tags = (NBTTagList) ci.getTagCompound().getTag("Items");
@@ -136,6 +140,16 @@ public class vibin implements IInventory {
 	            int slot = tagCompound.getByte("Slot");
 	            if (slot >= 0 && slot < item.length) {
 	                item[slot] = ItemStack.loadItemStackFromNBT(tagCompound);
+	                if(ci.getTagCompound().getDouble("k-dam")>0){
+	                	
+	                	if(item[slot].getItem() instanceof ItemCrystalUnit){
+	                		ItemCrystalUnit ic=(ItemCrystalUnit) item[slot].getItem();
+	                		
+	                		item[slot]=ic.setDamageNBT(item[slot], ci.getTagCompound().getDouble("k-dam"));
+	                		
+	                	}
+	                	
+	                }
 	            }
 	        }
 
@@ -146,7 +160,7 @@ public class vibin implements IInventory {
 
 		NBTTagList tagList = new NBTTagList();
 			int f=0,rss=0;
-			double mxd=0;
+			double mxd=0,kdam=0;
             if (item[0] != null) {
             	ItemCrystalUnit icu=(ItemCrystalUnit)item[0].getItem();
                 NBTTagCompound compound = new NBTTagCompound();
@@ -154,6 +168,7 @@ public class vibin implements IInventory {
                 f=icu.frequency;
                 mxd=icu.maxDamageNBT;
                 rss=icu.rss;
+                kdam=icu.getDamageNBT(item[0]);
                 item[0].writeToNBT(compound);
                 tagList.appendTag(compound);
             }
@@ -165,6 +180,7 @@ public class vibin implements IInventory {
         result.getTagCompound().setInteger("Hz",f);
         result.getTagCompound().setInteger("rss",rss);
         result.getTagCompound().setDouble("mxd",mxd);
+        result.getTagCompound().setDouble("k-dam", kdam);
        
         ip.mainInventory[ip.currentItem] = result;
 

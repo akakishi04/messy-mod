@@ -19,93 +19,87 @@ import net.minecraftforge.client.event.TextureStitchEvent;
 import net.minecraftforge.event.entity.living.LivingHurtEvent;
 import net.minecraftforge.event.entity.player.PlayerUseItemEvent;
 
-
 public class OEH {
 
-
-	 @SubscribeEvent
-	    public void onSwitchTexture(TextureStitchEvent.Pre e){
-
-	        if(e.map.getTextureType()==0){
-
-	        	if(Loader.isModLoaded("jp-plusplus-fbs")){
-	            RenderMagicCircle.RegisterMagicCircleIcon("rainvil", e.map, "tete:circlevil");
-	            RenderMagicCircle.RegisterMagicCircleIcon("expl", e.map, "tete:circlesom");
-	        	}
-	        }
-	    }
-	 @SubscribeEvent
-	 public void onPlayerTickEvent(TickEvent.PlayerTickEvent event){
-		 
-		 EnPro epro=EnPro.get(event.player);
-
-		 if(event.phase==TickEvent.Phase.START && !event.player.worldObj.isRemote){
-			 if(epro.ispomil()){
-			
-				 if( epro.getAcount()>0){
-					 epro.setAcount(epro.getAcount()-1);
-					
-				
-				 }
-				 if(epro.getAcount()==0){
-					 epro.setpomil(false);
-				 }
-			
-			 }
-		
-
-		 }
-	 
-	 }
-	 
-	 @SubscribeEvent
-	 public void oneatevent(PlayerUseItemEvent.Start event){
-		 EntityPlayer enp=event.entityPlayer;
-		 EnPro ep=EnPro.get(event.entityPlayer);
-		 
-		 if(event.item.getItem()==Items.milk_bucket && ep.ispomil() && !enp.capabilities.isCreativeMode){
-			 event.setCanceled(true);
-			 enp.addPotionEffect(new PotionEffect(Potion.moveSlowdown.id, 20*60*2, 5));
-			 enp.addPotionEffect(new PotionEffect(Potion.weakness.id, 20*60*2, 10));
-			 enp.addPotionEffect(new PotionEffect(Potion.harm.id, 2));
-		 }
-	 }
-	 @SubscribeEvent
-	 public void oneatenevent(PlayerUseItemEvent.Finish event){
-		 EntityPlayer enp=event.entityPlayer;
-		 EnPro ep=EnPro.get(event.entityPlayer);
-		 
-		 if(event.item.getItem()==tetscore.sop && ep.ispomil()&&!enp.worldObj.isRemote){
-			   PacketHandler.INSTANCE.sendTo(new MessagePlayerProperties(enp), (EntityPlayerMP)enp);
-		 }
-	 }
-	 
-	 
 	@SubscribeEvent
-	 public void ohe(LivingHurtEvent event){
-		 if(!event.entityLiving.worldObj.isRemote && event.source.getEntity()instanceof EntityPlayer && event.entityLiving instanceof EntityVillager){
-			 
-		 
-			 EntityPlayer ep=(EntityPlayer)event.source.getEntity();
-			 if(ep.inventory.getCurrentItem()!=null){
-			 if( ep.getHeldItem().getItem()==tetscore.vilswe){
-				 NBTTagCompound nbt =  ep.getHeldItem().stackTagCompound;
-				 float damage =event.ammount;
-				 if(nbt!=null){
-					 event.ammount=0;
-					 
-				 }
-				 
-			 }
-			 }
-			 
-		 }
-		 
-	 }
-	 
-	 
-	 
-	 
-	 
-	 
+	public void onSwitchTexture(TextureStitchEvent.Pre e) {
+
+		if (e.map.getTextureType() == 0) {
+
+			if (Loader.isModLoaded("jp-plusplus-fbs")) {
+				RenderMagicCircle.RegisterMagicCircleIcon("rainvil", e.map, "tete:circlevil");
+				RenderMagicCircle.RegisterMagicCircleIcon("expl", e.map, "tete:circlesom");
+			}
+		}
+	}
+
+	@SubscribeEvent
+	public void onPlayerTickEvent(TickEvent.PlayerTickEvent event) {
+
+		EnPro epro = EnPro.get(event.player);
+
+		if (event.phase == TickEvent.Phase.START && !event.player.worldObj.isRemote) {
+			if (epro.ispomil()) {
+
+				if (epro.getAcount() > 0) {
+					epro.setAcount(epro.getAcount() - 1);
+
+				}
+				if (epro.getAcount() == 0) {
+					epro.setpomil(false);
+				}
+
+			}
+
+		}
+
+	}
+
+	@SubscribeEvent
+	public void oneatevent(PlayerUseItemEvent.Start event) {
+		EntityPlayer enp = event.entityPlayer;
+		EnPro ep = EnPro.get(event.entityPlayer);
+
+		if (event.item.getItem() == Items.milk_bucket && ep.ispomil() && !enp.capabilities.isCreativeMode) {
+			event.setCanceled(true);
+			enp.addPotionEffect(new PotionEffect(Potion.moveSlowdown.id, 20 * 60 * 2, 5));
+			enp.addPotionEffect(new PotionEffect(Potion.weakness.id, 20 * 60 * 2, 10));
+			enp.addPotionEffect(new PotionEffect(Potion.harm.id, 2));
+		}
+	}
+
+	@SubscribeEvent
+	public void oneatenevent(PlayerUseItemEvent.Finish event) {
+		EntityPlayer enp = event.entityPlayer;
+		EnPro ep = EnPro.get(event.entityPlayer);
+
+		if (event.item.getItem() == tetscore.sop && ep.ispomil() && !enp.worldObj.isRemote) {
+			PacketHandler.INSTANCE.sendTo(new MessagePlayerProperties(enp), (EntityPlayerMP) enp);
+		}
+	}
+
+	@SubscribeEvent
+	public void ohe(LivingHurtEvent event) {
+		if (!event.entityLiving.worldObj.isRemote && event.source.getEntity() instanceof EntityPlayer
+				&& event.entityLiving instanceof EntityVillager) {
+
+			EntityPlayer ep = (EntityPlayer) event.source.getEntity();
+			if (ep.inventory.getCurrentItem() != null) {
+				if (ep.getHeldItem().getItem() == tetscore.vilswe) {
+					NBTTagCompound nbt = ep.getHeldItem().stackTagCompound;
+					float damage = event.ammount;
+					if (nbt != null) {
+						event.ammount = 0;
+
+					}
+
+				}
+			}
+
+		}
+
+	}
+
+
+
 }
