@@ -1,0 +1,8 @@
+#
+tile.SLBlock_Dead.name=SLBlock_Dead
+tile.SLBlock_Live.name=SLBlock_Live
+item.SLEgg.name=SLEgg
+item.SLsukoppu.name=SLSukoppu
+entity.Megune.EntityHunter.name=Megune
+
+

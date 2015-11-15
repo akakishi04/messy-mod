@@ -27,77 +27,93 @@ public class ivibrationsword extends ItemSword {
 
 	@Override
 	public ItemStack onItemRightClick(ItemStack itemStack, World world, EntityPlayer player) {
-		
-		if(itemStack.stackTagCompound.getTag("MODE")==null){
-			
-			itemStack.stackTagCompound.setInteger("MODE", 0);
-			
-		}
-		
-			if (!player.isSneaking()) {
-				
-					player.openGui(tetscore.instance, tetscore.gvibid, world, (int) player.posX, (int) player.posY,
-							(int) player.posZ);
 
-				
-			} else if (player.isSneaking()) {
-				if(itemStack.stackTagCompound.getInteger("MODE")==1){
-					
-					player.addChatComponentMessage(new ChatComponentText("mode-NOMAL"));
-					itemStack.stackTagCompound.setInteger("MODE", 0);
-					super.getAttributeModifiers(itemStack);
-					
-				}else if(itemStack.stackTagCompound.getInteger("MODE")==0){
-					
-					player.addChatComponentMessage(new ChatComponentText("mode-NO LIMIT"));
-					itemStack.stackTagCompound.setInteger("MODE", 1);
-					super.getAttributeModifiers(itemStack);
-					
-				}
-				
-				
+		int kd = 0;
+		NBTTagCompound nbt = itemStack.getTagCompound();
+		if (itemStack.stackTagCompound.getTag("MODE") == null) {
+
+			itemStack.stackTagCompound.setInteger("MODE", 0);
+
 		}
+
+		if (itemStack.stackTagCompound.getTag("k-dam") != null && itemStack.stackTagCompound.getInteger("k-dam") > 0) {
+
+			kd = itemStack.stackTagCompound.getInteger("k-dam");
+
+		}
+
+		if (!player.isSneaking()) {
+
+			player.openGui(tetscore.instance, tetscore.gvibid, world, (int) player.posX, (int) player.posY,
+					(int) player.posZ);
+
+		} else if (player.isSneaking() && world.isRemote) {
+			if (itemStack.stackTagCompound.getInteger("MODE") == 1) {
+				player.addChatComponentMessage(new ChatComponentText(String.valueOf(itemStack.stackTagCompound.getInteger("k-dam"))));
+				player.addChatComponentMessage(new ChatComponentText("mode-NOMAL"));
+				itemStack.stackTagCompound.setInteger("MODE", 0);
+				if(kd>0){
+					itemStack.stackTagCompound.setInteger("k-dam", kd);
+				}
+				super.getAttributeModifiers(itemStack);
+
+			} else if (itemStack.stackTagCompound.getInteger("MODE") == 0) {
+
+				player.addChatComponentMessage(new ChatComponentText("mode-NO LIMIT"));
+				itemStack.stackTagCompound.setInteger("MODE", 1);
+				if(kd>0){
+					itemStack.stackTagCompound.setInteger("k-dam", kd);
+					}
+				player.addChatComponentMessage(new ChatComponentText(String.valueOf(itemStack.stackTagCompound.getInteger("MODE"))));
+				super.getAttributeModifiers(itemStack);
+
+			}
+			
+			//itemStack.setTagCompound(nbt);
+			
+		}
+
+		
 		return itemStack;
 	}
 
 	@Override
 	public void onUpdate(ItemStack item, World world, Entity entity, int slot, boolean isHeld) {
-		
+
 		if (entity instanceof EntityPlayer) {
 			EntityPlayer ep = (EntityPlayer) entity;
-			if (world.isRemote) {
+
+			if (!world.isRemote) {
 				if (ep.inventory.getCurrentItem() == null) {
 				} else if (ep.inventory.getCurrentItem().getItem() == register.vibrationsword) {
+
+				
 					
-					if (item.getItem() == register.vibrationsword) {
+					if(item.stackTagCompound.getTag("MODE") == null){
 						
-						if(item.stackTagCompound.getTag("MODE")==null){
-							
-							item.stackTagCompound.setInteger("MODE", 0);
-							
-						}
-						ep.addChatComponentMessage(new ChatComponentText(String.valueOf(item.stackTagCompound.getInteger("MODE"))+String.valueOf(damage(item))));
-						if (item.stackTagCompound.getInteger("MODE")==0) {
-
-						} else if (item.stackTagCompound.getInteger("MODE")==1) {
-
-							ep.addChatComponentMessage(new ChatComponentText("mode-NO"));
-
-							if (item.stackTagCompound.getTag("k-dam") != null) {
-								
-								item.stackTagCompound.setDouble("k-dam",item.stackTagCompound.getDouble("k-dam") + 1);
-
-								if (item.stackTagCompound.getDouble("k-dam") >= item.stackTagCompound.getDouble("mxd")) {
-
-									
-
-								}
-							}
-
-						}
-
+						item.stackTagCompound.setInteger("MODE",0);
+						
 					}
+
+					if (item.stackTagCompound.getInteger("MODE") == 0) {
+						
+						item.stackTagCompound.setInteger("k-dam", item.stackTagCompound.getInteger("k-dam"));
+						
+					} else if (item.stackTagCompound.getInteger("MODE") == 1) {
+
+						item.stackTagCompound.setInteger("k-dam", item.stackTagCompound.getInteger("k-dam") + 100);
+
+						if (item.stackTagCompound.getInteger("k-dam") >= item.stackTagCompound.getDouble("mxd")) {
+
+							ep.addChatComponentMessage(new ChatComponentText("mode-NOMAL"));
+
+							// nbt.setInteger("MODE", 0);
+						}
+					}
+					
+				//	ep.addChatComponentMessage(new ChatComponentText(String.valueOf(item.stackTagCompound.getInteger("k-dam")) + ":"+ String.valueOf(item.stackTagCompound.getInteger("MODE"))));
 				}
+
 			}
 
 		}
@@ -113,19 +129,21 @@ public class ivibrationsword extends ItemSword {
 
 	public double damage(ItemStack itemStack) {
 
-		NBTTagCompound nbt = itemStack.getTagCompound();
+		NBTTagCompound nbt = itemStack.getTagCompound() == null ? new NBTTagCompound() : itemStack.getTagCompound();
+
 		
-		if(itemStack.stackTagCompound.getTag("MODE")==null){
-			
-			itemStack.stackTagCompound.setInteger("MODE", 0);
-			
+
+		if (nbt.getTag("MODE") == null) {
+
+			nbt.setInteger("MODE", 0);
+
 		}
-		
+
 		if (nbt.getTag("Hz") != null && nbt.getTag("rss") != null && nbt.getTag("mxd") != null) {
 			if (nbt.getInteger("Hz") > 0 && nbt.getInteger("rss") > 0 && nbt.getDouble("mxd") > 0) {
 
 				double damage = 0;
-				if (itemStack.stackTagCompound.getInteger("MODE")==0) {
+				if (itemStack.stackTagCompound.getInteger("MODE") == 0) {
 
 					double n = (nbt.getDouble("mxd") / (20 * 100)) / 60;
 

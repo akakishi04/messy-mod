@@ -12,11 +12,12 @@ public class vibin implements IInventory {
 
 	private InventoryPlayer ip;
 	private ItemStack ci;
-	private ItemStack[] item=new ItemStack[1];
+	private ItemStack[] item = new ItemStack[1];
+	private double d=0;
 
-	public vibin(InventoryPlayer inventory){
-		ip=inventory;
-		ci=ip.getCurrentItem();
+	public vibin(InventoryPlayer inventory) {
+		ip = inventory;
+		ci = ip.getCurrentItem();
 
 	}
 
@@ -38,36 +39,36 @@ public class vibin implements IInventory {
 	public ItemStack decrStackSize(int i, int size) {
 
 		if (this.item[0] != null) {
-            ItemStack itemstack;
+			ItemStack itemstack;
 
-            if (this.item[0].stackSize <= size) {
-                itemstack = this.item[0];
-                this.item[0] = null;
-                this.markDirty();
-                return itemstack;
-            } else {
-                itemstack = this.item[0].splitStack(size);
+			if (this.item[0].stackSize <= size) {
+				itemstack = this.item[0];
+				this.item[0] = null;
+				this.markDirty();
+				return itemstack;
+			} else {
+				itemstack = this.item[0].splitStack(size);
 
-                if (this.item[0].stackSize == 0) {
-                    this.item[0] = null;
-                }
+				if (this.item[0].stackSize == 0) {
+					this.item[0] = null;
+				}
 
-                this.markDirty();
-                return itemstack;
-            }
-        }
-        return null;
+				this.markDirty();
+				return itemstack;
+			}
+		}
+		return null;
 	}
 
 	@Override
 	public ItemStack getStackInSlotOnClosing(int i) {
 
 		if (this.item[0] != null) {
-            ItemStack itemstack = this.item[0];
-            this.item[0] = null;
-            return itemstack;
-        }
-        return null;
+			ItemStack itemstack = this.item[0];
+			this.item[0] = null;
+			return itemstack;
+		}
+		return null;
 	}
 
 	@Override
@@ -75,11 +76,11 @@ public class vibin implements IInventory {
 
 		this.item[0] = items;
 
-        if (items != null && items.stackSize > this.getInventoryStackLimit()) {
-            items.stackSize = this.getInventoryStackLimit();
-        }
+		if (items != null && items.stackSize > this.getInventoryStackLimit()) {
+			items.stackSize = this.getInventoryStackLimit();
+		}
 
-        this.markDirty();
+		this.markDirty();
 
 	}
 
@@ -92,7 +93,6 @@ public class vibin implements IInventory {
 
 	@Override
 	public boolean hasCustomInventoryName() {
-
 
 		return false;
 	}
@@ -107,13 +107,10 @@ public class vibin implements IInventory {
 	@Override
 	public void markDirty() {
 
-
-
 	}
 
 	@Override
 	public boolean isUseableByPlayer(EntityPlayer p_70300_1_) {
-
 
 		return true;
 	}
@@ -121,37 +118,36 @@ public class vibin implements IInventory {
 	@Override
 	public void openInventory() {
 
-		  if (!ci.hasTagCompound()) {
-	            ci.setTagCompound(new NBTTagCompound());
-	            ci.getTagCompound().setTag("Items", new NBTTagList());
+		if (!ci.hasTagCompound()) {
+			ci.setTagCompound(new NBTTagCompound());
+			ci.getTagCompound().setTag("Items", new NBTTagList());
 
-	        }
-	        else if(!ci.getTagCompound().hasKey("Items")){
-	            ci.getTagCompound().setTag("Items", new NBTTagList());
-	            ci.getTagCompound().setInteger("Hz",0);
-	            ci.getTagCompound().setInteger("rss",0);
-	            ci.getTagCompound().setDouble("mxd",0);
-	            ci.getTagCompound().setDouble("k-dam", 0);
-	        }
+		} else if (!ci.getTagCompound().hasKey("Items")) {
+			ci.getTagCompound().setTag("Items", new NBTTagList());
+			
+		}
+		
+		d=ci.getTagCompound().getInteger("k-dam");
+		
+		NBTTagList tags = (NBTTagList) ci.getTagCompound().getTag("Items");
+		for (int i = 0; i < tags.tagCount(); i++) {
+			NBTTagCompound tagCompound = tags.getCompoundTagAt(i);
+			int slot = tagCompound.getByte("Slot");
+			if (slot >= 0 && slot < item.length) {
+				item[slot] = ItemStack.loadItemStackFromNBT(tagCompound);
 
-	        NBTTagList tags = (NBTTagList) ci.getTagCompound().getTag("Items");
-	        for (int i = 0; i < tags.tagCount(); i++) {
-	            NBTTagCompound tagCompound = tags.getCompoundTagAt(i);
-	            int slot = tagCompound.getByte("Slot");
-	            if (slot >= 0 && slot < item.length) {
-	                item[slot] = ItemStack.loadItemStackFromNBT(tagCompound);
-	                if(ci.getTagCompound().getDouble("k-dam")>0){
-	                	
-	                	if(item[slot].getItem() instanceof ItemCrystalUnit){
-	                		ItemCrystalUnit ic=(ItemCrystalUnit) item[slot].getItem();
-	                		
-	                		item[slot]=ic.setDamageNBT(item[slot], ci.getTagCompound().getDouble("k-dam"));
-	                		
-	                	}
-	                	
-	                }
-	            }
-	        }
+				if (item[slot].getItem() instanceof ItemCrystalUnit) {
+					
+					
+						ItemCrystalUnit ic = (ItemCrystalUnit) item[slot].getItem();
+						item[0]=ic.setDamageNBT(item[0],d);
+						
+					
+					
+				}
+
+			}
+		}
 
 	}
 
@@ -159,38 +155,38 @@ public class vibin implements IInventory {
 	public void closeInventory() {
 
 		NBTTagList tagList = new NBTTagList();
-			int f=0,rss=0;
-			double mxd=0,kdam=0;
-            if (item[0] != null) {
-            	ItemCrystalUnit icu=(ItemCrystalUnit)item[0].getItem();
-                NBTTagCompound compound = new NBTTagCompound();
-                compound.setByte("Slot", (byte) 0);
-                f=icu.frequency;
-                mxd=icu.maxDamageNBT;
-                rss=icu.rss;
-                kdam=icu.getDamageNBT(item[0]);
-                item[0].writeToNBT(compound);
-                tagList.appendTag(compound);
-            }
-        
-        ItemStack result = new ItemStack(ci.getItem(), 1, ci.getItemDamage());
-        result.setTagCompound(new NBTTagCompound());
-        
-        result.getTagCompound().setTag("Items", tagList);
-        result.getTagCompound().setInteger("Hz",f);
-        result.getTagCompound().setInteger("rss",rss);
-        result.getTagCompound().setDouble("mxd",mxd);
-        result.getTagCompound().setDouble("k-dam", kdam);
-       
-        ip.mainInventory[ip.currentItem] = result;
+		int f = 0, rss = 0, kdam = 0;
+		double mxd = 0;
+		if (item[0] != null) {
+			ItemCrystalUnit icu = (ItemCrystalUnit) item[0].getItem();
+			NBTTagCompound compound = new NBTTagCompound();
+			compound.setByte("Slot", (byte) 0);
+			f = icu.frequency;
+			mxd = icu.maxDamageNBT;
+			rss = icu.rss;
+			kdam = (int) icu.getDamageNBT(item[0]);
+			item[0].writeToNBT(compound);
+			tagList.appendTag(compound);
+		}
+
+		ItemStack result = new ItemStack(ci.getItem(), 1, ci.getItemDamage());
+		result.setTagCompound(new NBTTagCompound());
+
+		result.getTagCompound().setTag("Items", tagList);
+		result.getTagCompound().setInteger("Hz", f);
+		result.getTagCompound().setInteger("rss", rss);
+		result.getTagCompound().setDouble("mxd", mxd);
+		result.getTagCompound().setInteger("k-dam", kdam);
+
+		ip.mainInventory[ip.currentItem] = result;
 
 	}
 
 	@Override
 	public boolean isItemValidForSlot(int i, ItemStack items) {
 
-	        return items.getItem() instanceof ItemCrystalUnit;
-	    
+		return items.getItem() instanceof ItemCrystalUnit;
+
 	}
 
 }

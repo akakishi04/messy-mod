@@ -14,8 +14,10 @@ public class swdrend implements IItemRenderer {
 	private static final ResourceLocation resource     = new ResourceLocation("tete:textures/items/vilwep.png");
 
 	private swdmod modeling;
+	
     public swdrend(){
         modeling = new swdmod();
+
     }
 
 	@Override

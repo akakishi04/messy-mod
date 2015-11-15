@@ -181,7 +181,7 @@ public class tetscore {
 		GameRegistry.registerItem(vilswe, "vilsw");
 		rg.messyregistItem();
 		rg.omodcooreg();
-		
+
 		rg.messyregistblock();
 
 
@@ -239,7 +239,7 @@ public class tetscore {
 		 RecipeRegisterManager.plateRecipe.register(new ItemStack(vm), new ItemStack(ckvm), 160, false);
 		 RecipeRegisterManager.fondueRecipe.register(new ItemStack(svm), new ItemStack(syabusyabu),SoupType.WATER );
 		 }
-		 
+
 		 if(Loader.isModLoaded("jp-plusplus-fbs")){
 
 			 //Registry.RegisterBook("ViSu", 1, true, 1, 1, 1, 1, 1);
