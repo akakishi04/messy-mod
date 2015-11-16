@@ -11,7 +11,7 @@ import net.minecraftforge.client.IItemRenderer;
 
 public class vibrrender implements IItemRenderer {
 	
-	private static final ResourceLocation resource     = new ResourceLocation("tete:textures/items/vibr.png");
+	private static final ResourceLocation[] resource     = {new ResourceLocation("tete:textures/items/vibr.png"),new ResourceLocation("tete:textures/items/vibrnl.png")};
 
 	private vibrationswordmodel modeling;
     public vibrrender(){
@@ -40,9 +40,14 @@ public class vibrrender implements IItemRenderer {
 
 	@Override
 	public void renderItem(ItemRenderType type, ItemStack item, Object... data) {
-
-Minecraft.getMinecraft().renderEngine.bindTexture(resource );
 		
+		if(item.stackTagCompound!=null){
+		Minecraft.getMinecraft().renderEngine.bindTexture(resource[item.stackTagCompound.getInteger("MODE")] );
+		}else{
+			
+			Minecraft.getMinecraft().renderEngine.bindTexture(resource[0] );
+			
+		}
 		
 		
 		switch (type) {
@@ -50,7 +55,7 @@ Minecraft.getMinecraft().renderEngine.bindTexture(resource );
 			GL11.glRotatef(-5F, 1F, 0.0F,0F);
 			GL11.glRotatef(-150, 0.0F,1F, 0.0F);
 			GL11.glTranslatef(0.0F, -1.0F, 0.0F);
-			
+			GL11.glScaled(0.5, 0.5, 0.5);
 			break;
 		
 		default:

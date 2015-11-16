@@ -127,7 +127,7 @@ public class vibin implements IInventory {
 			
 		}
 		
-		d=ci.getTagCompound().getInteger("k-dam");
+		d=ci.getTagCompound().getInteger("K-dam");
 		
 		NBTTagList tags = (NBTTagList) ci.getTagCompound().getTag("Items");
 		for (int i = 0; i < tags.tagCount(); i++) {
@@ -140,7 +140,7 @@ public class vibin implements IInventory {
 					
 					
 						ItemCrystalUnit ic = (ItemCrystalUnit) item[slot].getItem();
-						item[0]=ic.setDamageNBT(item[0],d);
+						item[slot]=ic.setDamageNBT(item[slot],d);
 						
 					
 					
@@ -176,7 +176,7 @@ public class vibin implements IInventory {
 		result.getTagCompound().setInteger("Hz", f);
 		result.getTagCompound().setInteger("rss", rss);
 		result.getTagCompound().setDouble("mxd", mxd);
-		result.getTagCompound().setInteger("k-dam", kdam);
+		result.getTagCompound().setInteger("K-dam", kdam);
 
 		ip.mainInventory[ip.currentItem] = result;
 

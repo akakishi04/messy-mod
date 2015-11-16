@@ -24,7 +24,7 @@ public class register {
 
 	public static Item Blade,Handle,SIM,IP,IrPl,baseSword,CL,Ctei,Ctrpw,trpow,IMoB,SIMA,cutter,trsti,CuBl,Irdu,trstdu;
 	public static Item vibrationsword,Vfs;
-
+	public static Item abadonhat;
 	public static Block vilmin,workbench;
 
 
@@ -48,6 +48,7 @@ public class register {
 
 		baseSword=new Ibasesword();
 		vibrationsword=new ivibrationsword();
+		abadonhat =new Iabah();
 
 		GameRegistry.registerItem(Blade, "Blade");
 		GameRegistry.registerItem(Handle, "Handle");
@@ -67,6 +68,7 @@ public class register {
 		GameRegistry.registerItem(Irdu, "Iron Dust");
 		GameRegistry.registerItem(trstdu, "tr steel dust");
 		GameRegistry.registerItem(vibrationsword, "Vibration sword");
+		GameRegistry.registerItem(abadonhat, "abadon hat");
 
 		OreDictionary.registerOre("plateIron", IrPl);
 		OreDictionary.registerOre("dustIron", Irdu);
