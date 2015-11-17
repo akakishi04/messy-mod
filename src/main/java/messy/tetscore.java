@@ -43,6 +43,7 @@ import messy.messyitem.ivh;
 import messy.messyitem.ivilmeteo;
 import messy.messyitem.ivm;
 import messy.messyitem.vilswep;
+import messy.render.ckkr;
 import messy.render.croosr;
 import messy.render.swdrend;
 import messy.render.vibrrender;
@@ -230,6 +231,7 @@ public class tetscore {
 			MinecraftForgeClient.registerItemRenderer(vilswe, new vilswrender());
 			MinecraftForgeClient.registerItemRenderer(register.baseSword,new swdrend());
 			MinecraftForgeClient.registerItemRenderer(register.vibrationsword, new vibrrender());
+			MinecraftForgeClient.registerItemRenderer(register.CKK,new ckkr());
 		}
 
 		 EntityPropertiesEventHandler enPro =new EntityPropertiesEventHandler();

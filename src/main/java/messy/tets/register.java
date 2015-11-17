@@ -9,7 +9,9 @@ import jp.plusplus.ir2.api.ItemCrystalUnit;
 import messy.tetscore;
 import messy.messyblock.bsmin;
 import messy.messyblock.bworkb;
+import messy.messyitem.crystaldust;
 import messy.messyitem.ivibrationsword;
+import messy.messyitem.knife;
 import net.minecraft.block.Block;
 import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
@@ -23,8 +25,8 @@ import shift.sextiarysector.api.recipe.RecipeAPI;
 public class register {
 
 	public static Item Blade,Handle,SIM,IP,IrPl,baseSword,CL,Ctei,Ctrpw,trpow,IMoB,SIMA,cutter,trsti,CuBl,Irdu,trstdu;
-	public static Item vibrationsword,Vfs;
-	public static Item abadonhat;
+	public static Item vibrationsword,Vfs,CKK;
+	public static Item crystaldustvillager;
 	public static Block vilmin,workbench;
 
 
@@ -45,11 +47,10 @@ public class register {
 		CuBl=new Item().setCreativeTab(tetscore.tet).setTextureName("tete:icubl").setUnlocalizedName("messy.Cutter Blade");
 		Irdu=new Item().setCreativeTab(tetscore.tet).setTextureName("tete:iirdu").setUnlocalizedName("messy.Iron dust");
 		trstdu=new Item().setCreativeTab(tetscore.tet).setTextureName("tete:itrstdu").setUnlocalizedName("messy.tr steel dust");
-
+		
 		baseSword=new Ibasesword();
-		vibrationsword=new ivibrationsword();
-		abadonhat =new Iabah();
 
+		
 		GameRegistry.registerItem(Blade, "Blade");
 		GameRegistry.registerItem(Handle, "Handle");
 		GameRegistry.registerItem(SIM, "Soul inclusion machine");
@@ -67,9 +68,6 @@ public class register {
 		GameRegistry.registerItem(CuBl, "Cutter Blade");
 		GameRegistry.registerItem(Irdu, "Iron Dust");
 		GameRegistry.registerItem(trstdu, "tr steel dust");
-		GameRegistry.registerItem(vibrationsword, "Vibration sword");
-		GameRegistry.registerItem(abadonhat, "abadon hat");
-
 		OreDictionary.registerOre("plateIron", IrPl);
 		OreDictionary.registerOre("dustIron", Irdu);
 
@@ -219,21 +217,32 @@ public class register {
 
 		if(Loader.isModLoaded("jp-plusplus-ir2")){
 			Vfs=new ItemCrystalUnit((short)16,(short)256,60*5).setTextureName("tete:").setUnlocalizedName("vibrate faintly stone");
+			crystaldustvillager=new crystaldust().setTextureName("tete:dustvillager").setUnlocalizedName("messy.dustvillager");
+
+			vibrationsword=new ivibrationsword();
 			
 			GameRegistry.registerItem(Vfs, "vibrate faintly stone");
 			GameRegistry.registerItem(tetscore.sop, "sop");
+			GameRegistry.registerItem(crystaldustvillager, "Crystal Unit Dust Villager");
+			GameRegistry.registerItem(vibrationsword, "Vibration sword");
+		}
+		if(Loader.isModLoaded("Schr0sCleaver")){
+			CKK=new knife();
+			
+			GameRegistry.registerItem(CKK, "Chinese kitchen knife");
+			
 		}
 
 	}
-	
+
 	public void MCE2(){
-		
+
 		if(Loader.isModLoaded("mceconomy2")){
-			
+
 			MCEconomyAPI.addPurchaseItem(new ItemStack(Vfs), 120000);
-			
+
 		}
-		
+
 	}
 
 

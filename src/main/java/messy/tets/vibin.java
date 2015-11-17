@@ -1,6 +1,7 @@
 package messy.tets;
 
 import jp.plusplus.ir2.api.ItemCrystalUnit;
+import jp.plusplus.ir2.items.ItemCore;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.InventoryPlayer;
 import net.minecraft.inventory.IInventory;
@@ -142,8 +143,18 @@ public class vibin implements IInventory {
 						ItemCrystalUnit ic = (ItemCrystalUnit) item[slot].getItem();
 						item[slot]=ic.setDamageNBT(item[slot],d);
 						
-					
-					
+						if(item[slot]==null){
+							
+							ItemStack is = ItemStack.loadItemStackFromNBT(tagCompound);
+							
+							if(is.getItem()==ItemCore.crystalUnitVillager){
+								
+								item[slot]=new ItemStack(register.crystaldustvillager);
+								
+							}
+							
+						}
+						
 				}
 
 			}
@@ -157,7 +168,7 @@ public class vibin implements IInventory {
 		NBTTagList tagList = new NBTTagList();
 		int f = 0, rss = 0, kdam = 0;
 		double mxd = 0;
-		if (item[0] != null) {
+		if (item[0]!=null && item[0].getItem() instanceof ItemCrystalUnit) {
 			ItemCrystalUnit icu = (ItemCrystalUnit) item[0].getItem();
 			NBTTagCompound compound = new NBTTagCompound();
 			compound.setByte("Slot", (byte) 0);
