@@ -13,7 +13,7 @@ public class testmodel extends ModelBase{
 
 	public testmodel(){
 
-		mc=AdvancedModelLoader.loadModel(new ResourceLocation("tete:model/untitled.obj"));
+		mc=AdvancedModelLoader.loadModel(new ResourceLocation("tete:model/test.obj"));
 
 	}
 	public void render(testmodel box, double x, double y, double z) {

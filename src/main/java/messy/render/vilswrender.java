@@ -17,6 +17,7 @@ public class vilswrender implements IItemRenderer {
 
     public vilswrender()  {
         modeling = new vilswmodel();
+    	
     }
 
 	@Override
@@ -42,17 +43,17 @@ public class vilswrender implements IItemRenderer {
 	public void renderItem(ItemRenderType type, ItemStack item, Object... data) {
 
 		Minecraft.getMinecraft().renderEngine.bindTexture(resource );
-		
-		
-		
+
+
+
 		switch (type) {
 		case INVENTORY:
 			GL11.glRotatef(-5F, 1F, 0.0F,0F);
 			GL11.glRotatef(-150, 0.0F,1F, 0.0F);
 			GL11.glTranslatef(0.0F, -1.0F, 0.0F);
-			
+
 			break;
-		
+
 		default:
 			break;
 		}
@@ -69,16 +70,16 @@ public class vilswrender implements IItemRenderer {
 
 		GL11.glRotatef(-40F, 0F, 0.0F,1F);
 		GL11.glRotatef(90, 0.0F,1F, 0.0F);
-	
+
 
 		modeling.render((Entity)null, 0, 0, 0, 0, 0, 0.0625F);
-
+		
 		//new ModelBiped().render((Entity)null, 0F, 0F, 0F,-0.0F, 0.0F, 0.0625F);
 
 
 		GL11.glPopMatrix();
-		
+
 	}
-	
+
 
 }
