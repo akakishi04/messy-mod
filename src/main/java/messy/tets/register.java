@@ -255,12 +255,7 @@ public class register {
 			
 			
 		}
-		if(Loader.isModLoaded("ProjectE")){
-			
-			
-			
-			
-		}
+		
 		
 
 	}
@@ -272,7 +267,11 @@ public class register {
 		ProjectEAPI.getEMCProxy().registerCustomEMC(new ItemStack(Items.spawn_egg,1,120), 32860);
 		ProjectEAPI.getEMCProxy().registerCustomEMC(new ItemStack(tetscore.vh,1), 5000);
 		ProjectEAPI.getEMCProxy().registerCustomEMC(new ItemStack(tetscore.vm,1), 10);
+		ProjectEAPI.getEMCProxy().registerCustomEMC(new ItemStack(tetscore.trte,1),200);
+		ProjectEAPI.getEMCProxy().registerCustomEMC(new ItemStack(Irdu,1), 256);
 		
+		ProjectEAPI.getEMCProxy().registerCustomEMC("plateIron", 256);
+		ProjectEAPI.getEMCProxy().registerCustomEMC("dustIron", 256);
 		
 	}
 	

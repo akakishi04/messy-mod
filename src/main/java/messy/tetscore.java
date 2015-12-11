@@ -202,9 +202,13 @@ public class tetscore {
 
 		 PacketHandler.init();
 		 
+		 if(Loader.isModLoaded("ProjectE")){
+				
+			 rg.EMCrg();
+				
+			}
 		 
 		 
-		 rg.EMCrg();
 
 	}
 	@EventHandler

@@ -9,7 +9,6 @@ import jp.plusplus.fbs.exprop.SanityManager;
 import jp.plusplus.fbs.spirit.ISpiritTool;
 import jp.plusplus.fbs.spirit.SpiritManager;
 import jp.plusplus.fbs.spirit.SpiritStatus;
-import messy.tetscore;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
@@ -20,7 +19,7 @@ public class isspsw extends vilswep implements ISpiritTool {
 	
 	
 	public isspsw() {
-		setCreativeTab(tetscore.tet);
+	//	setCreativeTab(tetscore.tet);
 		setMaxStackSize(1);
 		setTextureName("aa");
 		
