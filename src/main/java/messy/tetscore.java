@@ -3,6 +3,9 @@ package messy;
 import java.io.File;
 import java.util.Random;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+
 import cpw.mods.fml.client.registry.ClientRegistry;
 import cpw.mods.fml.client.registry.RenderingRegistry;
 import cpw.mods.fml.common.FMLCommonHandler;
@@ -11,6 +14,7 @@ import cpw.mods.fml.common.Mod;
 import cpw.mods.fml.common.Mod.EventHandler;
 import cpw.mods.fml.common.SidedProxy;
 import cpw.mods.fml.common.event.FMLInitializationEvent;
+import cpw.mods.fml.common.event.FMLPostInitializationEvent;
 import cpw.mods.fml.common.event.FMLPreInitializationEvent;
 import cpw.mods.fml.common.eventhandler.SubscribeEvent;
 import cpw.mods.fml.common.network.NetworkRegistry;
@@ -78,7 +82,7 @@ import net.minecraftforge.event.terraingen.OreGenEvent;
 import net.minecraftforge.event.terraingen.TerrainGen;
 
 
-@Mod(modid=tetscore.MODID,dependencies="after:jp-plusplus-ir2")
+@Mod(modid=tetscore.MODID,version="1.4",dependencies="after:jp-plusplus-ir2")
 public class tetscore {
 
 	public static final String MODID = "MessyMOD";
@@ -114,6 +118,9 @@ public class tetscore {
 	public static boolean rrecipe,cpsrd,trtecre,trtegen,crosscre,villagerskilllosesan,villagerkilladdsan;
 	public static boolean cb=true;
 	public static int crn;
+	
+	public static final Logger Log = LogManager.getLogger(tetscore.MODID);
+	
 
 	public static register rg=new register();
 
@@ -127,6 +134,8 @@ public class tetscore {
 	@EventHandler
 	static void preInit(FMLPreInitializationEvent event){
 
+		Log.info("messy:preinit");
+		
 		cfload();
 
 
@@ -167,7 +176,7 @@ public class tetscore {
 		GameRegistry.registerBlock(cross, "Cross");
 		}
 		GameRegistry.registerBlock(rofb, "rotten flesh block");
-		GameRegistry.registerItem(vh, "villager's heart");
+		GameRegistry.registerItem(vh, "villager' s heart");
 		GameRegistry.registerItem(vm, "villager's meat");
 		GameRegistry.registerItem(rnhd, "rotten no heart doll");
 		GameRegistry.registerItem(ckvm, "cooked Villager's meat");
@@ -181,16 +190,21 @@ public class tetscore {
 		GameRegistry.registerItem(svm,"Sliced villagers of meat");
 		GameRegistry.registerItem(vilswe, "vilsw");
 		rg.messyregistItem();
-		rg.omodcooreg();
+		
 
 		rg.messyregistblock();
-
-
+		
+		 rg.omodcooreg();
+		 
 		achire.register();
 
 		Blocks.bedrock.setHardness(10F).setHarvestLevel("pickaxe", 3);
 
 		 PacketHandler.init();
+		 
+		 
+		 
+		 rg.EMCrg();
 
 	}
 	@EventHandler
@@ -220,6 +234,9 @@ public class tetscore {
 		if(rrecipe==true && Loader.isModLoaded("ProjectE")){
 		Recipe.addrecipe(crn);
 		}
+		
+		
+		
 		rg.messyregistrecipe();
 		Recipe.recipe();
 		Recipe.smelterrecipe();
@@ -231,7 +248,9 @@ public class tetscore {
 			MinecraftForgeClient.registerItemRenderer(vilswe, new vilswrender());
 			MinecraftForgeClient.registerItemRenderer(register.baseSword,new swdrend());
 			MinecraftForgeClient.registerItemRenderer(register.vibrationsword, new vibrrender());
+			MinecraftForgeClient.registerItemRenderer(register.isspe, new vilswrender());
 			MinecraftForgeClient.registerItemRenderer(register.CKK,new ckkr());
+
 		}
 
 		 EntityPropertiesEventHandler enPro =new EntityPropertiesEventHandler();
@@ -241,7 +260,8 @@ public class tetscore {
 		 RecipeRegisterManager.plateRecipe.register(new ItemStack(vm), new ItemStack(ckvm), 160, false);
 		 RecipeRegisterManager.fondueRecipe.register(new ItemStack(svm), new ItemStack(syabusyabu),SoupType.WATER );
 		 }
-
+		
+			
 		 if(Loader.isModLoaded("jp-plusplus-fbs")){
 
 			 //Registry.RegisterBook("ViSu", 1, true, 1, 1, 1, 1, 1);
@@ -269,8 +289,18 @@ public class tetscore {
 
 
 		 }
+		 
+		
+		
 	}
-
+	
+	@EventHandler
+	public void postinit(FMLPostInitializationEvent event){
+		
+		
+		
+	}
+	
 
 	@SubscribeEvent
 	public void generateOrePost(OreGenEvent.Post event){
@@ -298,7 +328,7 @@ public class tetscore {
         trtecre=cfg.getBoolean("add trte", "blocks", true, "");
         trtegen=cfg.getBoolean("generate trte in world","generate" , true, "もし、trteの追加がされない場合はこれは無視される");
         villagerskilllosesan=cfg.getBoolean("Sanity lose when you have killed the villagers", "TFK", true, "村人を殺した時にSAN値が減るがよいか？");
-        villagerkilladdsan=cfg.getBoolean("Sanity recovery when you have killed a lot of villagers", "TFK", true, "村人を殺せばSAN値が回復するようになるよ");
+        villagerkilladdsan=cfg.getBoolean("Sanity recovery when you have killed a lot of villagers", "Insanity", true, "村人を殺せばSAN値が回復するようになるよ");
 
         crn=cfg.getInt("craftting philosstone recipe", "ProjectE", 2, 1, 2, "賢者の石のレシピはどれがいい? もしレシピが追加されない場合はこれは無視される 現在２つしかないよ");
         cfg.save();

@@ -19,13 +19,14 @@ import net.minecraftforge.common.util.EnumHelper;
 
 public class vilswep extends ItemSword {
 
-	private static ToolMaterial ee=EnumHelper.addToolMaterial("ee", 0, 50000, 1, 1, 30);
+	private static ToolMaterial ee=EnumHelper.addToolMaterial("ee", 0, 50000, 1, 5, 30);
 	private final float damage;
 	public vilswep() {
 		super(ee);
 		damage=5;
 		setCreativeTab(tetscore.tet);
 		setMaxDamage(-1);
+		
 		setMaxStackSize(1);
 		setUnlocalizedName("Death candle supervise sword");
 		
@@ -108,6 +109,7 @@ public class vilswep extends ItemSword {
 		}
 		return 0;
 	}
+
 	@Override
 	public boolean isItemTool(ItemStack p_77616_1_)
     {

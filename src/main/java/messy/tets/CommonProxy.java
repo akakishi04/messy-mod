@@ -4,7 +4,7 @@ import cpw.mods.fml.common.network.IGuiHandler;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.world.World;
 
-public class CommonProxy implements IGuiHandler {
+public class CommonProxy implements IGuiHandler{
 
 	public EntityPlayer getEntityPlayerInstance() {return null;}
 
@@ -26,6 +26,8 @@ public class CommonProxy implements IGuiHandler {
 		// TODO 自動生成されたメソッド・スタブ
 
 	}
+
+	
 
 
 	
