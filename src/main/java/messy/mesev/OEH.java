@@ -16,6 +16,7 @@ import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.potion.Potion;
 import net.minecraft.potion.PotionEffect;
 import net.minecraftforge.client.event.TextureStitchEvent;
+import net.minecraftforge.event.entity.PlaySoundAtEntityEvent;
 import net.minecraftforge.event.entity.living.LivingHurtEvent;
 import net.minecraftforge.event.entity.player.PlayerUseItemEvent;
 
@@ -99,7 +100,18 @@ public class OEH {
 		}
 
 	}
-
+	
+	@SubscribeEvent
+	public void ohe(PlaySoundAtEntityEvent event){
+		
+		if(event.entity instanceof EntityVillager && event.entity.getEntityData().hasKey("mincer")&& event.name.equals("mob.villager.hit") ){
+			
+			event.setCanceled(true);
+			
+		}
+		
+	}
+	
 
 
 }

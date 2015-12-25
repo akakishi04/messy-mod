@@ -20,7 +20,10 @@ public class LDeEH {
 
 			EntityPlayer player=(EntityPlayer)event.source.getEntity();
 			EnPro pro =EnPro.get(player);
-
+			EntityVillager EnV=(EntityVillager)event.entityLiving;
+			
+			
+			
 			if(pro != null){
 				pro.setkillcount(pro.getkillcount()+1);
 

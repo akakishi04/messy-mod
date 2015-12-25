@@ -49,12 +49,14 @@ import messy.messyitem.ivm;
 import messy.messyitem.vilswep;
 import messy.render.ckkr;
 import messy.render.croosr;
+import messy.render.depr;
 import messy.render.swdrend;
 import messy.render.vibrrender;
 import messy.render.vilswrender;
 import messy.tets.CommonProxy;
 import messy.tets.EntityPropertiesEventHandler;
 import messy.tets.GUIhandler;
+import messy.tets.HMMtile;
 import messy.tets.PacketHandler;
 import messy.tets.RDelete;
 import messy.tets.Recipe;
@@ -129,7 +131,7 @@ public class tetscore {
 
 	@SideOnly(Side.CLIENT)
 	public static int blockcrossr = RenderingRegistry.getNextAvailableRenderId();
-
+	public static int dragone=RenderingRegistry.getNextAvailableRenderId();
 
 	@EventHandler
 	static void preInit(FMLPreInitializationEvent event){
@@ -216,6 +218,7 @@ public class tetscore {
 
 		GameRegistry.registerTileEntityWithAlternatives(dtil.class, "dtil");
 		GameRegistry.registerTileEntity(vimitil.class, "villagermincer");
+		GameRegistry.registerTileEntity(HMMtile.class,"HyperMincer");
 
 		if(cpsrd==false && Loader.isModLoaded("ProjectE")){
 		RDelete.DeleteRecipe(new ItemStack(moze_intel.projecte.gameObjs.ObjHandler.philosStone));
@@ -247,8 +250,10 @@ public class tetscore {
 		if (FMLCommonHandler.instance().getSide() == Side.CLIENT)
 		{
 			ClientRegistry.bindTileEntitySpecialRenderer(dtil.class, new croosr());
-
+			
+			
 			RenderingRegistry.registerBlockHandler(new bcrr());
+			RenderingRegistry.registerBlockHandler(new depr());
 			MinecraftForgeClient.registerItemRenderer(vilswe, new vilswrender());
 			MinecraftForgeClient.registerItemRenderer(register.baseSword,new swdrend());
 			MinecraftForgeClient.registerItemRenderer(register.vibrationsword, new vibrrender());

@@ -1,17 +1,29 @@
 package messy.tets;
 
 
+import java.util.Random;
+
 import cpw.mods.fml.common.Loader;
 import cpw.mods.fml.common.registry.GameRegistry;
+import defeatedcrow.addonforamt.economy.api.RecipeManagerEMT;
+import defeatedcrow.addonforamt.economy.api.order.OrderBiome;
+import defeatedcrow.addonforamt.economy.api.order.OrderSeason;
+import defeatedcrow.addonforamt.economy.api.order.OrderType;
+import jp.plusplus.fbs.Registry;
 import jp.plusplus.fbs.spirit.SpiritManager;
 import jp.plusplus.ir2.Recipes;
 import jp.plusplus.ir2.Recipes.RecipeItemStack;
 import jp.plusplus.ir2.api.IR3RecipeAPI;
 import jp.plusplus.ir2.api.ItemCrystalUnit;
 import messy.tetscore;
+import messy.mesmagic.blacksummon;
+import messy.mesmagic.dragonsummon;
+import messy.messyblock.BlockHMM;
+import messy.messyblock.bdr;
 import messy.messyblock.bsmin;
 import messy.messyblock.bworkb;
 import messy.messyitem.crystaldust;
+import messy.messyitem.idemd;
 import messy.messyitem.isspsw;
 import messy.messyitem.ivibrationsword;
 import messy.messyitem.knife;
@@ -29,16 +41,18 @@ import shift.mceconomy2.api.MCEconomyAPI;
 import shift.sextiarysector.api.recipe.RecipeAPI;
 
 public class register {
-	
-	
-	
+
+	public Random rand=new Random();
+
 	public static Item Blade,Handle,SIM,IP,IrPl,baseSword,CL,Ctei,Ctrpw,trpow,IMoB,SIMA,cutter,trsti,CuBl,Irdu,trstdu;
+	public static Item dep,demd;
 	public static Item vibrationsword,Vfs,CKK,bloodtea;
-	public static Item crystaldustvillager,isspe;
-	public static Block vilmin,workbench;
-	
+	public static Item crystaldustvillager,isspe,cupd,cupdcu,cupm;
+	public static Block vilmin,workbench,HMM;
+	public static Block bdep;
+
 	private static IEMCProxy emcProxy = ProjectEAPI.getEMCProxy();
-	
+
 	public void messyregistItem(){
 		Blade=new Item().setCreativeTab(tetscore.tet).setTextureName("tete:ibla").setUnlocalizedName("messy.blade");
 		Handle=new Item().setCreativeTab(tetscore.tet).setTextureName("tete:ihan").setUnlocalizedName("messy.Handle");
@@ -56,10 +70,12 @@ public class register {
 		CuBl=new Item().setCreativeTab(tetscore.tet).setTextureName("tete:icubl").setUnlocalizedName("messy.Cutter Blade");
 		Irdu=new Item().setCreativeTab(tetscore.tet).setTextureName("tete:iirdu").setUnlocalizedName("messy.Iron dust");
 		trstdu=new Item().setCreativeTab(tetscore.tet).setTextureName("tete:itrstdu").setUnlocalizedName("messy.tr steel dust");
+		dep=new Item().setCreativeTab(tetscore.tet).setTextureName("tete:dragonep").setUnlocalizedName("messy.dragon egg powder");
+		demd=new idemd();
 		
 		baseSword=new Ibasesword();
 
-		
+
 		GameRegistry.registerItem(Blade, "Blade");
 		GameRegistry.registerItem(Handle, "Handle");
 		GameRegistry.registerItem(SIM, "Soul inclusion machine");
@@ -77,16 +93,26 @@ public class register {
 		GameRegistry.registerItem(CuBl, "Cutter Blade");
 		GameRegistry.registerItem(Irdu, "Iron Dust");
 		GameRegistry.registerItem(trstdu, "tr steel dust");
+		GameRegistry.registerItem(dep, "dragon egg powder");
+		GameRegistry.registerItem(demd, "magic dust of dragon eggs");
+
+
 		OreDictionary.registerOre("plateIron", IrPl);
 		OreDictionary.registerOre("dustIron", Irdu);
+		OreDictionary.registerOre("dragoneggpowder", dep);
+
 
 	}
 
 	public void messyregistblock(){
 		vilmin=new bsmin();
 		workbench=new bworkb();
+		HMM=new BlockHMM();
+		bdep=new bdr();
 
 		GameRegistry.registerBlock(vilmin, "VillagerMincer");
+		GameRegistry.registerBlock(HMM, "Hypervillagermincer");
+		GameRegistry.registerBlock(bdep, "dragon egg magic powder");
 		//GameRegistry.registerBlock(workbench, "workbench");
 
 	}
@@ -134,11 +160,16 @@ public class register {
 					new IR3RecipeAPI.CrushPair(1.0F,new ItemStack(trpow,4)),
 					new IR3RecipeAPI.CrushPair(0.3F, new ItemStack(trpow)),
 					new IR3RecipeAPI.CrushPair(0.1F, new ItemStack(Items.quartz)));
+			IR3RecipeAPI.AddCrushing(new ItemStack(Blocks.dragon_egg),
+					new IR3RecipeAPI.CrushPair(1.0F, new ItemStack(dep,64)),
+					new IR3RecipeAPI.CrushPair(0.8f, new ItemStack(dep,32)),
+					new IR3RecipeAPI.CrushPair(0.8f, new ItemStack(dep,32)));
 
 		}
 		if(Loader.isModLoaded("SextiarySector")){
 
 			RecipeAPI.pulverizer.add(new ItemStack(tetscore.trte), new ItemStack(trpow));
+			RecipeAPI.pulverizer.add(new ItemStack(Blocks.dragon_egg), new ItemStack(dep,64));
 
 		}
 
@@ -193,10 +224,10 @@ public class register {
 						'y',"dustIron"
 				}));
 		if(!Loader.isModLoaded("jp-plusplus-ir2")){
-		
+
 		GameRegistry.addShapelessRecipe(new ItemStack(Irdu),
 				Items.iron_ingot);
-		
+
 		}
 		GameRegistry.addSmelting(trstdu, new ItemStack(trsti), 0.5F);
 
@@ -229,52 +260,72 @@ public class register {
 	public void omodcooreg(){
 
 		if(Loader.isModLoaded("jp-plusplus-ir2")){
-			Vfs=new ItemCrystalUnit((short)16,(short)256,60*5).setTextureName("tete:").setUnlocalizedName("vibrate faintly stone");
-			crystaldustvillager=new crystaldust().setTextureName("tete:dustvillager").setUnlocalizedName("messy.dustvillager");
-			
-			isspe=new isspsw();
-			
+			Vfs=new ItemCrystalUnit((short)16,(short)256,60*5).setCreativeTab(null).setTextureName("tete:").setUnlocalizedName("vibrate faintly stone");
+			crystaldustvillager=new crystaldust().setCreativeTab(null).setTextureName("tete:dustvillager").setUnlocalizedName("messy.dustvillager");
+			cupd=new Item().setCreativeTab(tetscore.tet).setTextureName("tete:cupd").setUnlocalizedName("messy.CrystalUnitProtectionDevice");
+			cupdcu=new Item().setCreativeTab(tetscore.tet).setTextureName("tete:cupdcu").setUnlocalizedName("messy.CrystalUnitProtectionDeviceControlUnit");
+			cupm=new Item().setCreativeTab(tetscore.tet).setTextureName("tete:cupm").setUnlocalizedName("messy.CrystalUnitProtectionmechanism");
+
 			vibrationsword=new ivibrationsword();
-			
-			
+
+
 			GameRegistry.registerItem(Vfs, "vibrate faintly stone");
 			GameRegistry.registerItem(tetscore.sop, "sop");
 			GameRegistry.registerItem(crystaldustvillager, "Crystal Unit Dust Villager");
 			GameRegistry.registerItem(vibrationsword, "Vibration sword");
-			GameRegistry.registerItem(isspe, "iss");
-			
+
+
 			SpiritManager.registerTool(isspe,vilswep.class);
-			
-			
-			
+
+
+
 		}
+		if(Loader.isModLoaded("jp-plusplus-fbs")){
+
+
+			isspe=new isspsw();
+
+			GameRegistry.registerItem(isspe, "iss");
+
+			//SpiritManager.registerSpiritCharacter(true, "");
+
+			Registry.RegisterMagic("", "summon", 270, 5000, 1, 3, dragonsummon.class);
+			Registry.RegisterMagic("Κλήτευση του μαύρου πόρτα", "summon", 100, 10000, 3, 10, blacksummon.class);
+
+			Registry.RegisterChestContent(0, new ItemStack(dep,rand.nextInt(15)), 1);
+			Registry.RegisterChestContent(1, new ItemStack(dep,rand.nextInt(15)), 1);
+
+		}
+
 		if(Loader.isModLoaded("Schr0sCleaver")){
 			CKK=new knife();
-			
+
 			GameRegistry.registerItem(CKK, "Chinese kitchen knife");
-			
-			
+
+
 		}
-		
-		
+
+
 
 	}
-	
+
 	public void EMCrg(){
-		
-		
-		
+
+
+
 		ProjectEAPI.getEMCProxy().registerCustomEMC(new ItemStack(Items.spawn_egg,1,120), 32860);
 		ProjectEAPI.getEMCProxy().registerCustomEMC(new ItemStack(tetscore.vh,1), 5000);
 		ProjectEAPI.getEMCProxy().registerCustomEMC(new ItemStack(tetscore.vm,1), 10);
 		ProjectEAPI.getEMCProxy().registerCustomEMC(new ItemStack(tetscore.trte,1),200);
 		ProjectEAPI.getEMCProxy().registerCustomEMC(new ItemStack(Irdu,1), 256);
-		
+
+		ProjectEAPI.getEMCProxy().registerCustomEMC(new ItemStack(tetscore.vilswe), 0);
+
 		ProjectEAPI.getEMCProxy().registerCustomEMC("plateIron", 256);
 		ProjectEAPI.getEMCProxy().registerCustomEMC("dustIron", 256);
-		
+
 	}
-	
+
 	public void MCE2(){
 
 		if(Loader.isModLoaded("mceconomy2")){
@@ -282,6 +333,15 @@ public class register {
 			MCEconomyAPI.addPurchaseItem(new ItemStack(Vfs), 120000);
 
 		}
+
+	}
+	public void EMT(){
+		if(Loader.isModLoaded("DCsEcoMT")){
+
+			RecipeManagerEMT.orderRegister.addRecipe(new ItemStack(tetscore.vh), 100, 6000000, OrderType.LONG, OrderSeason.NONE, OrderBiome.NONE, "messy.order1");
+
+		}
+
 
 	}
 

@@ -6,6 +6,7 @@ import net.minecraft.entity.monster.EntityGiantZombie;
 import net.minecraft.entity.passive.EntityHorse;
 import net.minecraft.entity.passive.EntityVillager;
 import net.minecraft.init.Blocks;
+import net.minecraft.util.MathHelper;
 
 public class vilsum extends MagicBase{
 
@@ -17,9 +18,11 @@ public class vilsum extends MagicBase{
 
 	@Override
 	public void success() {
-		int n=3,i=3,ii=2,nn=4;
+		int n=3,i=3,ii=-3,nn=-3;
+		int x=MathHelper.floor_double(player.posX),y=MathHelper.floor_double(player.posY),z=MathHelper.floor_double(player.posZ);
+		
 
-	if(world.getBlock((int)player.posX+n,(int) player.posY, (int)player.posZ+nn)==Blocks.gravel){
+	if(world.getBlock(x+n,y, z+nn)==Blocks.gravel){
 
 		    EntityHorse eh=new EntityHorse(world);
 			world.setBlockToAir((int)player.posX+n,(int) player.posY, (int)player.posZ+3);
@@ -29,14 +32,14 @@ public class vilsum extends MagicBase{
 		//	player.setHealth((player.getHealth() - 4));
 
 
-	}else if(world.getBlock((int)player.posX+n,(int) player.posY, (int)player.posZ+3)==tetscore.rofb){
+	}else if(world.getBlock(x+n,y,z+3)==tetscore.rofb){
 				EntityGiantZombie eh=new EntityGiantZombie(world);
 				world.setBlockToAir((int)player.posX+n,(int) player.posY, (int)player.posZ+3);
 				eh.setPosition(player.posX+3, player.posY, player.posZ+3);
 				world.spawnEntityInWorld(eh);
 		//		player.setHealth((player.getHealth() - 4));
 
-	}else if(world.getBlock((int)player.posX+n,(int) player.posY, (int)player.posZ+3)==tetscore.cross){
+	}else if(world.getBlock(x+n,y,z+3)==tetscore.cross){
 		 EntityVillager eh=new EntityVillager(world,rand.nextInt(4));
 			world.setBlockToAir((int)player.posX+n,(int) player.posY, (int)player.posZ+3);
 			eh.setPosition(player.posX+3, player.posY, player.posZ+3);
@@ -51,7 +54,7 @@ public class vilsum extends MagicBase{
 
 
 
-	if(world.getBlock((int)player.posX-i,(int) player.posY, (int)player.posZ+3)==Blocks.gravel){
+	if(world.getBlock(x-i,y,z+3)==Blocks.gravel){
 
 		 EntityHorse eh=new EntityHorse(world);
 			world.setBlockToAir((int)player.posX-i,(int) player.posY, (int)player.posZ+3);
@@ -63,14 +66,14 @@ public class vilsum extends MagicBase{
 		//	player.setHealth((player.getHealth() - 4));
 
 
-	}else if(world.getBlock((int)player.posX-i,(int) player.posY, (int)player.posZ+3)==tetscore.rofb){
+	}else if(world.getBlock(x-i,y,z+3)==tetscore.rofb){
 		EntityGiantZombie eh=new EntityGiantZombie(world);
 		world.setBlockToAir((int)player.posX-i,(int) player.posY, (int)player.posZ+3);
 		eh.setPosition((int)player.posX-3,(int) player.posY, (int)player.posZ+3);
 		world.spawnEntityInWorld(eh);
 		//player.setHealth((player.getHealth() - 4));
 
-	}else if(world.getBlock((int)player.posX-i,(int) player.posY, (int)player.posZ+3)==tetscore.cross){
+	}else if(world.getBlock(x-i,y,z+3)==tetscore.cross){
 		 EntityVillager eh=new EntityVillager(world,rand.nextInt(4));
 			world.setBlockToAir((int)player.posX-i,(int) player.posY, (int)player.posZ+3);
 			eh.setPosition((int)player.posX-3,(int) player.posY, (int)player.posZ+3);
@@ -110,7 +113,7 @@ public class vilsum extends MagicBase{
 
 
 
-	if(world.getBlock((int)player.posX+n,(int) player.posY, (int)player.posZ-3)==Blocks.gravel){
+	if(world.getBlock(x+n,y,z-3)==Blocks.gravel){
 
 		 EntityHorse eh=new EntityHorse(world);
 			world.setBlockToAir((int)player.posX+n,(int) player.posY, (int)player.posZ-3);
@@ -120,7 +123,7 @@ public class vilsum extends MagicBase{
 			world.spawnEntityInWorld(eh);
 		//	player.setHealth((player.getHealth() - 4));
 
-	}else if(world.getBlock((int)player.posX+n,(int) player.posY, (int)player.posZ-3)==tetscore.rofb){
+	}else if(world.getBlock(x,y,z-3)==tetscore.rofb){
 		EntityGiantZombie eh=new EntityGiantZombie(world);
 		world.setBlockToAir((int)player.posX+n,(int) player.posY, (int)player.posZ-3);
 		eh.setPosition((int)player.posX+3,(int) player.posY, (int)player.posZ-3);
@@ -128,7 +131,7 @@ public class vilsum extends MagicBase{
 		//player.setHealth((player.getHealth() - 4));
 
 
-	}else if(world.getBlock((int)player.posX+n,(int) player.posY, (int)player.posZ-3)==tetscore.cross){
+	}else if(world.getBlock(x,y,z-3)==tetscore.cross){
 		 EntityVillager eh=new EntityVillager(world,rand.nextInt(4));
 			world.setBlockToAir((int)player.posX+n,(int) player.posY, (int)player.posZ-3);
 			eh.setPosition((int)player.posX+3,(int) player.posY, (int)player.posZ-3);
