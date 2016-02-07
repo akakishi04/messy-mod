@@ -25,13 +25,14 @@ public class depr implements ISimpleBlockRenderingHandler {
 			renderer.setOverrideBlockTexture(block.getIcon(0, world.getBlockMetadata(x, y, z)));
 
 			
+			block.setBlockBounds(0, 0, 0, 1, 0.0625f, 1);
+            renderer.renderMaxY=0.01f;
+            renderer.renderStandardBlock(block, x, y, z);
+			
+            renderer.clearOverrideBlockTexture();
 			block.setBlockBounds(0.0F, 0.0F, 0.0F, 1.0F, 0.0625F, 1.0F);
 			renderer.setRenderBoundsFromBlock(block);
-			renderer.renderStandardBlock(block, x, y, z);
-
-			renderer.clearOverrideBlockTexture();
-			block.setBlockBounds(0.0F, 0.0F, 0.0F, 1.0F, 0.0625F, 1.0F);
-			renderer.setRenderBoundsFromBlock(block);
+			
 			return true;
 		}
 		return false;

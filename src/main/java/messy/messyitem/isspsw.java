@@ -19,7 +19,7 @@ public class isspsw extends vilswep implements ISpiritTool {
 	
 	
 	public isspsw() {
-	//	setCreativeTab(tetscore.tet);
+		setCreativeTab(null);
 		setMaxStackSize(1);
 		setTextureName("aa");
 		

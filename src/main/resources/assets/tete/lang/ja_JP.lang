@@ -30,11 +30,15 @@ item.messy.Cutter Blade.name=カッターの刃
 item.messy.Iron dust.name=鉄の粉
 item.messy.tr steel dust.name=Tr鋼の粉
 item.messy.magic dust of dragon egg.name=龍卵の魔塵
+item.messy.ckk.name=中華包丁
+item.messy.dragon egg powder.name=エンダードラゴンの卵の粉
+item.messy.Knife.name=ナイフ
 
 tile.trte.name=trte
 tile.brof.name=腐った肉塊
 tile.villdol.name=村人の人形
 tile.supermincer.name=スーパーミンチマシーン
+tile.hypermincer.name=ハイパーミンチマシーン
 
 achievement.How about in decoration?=装飾にいかが？
 achievement.Villager Eater=Villager Eater
@@ -54,3 +58,4 @@ book.ViSu.title=ViSu
 book.Rain village.title=村の雨
 book.rain_of_magic.title=魔法の雨
 book.Extvor.title=Extvor
+book.Κλήτευση του μαύρου πόρτα.title=Κλήτευση του μαύρου πόρτα

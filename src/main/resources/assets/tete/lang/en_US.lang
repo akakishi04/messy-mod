@@ -29,12 +29,16 @@ item.messy.Tr steel.name=TrSteel ingot
 item.messy.Cutter Blade.name=Cutter Blade
 item.messy.Iron dust.name=Iron dust
 item.messy.tr steel dust.name=TrSteel dust
-
+item.messy.magic dust of dragon egg.name=Magic dust of dragon egg
+item.messy.ckk.name=Chinese kitchen knife
+item.messy.dragon egg powder.name=dragon egg powder
+item.messy.Knife.name=Knife
 
 tile.trte.name=trte
 tile.brof.name=Rotten meat chunks
 tile.villdol.name =villager doll
 tile.supermincer.name=Super Mincer
+tile.hypermincer.name=Hyper Mincer
 
 achievement.How about in decoration?=How about in decoration?
 achievement.Villager Eater=Villager Eater
@@ -54,3 +58,4 @@ book.ViSu.title=ViSu
 book.Rain village.title=Rain village
 book.rain_of_magic.title=rain of magic
 book.Extvor.title=Extvor
+book.Κλήτευση του μαύρου πόρτα.title=Κλήτευση του μαύρου πόρτα
